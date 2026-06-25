@@ -4,7 +4,7 @@ import brandStoryImage from '../../assets/brand_story.png';
 
 const BrandStory = () => {
   return (
-    <section className="py-24 bg-white">
+    <section className="pt-12 pb-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-16">
           <div className="w-full lg:w-1/2 relative">

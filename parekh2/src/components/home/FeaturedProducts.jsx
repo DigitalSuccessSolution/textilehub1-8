@@ -5,7 +5,7 @@ import { featuredProducts } from '../../data/mockData';
 
 const FeaturedProducts = () => {
   return (
-    <section className="pt-4 pb-20 bg-brand-light">
+    <section className="pt-4 pb-12 bg-brand-light">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle 
           title="Featured Collection" 

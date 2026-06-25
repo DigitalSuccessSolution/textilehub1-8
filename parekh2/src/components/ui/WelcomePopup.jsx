@@ -38,8 +38,6 @@ const WelcomePopup = () => {
             transition={{ type: "spring", duration: 0.6, bounce: 0.15 }}
             className="relative bg-white w-full max-w-md rounded-3xl overflow-hidden shadow-2xl border border-gray-100 flex flex-col items-center p-8 md:p-10 text-center"
           >
-            {/* Top gold accent line */}
-            <div className="absolute top-0 inset-x-0 h-2 bg-[#C48B5D]" />
 
             {/* Close Button */}
             <button

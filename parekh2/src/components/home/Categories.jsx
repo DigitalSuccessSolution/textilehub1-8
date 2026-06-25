@@ -18,7 +18,7 @@ const Categories = () => {
   };
 
   return (
-    <section className="pt-4 pb-20 bg-white relative">
+    <section className="pt-16 pb-12 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionTitle 
           title="Shop by Category" 
@@ -30,7 +30,7 @@ const Categories = () => {
           {/* Left Arrow */}
           <button 
             onClick={() => slide('left')}
-            className="absolute -left-3 md:-left-5 lg:-left-8 top-[35%] -translate-y-1/2 z-10 bg-white shadow-lg rounded-full p-2 text-brand-darkbrown hover:text-brand-maroon hover:bg-gray-50 transition-all"
+            className="absolute -left-3 md:-left-5 lg:-left-8 top-[44%] md:top-[45%] -translate-y-1/2 z-10 bg-white shadow-lg rounded-full p-2 text-brand-darkbrown hover:text-brand-maroon hover:bg-gray-50 transition-all cursor-pointer"
             aria-label="Scroll Left"
           >
             <ChevronLeft className="w-6 h-6" />
@@ -57,7 +57,7 @@ const Categories = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-darkbrown/90 via-brand-darkbrown/10 to-transparent opacity-80 group-hover:opacity-100 transition-opacity"></div>
                   <div className="absolute bottom-0 left-0 right-0 p-4 transform translate-y-2 group-hover:-translate-y-1 transition-transform duration-300">
                     <h3 className="font-serif font-medium text-white text-lg tracking-wide shadow-black">
-                      {category.name}
+                       {category.name}
                     </h3>
                     <div className="w-8 h-0.5 bg-brand-gold mt-2 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
                   </div>
@@ -69,7 +69,7 @@ const Categories = () => {
           {/* Right Arrow */}
           <button 
             onClick={() => slide('right')}
-            className="absolute -right-3 md:-right-5 lg:-right-8 top-[35%] -translate-y-1/2 z-10 bg-white shadow-lg rounded-full p-2 text-brand-darkbrown hover:text-brand-maroon hover:bg-gray-50 transition-all"
+            className="absolute -right-3 md:-right-5 lg:-right-8 top-[44%] md:top-[45%] -translate-y-1/2 z-10 bg-white shadow-lg rounded-full p-2 text-brand-darkbrown hover:text-brand-maroon hover:bg-gray-50 transition-all cursor-pointer"
             aria-label="Scroll Right"
           >
             <ChevronRight className="w-6 h-6" />

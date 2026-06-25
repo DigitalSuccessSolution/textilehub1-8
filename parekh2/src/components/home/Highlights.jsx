@@ -1,25 +1,25 @@
 import React from 'react';
-import { Award, Truck, ShieldCheck, Clock } from 'lucide-react';
+import { Award, Globe, ShieldCheck, Clock } from 'lucide-react';
 
 const Highlights = () => {
   const features = [
     {
-      icon: <Award className="w-8 h-8 text-brand-light" />,
+      icon: <Award className="w-6 h-6 sm:w-8 sm:h-8 text-brand-light" />,
       title: 'Premium Quality',
       description: 'Finest textiles sourced from the best weavers and manufacturers.'
     },
     {
-      icon: <ShieldCheck className="w-8 h-8 text-brand-light" />,
+      icon: <ShieldCheck className="w-6 h-6 sm:w-8 sm:h-8 text-brand-light" />,
       title: 'Trusted Heritage',
       description: 'Decades of experience in the textile retail business.'
     },
     {
-      icon: <Truck className="w-8 h-8 text-brand-light" />,
-      title: 'Pan India Delivery',
-      description: 'Reliable and fast shipping across all regions in India.'
+      icon: <Globe className="w-6 h-6 sm:w-8 sm:h-8 text-brand-light" />,
+      title: 'Global Exports',
+      description: 'Exporting premium grade textiles to major fashion hubs worldwide.'
     },
     {
-      icon: <Clock className="w-8 h-8 text-brand-light" />,
+      icon: <Clock className="w-6 h-6 sm:w-8 sm:h-8 text-brand-light" />,
       title: '24/7 Support',
       description: 'Dedicated customer service to assist your business needs.'
     }
@@ -30,7 +30,7 @@ const Highlights = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://images.unsplash.com/photo-1605337096695-02534f31cfa0?q=80&w=2070&auto=format&fit=crop" 
+          src="https://images.unsplash.com/photo-1544441893-675973e31985?q=80&w=1600&auto=format&fit=crop" 
           alt="Textile Background" 
           className="w-full h-full object-cover opacity-30"
         />
@@ -43,14 +43,14 @@ const Highlights = () => {
           <div className="w-20 h-1 bg-[#C48B5D] mx-auto opacity-50 rounded-full"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 md:gap-8">
           {features.map((feature, index) => (
-            <div key={index} className="flex flex-col items-start p-6 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 transition-all duration-500 group shadow-2xl hover:-translate-y-2">
-              <div className="mb-4 bg-[#C48B5D]/20 p-3 rounded-xl text-[#C48B5D] group-hover:scale-110 group-hover:bg-[#C48B5D] group-hover:text-white transition-all duration-500">
+            <div key={index} className="flex flex-col items-start p-4 sm:p-6 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:bg-white/10 transition-all duration-500 group shadow-2xl hover:-translate-y-2">
+              <div className="mb-3 sm:mb-4 bg-[#C48B5D]/20 p-2 sm:p-3 rounded-xl text-[#C48B5D] group-hover:scale-110 group-hover:bg-[#C48B5D] group-hover:text-white transition-all duration-500">
                 {feature.icon}
               </div>
-              <h3 className="text-lg font-serif font-bold mb-2 text-white tracking-wide">{feature.title}</h3>
-              <p className="text-gray-300 text-sm leading-relaxed font-light">{feature.description}</p>
+              <h3 className="text-sm sm:text-lg font-serif font-bold mb-1 sm:mb-2 text-white tracking-wide">{feature.title}</h3>
+              <p className="text-gray-300 text-xs sm:text-sm leading-relaxed font-light">{feature.description}</p>
             </div>
           ))}
         </div>
