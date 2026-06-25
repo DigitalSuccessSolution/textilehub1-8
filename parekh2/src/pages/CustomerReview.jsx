@@ -12,10 +12,6 @@ const CustomerReview = () => {
           {reviews.map((review) => (
             <ReviewCard key={review.id} review={review} />
           ))}
-          {/* Duplicating for demo purposes */}
-          {reviews.map((review) => (
-            <ReviewCard key={`copy1-${review.id}`} review={{...review, name: review.name + ' (Partner)'}} />
-          ))}
         </div>
       </div>
     </div>

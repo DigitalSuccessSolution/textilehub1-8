@@ -41,3 +41,52 @@
     @apply border-2 border-[#C48B5D] text-[#C48B5D] px-6 py-2.5 rounded-full text-sm font-medium hover:bg-[#C48B5D] hover:text-white transition-all duration-300;
   }
 }
+
+/* Custom scrollbar styling to ensure elegant vertical scrollbars and prevent horizontal scrollbars */
+.custom-scrollbar {
+  scrollbar-width: auto;
+  scrollbar-color: rgba(6, 78, 59, 0.5) rgba(6, 78, 59, 0.03);
+  overflow-x: hidden !important;
+}
+
+/* For Chrome, Safari, and Edge */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px; /* Slightly wider to match the reference image */
+  height: 0px; /* Hide horizontal scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(6, 78, 59, 0.03); /* Soft track background */
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(6, 78, 59, 0.4); /* Solid brand color capsule */
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(6, 78, 59, 0.7);
+}
+
+/* Up and Down scrollbar buttons to match the reference image's triangles */
+.custom-scrollbar::-webkit-scrollbar-button:single-button {
+  background-color: transparent;
+  display: block;
+  background-repeat: no-repeat;
+  background-size: 8px;
+  background-position: center;
+  height: 12px;
+  width: 8px;
+}
+
+/* Up triangle icon */
+.custom-scrollbar::-webkit-scrollbar-button:single-button:vertical:decrement {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23064e3b'><path d='M12 8l-6 6h12z'/></svg>");
+}
+
+/* Down triangle icon */
+.custom-scrollbar::-webkit-scrollbar-button:single-button:vertical:increment {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23064e3b'><path d='M12 16l6-6H6z'/></svg>");
+}
+

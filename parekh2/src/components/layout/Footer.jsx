@@ -5,10 +5,10 @@ import { Mail, Phone, MapPin } from 'lucide-react';
 const Footer = () => {
   return (
     <footer className="bg-[#022c22] text-[#f8fafc] border-t-4 border-[#C48B5D]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-          <div className="space-y-6">
-            <h2 className="text-3xl font-serif font-bold tracking-wider text-[#C48B5D]">PAREKH<span className="text-white font-light">TEX</span></h2>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+          <div className="col-span-2 md:col-span-1 space-y-6">
+            <h2 className="text-3xl font-serif font-bold tracking-wider text-[#C48B5D]">SUTRA<span className="text-white font-light">TEX</span></h2>
             <p className="text-sm text-gray-300 leading-relaxed">
               Premium quality textiles and garments for modern retail. Delivering excellence in every thread.
             </p>
@@ -28,7 +28,7 @@ const Footer = () => {
             </div>
           </div>
           
-          <div>
+          <div className="col-span-1 md:pl-8 lg:pl-16">
             <h3 className="text-xl font-serif text-[#C48B5D] mb-6">Quick Links</h3>
             <ul className="space-y-2">
               <li><Link to="/about" className="text-sm hover:text-white transition-colors">About Us</Link></li>
@@ -39,7 +39,7 @@ const Footer = () => {
             </ul>
           </div>
           
-          <div>
+          <div className="col-span-1 md:pl-8 lg:pl-16">
             <h3 className="text-xl font-serif text-[#C48B5D] mb-6">Business</h3>
             <ul className="space-y-2">
               <li><Link to="/trade-enquiry" className="text-sm hover:text-white transition-colors">Trade Enquiry</Link></li>
@@ -50,7 +50,7 @@ const Footer = () => {
             </ul>
           </div>
           
-          <div>
+          <div className="col-span-2 md:col-span-1">
             <h3 className="text-xl font-serif text-[#C48B5D] mb-6">Contact Us</h3>
             <ul className="space-y-4">
               <li className="flex items-start">
@@ -63,14 +63,14 @@ const Footer = () => {
               </li>
               <li className="flex items-center">
                 <Mail className="h-5 w-5 mr-3 text-[#C48B5D] shrink-0" />
-                <span className="text-sm">info@parekhtex.com</span>
+                <span className="text-sm">info@sutratex.com</span>
               </li>
             </ul>
           </div>
         </div>
         
         <div className="border-t border-gray-700 mt-12 pt-8 text-center text-sm text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Parekh Textiles. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Sutra Textiles. All rights reserved.</p>
         </div>
       </div>
     </footer>

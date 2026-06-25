@@ -40,7 +40,7 @@ const Preloader = () => {
             
             {/* Brand Name */}
             <h1 className="text-4xl font-serif text-[#C48B5D] tracking-[0.2em] uppercase mb-8">
-              ParekhTex
+              SutraTex
             </h1>
             
             {/* Loading Dots */}

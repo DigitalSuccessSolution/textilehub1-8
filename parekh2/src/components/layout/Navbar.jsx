@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ShoppingBag, ChevronDown } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const location = useLocation();
+  const currentPath = location.pathname;
 
   const mainLinks = [
     { name: 'Home', path: '/' },
@@ -23,7 +25,22 @@ const Navbar = () => {
     { name: 'Career Page', path: '/career' },
     { name: 'Customer Review', path: '/customer-review' },
     { name: 'Business Media Gallery', path: '/media-gallery' },
+    { name: 'FAQ', path: '/faq' },
   ];
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
+  const isDropdownActive = dropdownLinks.some(link => link.path === currentPath);
 
   return (
     <nav className="bg-white shadow-md sticky top-0 z-50">
@@ -32,7 +49,7 @@ const Navbar = () => {
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0 flex items-center">
               <ShoppingBag className="h-8 w-8 text-brand-gold mr-3" />
-              <span className="font-serif font-bold text-2xl text-brand-maroon tracking-wider">PAREKH<span className="text-brand-gold font-light">TEX</span></span>
+              <span className="font-serif font-bold text-2xl text-brand-maroon tracking-wider">SUTRA<span className="text-brand-gold font-light">TEX</span></span>
             </Link>
           </div>
           <div className="hidden lg:flex items-center space-x-6">
@@ -40,7 +57,11 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 to={link.path}
-                className="text-gray-700 hover:text-brand-maroon px-2 py-2 rounded-md text-sm font-medium transition-colors"
+                className={`px-2 py-2 rounded-md text-sm font-medium transition-colors ${
+                  currentPath === link.path
+                    ? 'text-brand-maroon font-semibold'
+                    : 'text-gray-700 hover:text-brand-maroon'
+                }`}
               >
                 {link.name}
               </Link>
@@ -52,7 +73,11 @@ const Navbar = () => {
               onMouseEnter={() => setIsDropdownOpen(true)}
               onMouseLeave={() => setIsDropdownOpen(false)}
             >
-              <button className="flex items-center text-gray-700 hover:text-brand-maroon px-2 py-2 rounded-md text-sm font-medium transition-colors">
+              <button className={`flex items-center px-2 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer ${
+                isDropdownActive 
+                  ? 'text-brand-maroon font-semibold' 
+                  : 'text-gray-700 hover:text-brand-maroon'
+              }`}>
                 Pages <ChevronDown className="ml-1 w-4 h-4" />
               </button>
               
@@ -64,7 +89,11 @@ const Navbar = () => {
                     <Link
                       key={link.name}
                       to={link.path}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-brand-maroon hover:text-white transition-colors"
+                      className={`block px-4 py-2 text-sm transition-colors ${
+                        currentPath === link.path
+                          ? 'bg-brand-maroon text-white font-medium'
+                          : 'text-gray-700 hover:bg-brand-maroon hover:text-white'
+                      }`}
                       onClick={() => setIsDropdownOpen(false)}
                     >
                       {link.name}
@@ -81,7 +110,7 @@ const Navbar = () => {
           <div className="flex items-center lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-brand-maroon focus:outline-none"
+              className="text-gray-700 hover:text-brand-maroon focus:outline-none cursor-pointer"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -91,14 +120,18 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="lg:hidden bg-brand-light border-t border-gray-200 max-h-[80vh] overflow-y-auto">
+        <div className="lg:hidden bg-brand-light border-t border-gray-200 max-h-[calc(100vh-5rem)] overflow-y-auto">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             {mainLinks.map((link) => (
                <Link
                 key={link.name}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-maroon hover:bg-gray-50"
+                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${
+                  currentPath === link.path
+                    ? 'text-brand-maroon bg-white shadow-sm font-semibold'
+                    : 'text-gray-700 hover:text-brand-maroon hover:bg-white/50'
+                }`}
               >
                 {link.name}
               </Link>
@@ -111,7 +144,11 @@ const Navbar = () => {
                   key={link.name}
                   to={link.path}
                   onClick={() => setIsOpen(false)}
-                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-brand-maroon hover:bg-gray-50 pl-6"
+                  className={`block px-3 py-2 rounded-md text-base font-medium transition-colors pl-6 ${
+                    currentPath === link.path
+                      ? 'text-brand-maroon bg-white shadow-sm font-semibold'
+                      : 'text-gray-700 hover:text-brand-maroon hover:bg-white/50'
+                  }`}
                 >
                   {link.name}
                 </Link>

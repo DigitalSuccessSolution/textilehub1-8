@@ -42,7 +42,7 @@ const Preloader = ({ children }) => {
                   transition={{ duration: 0.5, delay: 0.2 }}
                   className="text-4xl font-serif font-bold loader-text tracking-widest"
                 >
-                  PAREKH
+                  SUTRA
                 </motion.h1>
                 <motion.p
                   initial={{ opacity: 0 }}

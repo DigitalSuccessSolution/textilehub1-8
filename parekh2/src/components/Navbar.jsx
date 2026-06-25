@@ -50,7 +50,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 md:px-6 flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="flex flex-col items-start z-50">
-          <span className="text-2xl md:text-3xl font-serif font-bold text-secondary tracking-widest">PAREKH</span>
+          <span className="text-2xl md:text-3xl font-serif font-bold text-secondary tracking-widest">SUTRA</span>
           <span className="text-[0.6rem] uppercase tracking-[0.2em] text-white/70">Premium Textiles</span>
         </Link>
 

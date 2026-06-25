@@ -6,7 +6,7 @@ const FloatingWhatsApp = () => {
       href="https://wa.me/1234567890"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 hover:-translate-y-1 transition-all z-50 flex items-center justify-center"
+      className="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 hover:-translate-y-1 transition-all z-[9999] flex items-center justify-center"
       aria-label="Chat on WhatsApp"
     >
       <svg

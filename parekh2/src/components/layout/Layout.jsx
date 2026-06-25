@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import FloatingWhatsApp from '../ui/FloatingWhatsApp';
 import FloatingChatbot from '../ui/FloatingChatbot';
+import WelcomePopup from '../ui/WelcomePopup';
 
 const Layout = ({ children }) => {
   return (
@@ -14,6 +15,7 @@ const Layout = ({ children }) => {
       <Footer />
       <FloatingWhatsApp />
       <FloatingChatbot />
+      <WelcomePopup />
     </div>
   );
 };

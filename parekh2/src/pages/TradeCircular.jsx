@@ -28,7 +28,6 @@ const TradeCircular = () => {
                     <h3 className="font-semibold text-gray-900 text-lg">{circular.title}</h3>
                     <div className="flex items-center text-sm text-gray-500 mt-1 space-x-4">
                       <span>Date: {circular.date}</span>
-                      <span>Ref: {circular.ref}</span>
                     </div>
                   </div>
                 </div>

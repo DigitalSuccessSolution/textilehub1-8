@@ -6,7 +6,7 @@ const TradeEnquiry = () => {
     <div>
       <PageHeader title="Trade Enquiry" />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="bg-white p-8 md:p-12 rounded-xl shadow-xl border border-gray-100">
+        <div className="bg-white p-5 md:p-12 rounded-xl shadow-xl border border-gray-100">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-serif font-bold text-brand-darkbrown mb-4">Partner With Us</h2>
             <p className="text-gray-600">Fill out the form below for bulk orders, distributorship, or any business-related inquiries.</p>

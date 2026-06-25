@@ -1,69 +1,77 @@
 import React from 'react';
 import PageHeader from '../components/ui/PageHeader';
-import SectionTitle from '../components/ui/SectionTitle';
-import { BarChart3, Users, Globe, Target } from 'lucide-react';
+import { Mail } from 'lucide-react';
 
 const RetailManagement = () => {
+  const managers = [
+    {
+      name: 'Rajesh Sharma',
+      role: 'Managing Director',
+      description: 'Business Strategy & Operations',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300&h=300',
+    },
+    {
+      name: 'Ananya Sharma',
+      role: 'Head of Retail Operations',
+      description: 'Retail Management & Customer Experience',
+      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=300&h=300',
+    },
+    {
+      name: 'Vikram Mehta',
+      role: 'Supply Chain Director',
+      description: 'Logistics & Trade Relations',
+      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=300&h=300',
+    }
+  ];
+
   return (
-    <div>
+    <div className="bg-gray-50/50 min-h-screen pb-20">
       <PageHeader title="Our Retail Management" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <SectionTitle 
-          title="Excellence in Operations" 
-          subtitle="Discover how we manage a vast network of retail supply chains to deliver unparalleled quality."
-          center
-        />
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-          <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center hover:shadow-md transition-shadow">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-light text-brand-maroon mb-4">
-              <Globe className="w-8 h-8" />
-            </div>
-            <h3 className="text-lg font-bold text-brand-darkbrown mb-2">Global Sourcing</h3>
-            <p className="text-gray-600 text-sm">Procuring the finest yarns and fabrics from trusted international and domestic suppliers.</p>
-          </div>
-          <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center hover:shadow-md transition-shadow">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-light text-brand-maroon mb-4">
-              <Target className="w-8 h-8" />
-            </div>
-            <h3 className="text-lg font-bold text-brand-darkbrown mb-2">Quality Control</h3>
-            <p className="text-gray-600 text-sm">Rigorous multi-stage quality checks ensuring only the best reaches our shelves.</p>
-          </div>
-          <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center hover:shadow-md transition-shadow">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-light text-brand-maroon mb-4">
-              <BarChart3 className="w-8 h-8" />
-            </div>
-            <h3 className="text-lg font-bold text-brand-darkbrown mb-2">Inventory Management</h3>
-            <p className="text-gray-600 text-sm">State-of-the-art warehousing and real-time stock tracking for zero delays.</p>
-          </div>
-          <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center hover:shadow-md transition-shadow">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-brand-light text-brand-maroon mb-4">
-              <Users className="w-8 h-8" />
-            </div>
-            <h3 className="text-lg font-bold text-brand-darkbrown mb-2">Customer Relations</h3>
-            <p className="text-gray-600 text-sm">Dedicated B2B relationship managers to assist wholesale and retail partners.</p>
-          </div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-brand-maroon">Excellence in Operations</h2>
+          <p className="text-gray-600 mt-3 text-sm md:text-base max-w-xl mx-auto">
+            Discover how we manage a vast network of retail supply chains to deliver unparalleled quality.
+          </p>
+          <div className="w-16 h-1 bg-[#064e3b] mx-auto mt-4 rounded-full"></div>
         </div>
 
-        <div className="bg-brand-darkbrown text-white rounded-2xl overflow-hidden shadow-2xl">
-          <div className="grid grid-cols-1 md:grid-cols-2">
-            <div className="p-12 flex flex-col justify-center">
-              <h2 className="text-3xl font-serif font-bold mb-6">Partnering for Growth</h2>
-              <p className="text-gray-300 mb-6">
-                Our retail management strategy focuses on mutual growth. We offer franchisee opportunities, shop-in-shop models, and bulk distribution channels. Our tech-enabled supply chain ensures that our partners always have access to the latest trends and stock availability.
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          {managers.map((manager, idx) => (
+            <div 
+              key={idx}
+              className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100/80 text-center flex flex-col items-center hover:shadow-md transition-shadow duration-300"
+            >
+              <div className="w-24 h-24 rounded-full overflow-hidden mb-4 border-4 border-gray-50 shadow-inner">
+                <img 
+                  src={manager.image} 
+                  alt={manager.name} 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              
+              <h3 className="text-lg font-serif font-bold text-brand-darkbrown mb-1">
+                {manager.name}
+              </h3>
+              
+              <span className="text-brand-gold uppercase text-[9px] md:text-[11px] font-bold tracking-widest block mb-3">
+                {manager.role}
+              </span>
+              
+              <p className="text-gray-600 text-xs md:text-sm leading-relaxed mb-6 flex-grow">
+                {manager.description}
               </p>
-              <button className="self-start bg-brand-maroon text-white px-6 py-3 rounded font-bold hover:bg-[#022c22] transition-colors">
-                Become a Partner
-              </button>
+              
+              <a 
+                href={`mailto:${manager.name.toLowerCase().replace(' ', '.')}@sutratex.com`}
+                className="inline-flex items-center gap-2 px-4 py-1.5 border border-gray-200 bg-gray-50 hover:bg-brand-maroon hover:text-white hover:border-brand-maroon text-gray-700 rounded-full text-[10px] md:text-xs font-semibold uppercase tracking-wider transition-all duration-300"
+              >
+                <Mail className="w-3 h-3" />
+                Contact
+              </a>
             </div>
-            <div className="h-full">
-              <img 
-                src="https://images.unsplash.com/photo-1584227185011-8071e6be12b5?auto=format&fit=crop&q=80&w=800" 
-                alt="Retail Management" 
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>

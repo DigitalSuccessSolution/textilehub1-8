@@ -19,7 +19,7 @@ const About = () => {
             <SectionTitle title="Our Legacy" subtitle="Decades of Excellence in Textile Retail" />
             <div className="space-y-4 text-gray-700">
               <p>
-                Founded with a passion for quality and an eye for elegance, Parekh Textiles has been a cornerstone of the textile retail industry for over three decades. We bring the rich heritage of Indian weaving and modern fabric technology directly to you.
+                Founded with a passion for quality and an eye for elegance, Sutra Textiles has been a cornerstone of the textile retail industry for over three decades. We bring the rich heritage of Indian weaving and modern fabric technology directly to you.
               </p>
               <p>
                 From exquisite silk sarees to premium suiting fabrics, our collections are curated to meet the diverse needs of our clients. We believe in building lasting relationships through trust, quality, and unparalleled service.

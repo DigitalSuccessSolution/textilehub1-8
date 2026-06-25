@@ -18,6 +18,7 @@ import Career from './pages/Career';
 import Blog from './pages/Blog';
 import CustomerReview from './pages/CustomerReview';
 import MediaGallery from './pages/MediaGallery';
+import FAQ from './pages/FAQ';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -49,6 +50,7 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/customer-review" element={<CustomerReview />} />
           <Route path="/media-gallery" element={<MediaGallery />} />
+          <Route path="/faq" element={<FAQ />} />
         </Routes>
       </Layout>
       </Router>

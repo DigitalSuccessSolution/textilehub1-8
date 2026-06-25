@@ -31,7 +31,7 @@ const BrandStory = () => {
             </div>
             
             <p className="text-gray-600 leading-relaxed text-lg font-light">
-              At ParekhTex, we believe that every fabric tells a story. For generations, we have sourced the finest threads and collaborated with master weavers across India to deliver textiles that blend timeless tradition with modern sophistication.
+              At SutraTex, we believe that every fabric tells a story. For generations, we have sourced the finest threads and collaborated with master weavers across India to deliver textiles that blend timeless tradition with modern sophistication.
             </p>
             
             <p className="text-gray-600 leading-relaxed text-lg font-light pb-4">

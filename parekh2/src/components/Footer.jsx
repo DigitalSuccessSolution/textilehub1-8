@@ -11,7 +11,7 @@ const Footer = () => {
           {/* Brand Info */}
           <div>
             <Link to="/" className="flex flex-col items-start mb-6">
-              <span className="text-3xl font-serif font-bold text-secondary tracking-widest">PAREKH</span>
+              <span className="text-3xl font-serif font-bold text-secondary tracking-widest">SUTRA</span>
               <span className="text-[0.6rem] uppercase tracking-[0.2em] text-white/70">Premium Textiles</span>
             </Link>
             <p className="text-white/70 text-sm leading-relaxed mb-6">
@@ -77,7 +77,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center text-white/80 text-sm">
                 <Mail size={18} className="text-secondary mr-3 flex-shrink-0" />
-                <span>info@parekhtextiles.com</span>
+                <span>info@sutratex.com</span>
               </li>
             </ul>
           </div>
@@ -86,7 +86,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs text-white/50">
-          <p>&copy; {new Date().getFullYear()} PAREKH Premium Textiles. All Rights Reserved.</p>
+          <p>&copy; {new Date().getFullYear()} SUTRA Premium Textiles. All Rights Reserved.</p>
           <div className="flex space-x-4 mt-4 md:mt-0">
             <Link to="/privacy" className="hover:text-secondary">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-secondary">Terms of Service</Link>
