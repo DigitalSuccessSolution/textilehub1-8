@@ -9,22 +9,21 @@ const Blog = () => {
   // Extract unique categories from blogPosts and add 'All'
   const categories = ['All', ...new Set(blogPosts.map(post => post.category))];
 
-  // Combine original posts and duplicates for demo
-  const allPosts = [
-    ...blogPosts,
-    ...blogPosts.map(post => ({...post, id: post.id + 10}))
-  ];
-
   // Filter posts based on active category
   const filteredPosts = activeCategory === 'All'
-    ? allPosts
-    : allPosts.filter(post => post.category === activeCategory);
+    ? blogPosts
+    : blogPosts.filter(post => post.category === activeCategory);
 
   return (
     <div>
-      <PageHeader title="Our Blog" />
+      <PageHeader title="Blogs and Articles" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         
+        {/* Intro Paragraph */}
+        <p className="text-center text-gray-500 max-w-xl mx-auto mb-8 text-sm sm:text-base leading-relaxed">
+          Explore our collection of articles, textile trends, and expert insights from the industry.
+        </p>
+
         {/* Categories Filter Bar */}
         <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
           {categories.map((category) => (

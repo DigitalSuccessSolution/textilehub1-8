@@ -27,7 +27,7 @@ export const reviews = [
 ];
 
 export const blogPosts = [
-  { id: 1, title: 'The Art of Silk Weaving', date: 'Oct 12, 2023', image: 'https://images.unsplash.com/photo-1584227185011-8071e6be12b5?auto=format&fit=crop&q=80&w=800', excerpt: 'Discover the ancient techniques that make our silk sarees so special.', author: 'Priya Iyer', category: 'Weaving' },
-  { id: 2, title: 'Top Trends in Home Furnishing 2024', date: 'Nov 05, 2023', image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&q=80&w=800', excerpt: 'Refresh your home with these upcoming upholstery trends.', author: 'Amit Sharma', category: 'Home Decor' },
-  { id: 3, title: 'Choosing the Right Fabric for Your Suit', date: 'Dec 01, 2023', image: 'https://images.unsplash.com/photo-1593030761757-71fae45fa0e5?auto=format&fit=crop&q=80&w=800', excerpt: 'A comprehensive guide to selecting the best suiting material.', author: 'Vikram Malhotra', category: 'Fashion & Style' },
+  { id: 1, title: 'The Art of Silk Weaving', date: 'Oct 12, 2023', image: 'https://images.unsplash.com/photo-1727430228383-aa1fb59db8bf?w=800&auto=format&fit=crop&q=80', excerpt: 'Discover the ancient techniques that make our silk sarees so special.', author: 'Priya Iyer', category: 'Weaving' },
+  { id: 2, title: 'Top Trends in Home Furnishing 2024', date: 'Nov 05, 2023', image: 'https://plus.unsplash.com/premium_photo-1670869816769-c64fbc7b9c4c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YmVkc2hlZXRzfGVufDB8fDB8fHww', excerpt: 'Refresh your home with these upcoming upholstery trends.', author: 'Amit Sharma', category: 'Home Decor' },
+  { id: 3, title: 'Choosing the Right Fabric for Your Suit', date: 'Dec 01, 2023', image: 'https://images.unsplash.com/photo-1600091166971-7f9faad6c1e2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c3VpdHxlbnwwfHwwfHx8MA%3D%3D', excerpt: 'A comprehensive guide to selecting the best suiting material.', author: 'Vikram Malhotra', category: 'Fashion & Style' },
 ];

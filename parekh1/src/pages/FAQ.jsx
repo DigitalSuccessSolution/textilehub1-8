@@ -47,14 +47,11 @@ const FAQ = () => {
 
   return (
     <div>
-      <PageHeader title="FAQ" />
+      <PageHeader title="Frequently Asked Questions" />
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
 
         {/* Section heading */}
         <div className="text-center mb-14">
-          <h2 className="text-3xl font-serif font-bold text-brand-darkbrown mb-3">
-            Frequently Asked Questions
-          </h2>
           <p className="text-gray-500 text-sm leading-relaxed max-w-xl mx-auto">
             Find quick answers to the most common questions about our services, ordering process, and more.
           </p>

@@ -1,6 +1,6 @@
 import React from 'react';
 import PageHeader from '../components/ui/PageHeader';
-import { Briefcase, MapPin, Mail } from 'lucide-react';
+import { Briefcase, MapPin, Mail, IndianRupee } from 'lucide-react';
 
 const Career = () => {
   const jobs = [
@@ -8,32 +8,28 @@ const Career = () => {
       id: 1, 
       title: 'Retail Operations Manager', 
       location: 'Mumbai, India', 
-      type: 'Full-time', 
-      experience: '5-8 Years',
+      salary: '₹6,00,000 - ₹9,00,000 P.A.',
       description: 'Oversee daily store operations, manage staff, and ensure a premium customer experience across our flagship retail outlets.'
     },
     { 
       id: 2, 
       title: 'Senior Fabric Technologist', 
       location: 'Surat, India', 
-      type: 'Full-time', 
-      experience: '7+ Years',
+      salary: '₹8,00,000 - ₹12,00,000 P.A.',
       description: 'Lead quality control for incoming fabrics, develop new textile blends, and maintain our high standards of material excellence.'
     },
     { 
       id: 3, 
       title: 'B2B Sales Executive', 
       location: 'Delhi, India', 
-      type: 'Full-time', 
-      experience: '2-4 Years',
+      salary: '₹4,00,000 - ₹6,00,000 P.A.',
       description: 'Expand our wholesale network, acquire new B2B accounts, and maintain strong relationships with our key clients.'
     },
     { 
       id: 4, 
       title: 'Digital Marketing Specialist', 
       location: 'Remote', 
-      type: 'Full-time', 
-      experience: '3+ Years',
+      salary: '₹5,00,000 - ₹8,00,000 P.A.',
       description: 'Drive our online presence, manage social media campaigns, and optimize e-commerce conversion rates.'
     },
   ];
@@ -60,7 +56,7 @@ const Career = () => {
                     <MapPin className="w-4 h-4 mr-3 text-brand-maroon" /> {job.location}
                   </div>
                   <div className="flex items-center text-sm text-gray-700">
-                    <Briefcase className="w-4 h-4 mr-3 text-brand-maroon" /> {job.type} • {job.experience}
+                    <IndianRupee className="w-4 h-4 mr-3 text-brand-maroon" /> {job.salary}
                   </div>
                   <div className="flex items-center text-sm text-gray-700">
                     <Mail className="w-4 h-4 mr-3 text-brand-maroon" /> 
