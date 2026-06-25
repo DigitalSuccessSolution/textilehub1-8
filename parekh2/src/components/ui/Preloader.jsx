@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Store } from 'lucide-react';
+import { ShoppingBag } from 'lucide-react';
 
 const Preloader = () => {
   const [loading, setLoading] = useState(true);
@@ -35,12 +35,12 @@ const Preloader = () => {
           >
             {/* Logo Icon */}
             <div className="w-24 h-24 bg-[#C48B5D]/10 rounded-full flex items-center justify-center mb-6 border border-[#C48B5D]/30 shadow-[0_0_30px_rgba(196,139,93,0.2)]">
-              <Store className="w-12 h-12 text-[#C48B5D]" />
+              <ShoppingBag className="w-12 h-12 text-[#C48B5D]" />
             </div>
             
             {/* Brand Name */}
-            <h1 className="text-4xl font-serif text-[#C48B5D] tracking-[0.2em] uppercase mb-8">
-              SutraTex
+            <h1 className="text-4xl font-serif font-bold text-[#C48B5D] tracking-[0.2em] uppercase mb-8">
+              SUTRA<span className="text-white font-light">TEX</span>
             </h1>
             
             {/* Loading Dots */}
