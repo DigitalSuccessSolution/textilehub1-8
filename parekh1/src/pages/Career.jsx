@@ -45,7 +45,7 @@ const Career = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl font-serif font-bold text-brand-darkbrown mb-4">Join Our Journey</h2>
           <p className="text-gray-600">
-            At Parekh Textiles, we believe our people are the fabric of our success. We offer a dynamic work environment where tradition meets innovation. Explore our current openings and become part of a legacy.
+            At AuraWeave Textiles, we believe our people are the fabric of our success. We offer a dynamic work environment where tradition meets innovation. Explore our current openings and become part of a legacy.
           </p>
         </div>
 
@@ -64,7 +64,7 @@ const Career = () => {
                   </div>
                   <div className="flex items-center text-sm text-gray-700">
                     <Mail className="w-4 h-4 mr-3 text-brand-maroon" /> 
-                    <a href="mailto:careers@parekhtex.com" className="hover:text-brand-maroon transition-colors">careers@parekhtex.com</a>
+                    <a href="mailto:careers@auraweave.com" className="hover:text-brand-maroon transition-colors">careers@auraweave.com</a>
                   </div>
                 </div>
 

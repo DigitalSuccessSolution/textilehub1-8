@@ -12,7 +12,7 @@ const FloatingChatbot = () => {
           <div className="bg-brand-maroon px-5 py-4 flex items-center justify-between rounded-t-2xl">
             <div className="flex items-center space-x-3">
               <div className="w-2.5 h-2.5 bg-green-400 rounded-full animate-pulse"></div>
-              <span className="text-white font-bold tracking-wide">ParekhTEX Assistant</span>
+              <span className="text-white font-bold tracking-wide">AuraWeave Assistant</span>
             </div>
             <button 
               onClick={() => setIsOpen(false)}
@@ -26,7 +26,7 @@ const FloatingChatbot = () => {
           <div className="p-5 h-[320px] overflow-y-auto bg-[#f8fafc] flex flex-col space-y-4">
             <div className="bg-white text-gray-700 p-4 rounded-2xl rounded-tl-sm shadow-sm border border-gray-100 max-w-[85%] self-start">
               <p className="text-[15px] leading-relaxed font-sans">
-                Namaste! 🙏 Welcome to ParekhTEX. How can I help you today?
+                Namaste! 🙏 Welcome to AuraWeave. How can I help you today?
               </p>
             </div>
             <div className="bg-white text-gray-700 p-4 rounded-2xl rounded-tl-sm shadow-sm border border-gray-100 max-w-[85%] self-start">

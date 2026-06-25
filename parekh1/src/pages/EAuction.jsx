@@ -3,41 +3,50 @@ import PageHeader from '../components/ui/PageHeader';
 import { Gavel, Clock, AlertCircle } from 'lucide-react';
 
 const EAuction = () => {
+  const auctionCards = [
+    {
+      title: 'Premium Cotton Bales',
+      desc: 'High-quality surplus organic cotton bales suitable for premium suiting and weaving.',
+      date: 'Auction Date: June 28, 2026',
+      image: 'https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?w=600&auto=format&fit=crop&q=80'
+    },
+    {
+      title: 'Mulberry Silk Surplus',
+      desc: 'Grade-A raw mulberry silk yarns available for bidding. Certified quality inspection report included.',
+      date: 'Auction Date: June 30, 2026',
+      image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?w=600&auto=format&fit=crop&q=80'
+    }
+  ];
+
   return (
     <div>
       <PageHeader title="e-Auction Portal" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="flex flex-col lg:flex-row gap-12">
-          <div className="lg:w-1/3">
-            <div className="bg-brand-darkbrown text-white rounded-xl shadow-lg mb-8 overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1584227185011-8071e6be12b5?auto=format&fit=crop&w=800&q=80" alt="Live Auctions" className="w-full h-48 object-cover" />
-              <div className="p-8">
-                <h3 className="text-2xl font-serif font-bold mb-4">Live Auctions</h3>
-                <div className="space-y-4">
-                  <div className="bg-white/10 p-4 rounded-lg flex items-center justify-between border border-white/20">
-                    <div>
-                      <h4 className="font-bold text-brand-light">Lot #1042: Silk Blends</h4>
-                      <p className="text-sm text-gray-300">Closing in: 2h 15m</p>
-                    </div>
-                    <Gavel className="text-white w-6 h-6" />
-                  </div>
-                  <div className="bg-white/10 p-4 rounded-lg flex items-center justify-between border border-white/20">
-                    <div>
-                      <h4 className="font-bold text-brand-light">Lot #1045: Cotton Surplus</h4>
-                      <p className="text-sm text-gray-300">Closing in: 5h 30m</p>
-                    </div>
-                    <Gavel className="text-white w-6 h-6" />
+          <div className="lg:w-1/3 space-y-6">
+            {auctionCards.map((card, index) => (
+              <div 
+                key={index} 
+                className="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow duration-300"
+              >
+                <img 
+                  src={card.image} 
+                  alt={card.title} 
+                  className="w-full h-48 object-cover" 
+                />
+                <div className="p-6">
+                  <h4 className="font-serif font-bold text-lg text-brand-darkbrown mb-1.5">
+                    {card.title}
+                  </h4>
+                  <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+                    {card.desc}
+                  </p>
+                  <div className="text-xs font-sans font-semibold text-brand-maroon">
+                    {card.date}
                   </div>
                 </div>
               </div>
-            </div>
-            
-            <div className="bg-red-50 p-6 rounded-xl border border-red-100 flex items-start">
-              <AlertCircle className="text-red-500 w-6 h-6 mr-3 shrink-0 mt-1" />
-              <p className="text-sm text-red-800">
-                Participation in e-Auctions requires prior registration and EMD deposit. Ensure your KYC is updated.
-              </p>
-            </div>
+            ))}
           </div>
           
           <div className="lg:w-2/3">

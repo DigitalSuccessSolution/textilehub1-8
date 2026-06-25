@@ -1,18 +1,25 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { ChevronRight } from 'lucide-react';
 
-const PageHeader = ({ title, breadcrumb }) => {
+const PageHeader = ({ title }) => {
   return (
-    <div className="bg-brand-darkbrown text-white py-16 relative overflow-hidden">
-      <div className="absolute inset-0 opacity-10 bg-[url('https://images.unsplash.com/photo-1610030469983-98e550905b0f?auto=format&fit=crop&q=80&w=1920')] bg-cover bg-center"></div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <h1 className="text-4xl md:text-5xl font-serif font-bold text-brand-beige mb-4">{title}</h1>
-        <div className="flex items-center text-sm text-gray-300">
-          <Link to="/" className="hover:text-white transition-colors">Home</Link>
-          <ChevronRight className="h-4 w-4 mx-2" />
-          <span className="text-brand-light">{breadcrumb || title}</span>
-        </div>
+    <div className="bg-brand-darkbrown text-white py-10 sm:py-14 relative overflow-hidden">
+      {/* Subtle texture overlay */}
+      <div
+        className="absolute inset-0 opacity-10 bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "url(https://plus.unsplash.com/premium_photo-1673356302101-e69975f7109a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZmFzaW9ufGVufDB8fDB8fHww)",
+        }}
+      />
+      {/* Gradient fade */}
+      <div className="absolute inset-0 bg-gradient-to-br from-brand-darkbrown/60 to-brand-maroon/30" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold text-brand-beige">
+          {title}
+        </h1>
+        {/* Decorative underline */}
+        <div className="mx-auto mt-4 h-0.5 w-16 rounded-full bg-brand-maroon opacity-70" />
       </div>
     </div>
   );

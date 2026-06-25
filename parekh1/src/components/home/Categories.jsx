@@ -27,10 +27,10 @@ const Categories = () => {
         />
         
         <div className="relative group/slider w-full">
-          {/* Left Arrow */}
+          {/* Left Arrow — Desktop only (absolute) */}
           <button 
             onClick={() => slide('left')}
-            className="absolute -left-3 md:-left-5 lg:-left-8 top-[35%] -translate-y-1/2 z-10 bg-white shadow-lg rounded-full p-2 text-brand-darkbrown hover:text-brand-maroon hover:bg-gray-50 transition-all"
+            className="hidden md:flex absolute -left-5 lg:-left-8 top-[35%] -translate-y-1/2 z-10 bg-white shadow-lg rounded-full p-2 text-brand-darkbrown hover:text-brand-maroon hover:bg-gray-50 transition-all"
             aria-label="Scroll Left"
           >
             <ChevronLeft className="w-6 h-6" />
@@ -39,7 +39,7 @@ const Categories = () => {
           {/* Slider Container */}
           <div 
             ref={sliderRef}
-            className="flex overflow-x-auto gap-4 md:gap-6 lg:gap-8 pb-8 snap-x snap-mandatory hide-scrollbar"
+            className="flex overflow-x-auto gap-4 md:gap-6 lg:gap-8 pb-4 snap-x snap-mandatory hide-scrollbar"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {categories.map((category) => (
@@ -63,14 +63,32 @@ const Categories = () => {
             ))}
           </div>
 
-          {/* Right Arrow */}
+          {/* Right Arrow — Desktop only (absolute) */}
           <button 
             onClick={() => slide('right')}
-            className="absolute -right-3 md:-right-5 lg:-right-8 top-[35%] -translate-y-1/2 z-10 bg-white shadow-lg rounded-full p-2 text-brand-darkbrown hover:text-brand-maroon hover:bg-gray-50 transition-all"
+            className="hidden md:flex absolute -right-5 lg:-right-8 top-[35%] -translate-y-1/2 z-10 bg-white shadow-lg rounded-full p-2 text-brand-darkbrown hover:text-brand-maroon hover:bg-gray-50 transition-all"
             aria-label="Scroll Right"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
+
+          {/* Mobile-only: buttons below categories */}
+          <div className="flex md:hidden items-center justify-center gap-6 mt-4">
+            <button
+              onClick={() => slide('left')}
+              className="bg-white shadow-md rounded-full p-2.5 text-brand-darkbrown hover:text-brand-maroon hover:bg-gray-50 border border-gray-100 transition-all"
+              aria-label="Scroll Left"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <button
+              onClick={() => slide('right')}
+              className="bg-white shadow-md rounded-full p-2.5 text-brand-darkbrown hover:text-brand-maroon hover:bg-gray-50 border border-gray-100 transition-all"
+              aria-label="Scroll Right"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
         </div>
       </div>
     </section>

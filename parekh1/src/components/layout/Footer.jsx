@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
-            <h2 className="text-2xl font-serif font-bold text-white tracking-wider">PAREKH<span className="text-white">TEX</span></h2>
+            <h2 className="text-2xl font-serif font-bold text-white tracking-wider">Aura<span className="text-white">Weave</span></h2>
             <p className="text-sm text-gray-300">
               Premium quality textiles and garments for modern retail. Delivering excellence in every thread.
             </p>
@@ -28,26 +28,29 @@ const Footer = () => {
             </div>
           </div>
           
-          <div>
-            <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              <li><Link to="/about" className="text-sm hover:text-white transition-colors">About Us</Link></li>
-              <li><Link to="/products" className="text-sm hover:text-white transition-colors">Products</Link></li>
-              <li><Link to="/retail-management" className="text-sm hover:text-white transition-colors">Retail Management</Link></li>
-              <li><Link to="/career" className="text-sm hover:text-white transition-colors">Careers</Link></li>
-              <li><Link to="/contact" className="text-sm hover:text-white transition-colors">Contact</Link></li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="text-lg font-semibold text-white mb-4">Business</h3>
-            <ul className="space-y-2">
-              <li><Link to="/trade-enquiry" className="text-sm hover:text-white transition-colors">Trade Enquiry</Link></li>
-              <li><Link to="/e-quotation" className="text-sm hover:text-white transition-colors">e-Quotation</Link></li>
-              <li><Link to="/e-auction" className="text-sm hover:text-white transition-colors">e-Auction</Link></li>
-              <li><Link to="/trade-circular" className="text-sm hover:text-white transition-colors">Trade Circular</Link></li>
-              <li><Link to="/notice-board" className="text-sm hover:text-white transition-colors">Notice Board</Link></li>
-            </ul>
+          {/* Quick Links + Business — side by side on mobile */}
+          <div className="grid grid-cols-2 gap-6 md:contents">
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
+              <ul className="space-y-2">
+                <li><Link to="/about" className="text-sm hover:text-white transition-colors">About Us</Link></li>
+                <li><Link to="/products" className="text-sm hover:text-white transition-colors">Products</Link></li>
+                <li><Link to="/retail-management" className="text-sm hover:text-white transition-colors">Retail Management</Link></li>
+                <li><Link to="/career" className="text-sm hover:text-white transition-colors">Careers</Link></li>
+                <li><Link to="/contact" className="text-sm hover:text-white transition-colors">Contact</Link></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-4">Business</h3>
+              <ul className="space-y-2">
+                <li><Link to="/trade-enquiry" className="text-sm hover:text-white transition-colors">Trade Enquiry</Link></li>
+                <li><Link to="/e-quotation" className="text-sm hover:text-white transition-colors">e-Quotation</Link></li>
+                <li><Link to="/e-auction" className="text-sm hover:text-white transition-colors">e-Auction</Link></li>
+                <li><Link to="/trade-circular" className="text-sm hover:text-white transition-colors">Trade Circular</Link></li>
+                <li><Link to="/notice-board" className="text-sm hover:text-white transition-colors">Notice Board</Link></li>
+              </ul>
+            </div>
           </div>
           
           <div>
@@ -63,14 +66,14 @@ const Footer = () => {
               </li>
               <li className="flex items-center">
                 <Mail className="h-5 w-5 mr-2 text-white shrink-0" />
-                <span className="text-sm">info@parekhtex.com</span>
+                <span className="text-sm">info@auraweave.com</span>
               </li>
             </ul>
           </div>
         </div>
         
-        <div className="border-t border-gray-700 mt-12 pt-8 text-center text-sm text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Parekh Textiles. All rights reserved.</p>
+        <div className="border-t border-gray-700 mt-6 pt-4 text-center text-sm text-gray-400">
+          <p>&copy; {new Date().getFullYear()} AuraWeave Textiles. All rights reserved.</p>
         </div>
       </div>
     </footer>

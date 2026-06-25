@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Layout from './components/layout/Layout';
+import Preloader from './components/Preloader';
+import WelcomePopup from './components/WelcomePopup';
 
 // Pages
 import Home from './pages/Home';
@@ -17,6 +19,7 @@ import Career from './pages/Career';
 import Blog from './pages/Blog';
 import CustomerReview from './pages/CustomerReview';
 import MediaGallery from './pages/MediaGallery';
+import FAQ from './pages/FAQ';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -27,28 +30,47 @@ const ScrollToTop = () => {
 };
 
 function App() {
+  const [loading, setLoading] = useState(true);
+  const [showPopup, setShowPopup] = useState(false);
+
+  const handlePreloaderComplete = () => {
+    setLoading(false);
+    setShowPopup(true);
+  };
+
   return (
-    <Router>
-      <ScrollToTop />
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/trade-enquiry" element={<TradeEnquiry />} />
-          <Route path="/e-quotation" element={<EQuotation />} />
-          <Route path="/e-auction" element={<EAuction />} />
-          <Route path="/retail-management" element={<RetailManagement />} />
-          <Route path="/trade-circular" element={<TradeCircular />} />
-          <Route path="/notice-board" element={<NoticeBoard />} />
-          <Route path="/career" element={<Career />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/customer-review" element={<CustomerReview />} />
-          <Route path="/media-gallery" element={<MediaGallery />} />
-        </Routes>
-      </Layout>
-    </Router>
+    <>
+      {loading && <Preloader onComplete={handlePreloaderComplete} />}
+      <div style={{
+        opacity: loading ? 0 : 1,
+        transition: 'opacity 0.5s ease',
+        visibility: loading ? 'hidden' : 'visible',
+      }}>
+        <Router>
+          <ScrollToTop />
+          {showPopup && <WelcomePopup onClose={() => setShowPopup(false)} />}
+          <Layout>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/trade-enquiry" element={<TradeEnquiry />} />
+              <Route path="/e-quotation" element={<EQuotation />} />
+              <Route path="/e-auction" element={<EAuction />} />
+              <Route path="/retail-management" element={<RetailManagement />} />
+              <Route path="/trade-circular" element={<TradeCircular />} />
+              <Route path="/notice-board" element={<NoticeBoard />} />
+              <Route path="/career" element={<Career />} />
+              <Route path="/blog" element={<Blog />} />
+              <Route path="/customer-review" element={<CustomerReview />} />
+              <Route path="/media-gallery" element={<MediaGallery />} />
+              <Route path="/faq" element={<FAQ />} />
+            </Routes>
+          </Layout>
+        </Router>
+      </div>
+    </>
   );
 }
 
