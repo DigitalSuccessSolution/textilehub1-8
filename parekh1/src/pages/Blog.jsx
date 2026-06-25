@@ -1,22 +1,59 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PageHeader from '../components/ui/PageHeader';
 import BlogCard from '../components/cards/BlogCard';
 import { blogPosts } from '../data/mockData';
 
 const Blog = () => {
+  const [activeCategory, setActiveCategory] = useState('All');
+  
+  // Extract unique categories from blogPosts and add 'All'
+  const categories = ['All', ...new Set(blogPosts.map(post => post.category))];
+
+  // Combine original posts and duplicates for demo
+  const allPosts = [
+    ...blogPosts,
+    ...blogPosts.map(post => ({...post, id: post.id + 10}))
+  ];
+
+  // Filter posts based on active category
+  const filteredPosts = activeCategory === 'All'
+    ? allPosts
+    : allPosts.filter(post => post.category === activeCategory);
+
   return (
     <div>
       <PageHeader title="Our Blog" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogPosts.map((post) => (
-            <BlogCard key={post.id} post={post} />
-          ))}
-          {/* Duplicating for demo purposes */}
-          {blogPosts.map((post) => (
-            <BlogCard key={`copy-${post.id}`} post={{...post, id: post.id + 10}} />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        
+        {/* Categories Filter Bar */}
+        <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setActiveCategory(category)}
+              className={`px-5 py-2.5 rounded-full text-sm font-sans font-bold border transition-all duration-200 cursor-pointer shadow-sm ${
+                activeCategory === category
+                  ? 'bg-brand-maroon text-white border-brand-maroon shadow-md'
+                  : 'bg-white text-brand-darkbrown border-gray-200 hover:border-brand-maroon hover:text-brand-maroon'
+              }`}
+            >
+              {category}
+            </button>
           ))}
         </div>
+
+        {/* Blog Cards Grid */}
+        {filteredPosts.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredPosts.map((post) => (
+              <BlogCard key={post.id} post={post} />
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-20 text-gray-500 font-sans">
+            No blog posts found in this category.
+          </div>
+        )}
       </div>
     </div>
   );
