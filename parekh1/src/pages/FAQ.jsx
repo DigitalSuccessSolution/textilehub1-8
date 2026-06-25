@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import PageHeader from '../components/ui/PageHeader';
 
 const faqs = [
@@ -199,8 +200,8 @@ const FAQ = () => {
           }}>
             Our team is happy to help. Reach out to us directly.
           </p>
-          <a
-            href="/contact"
+          <Link
+            to="/contact"
             style={{
               display: 'inline-block',
               padding: '11px 28px',
@@ -218,7 +219,7 @@ const FAQ = () => {
             onMouseLeave={e => e.currentTarget.style.opacity = '1'}
           >
             Contact Us →
-          </a>
+          </Link>
         </div>
 
       </div>
