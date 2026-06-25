@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ShoppingBag, ChevronDown } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [moreOpen, setMoreOpen] = useState(false);
+  const location = useLocation();
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -42,6 +43,9 @@ const Navbar = () => {
     { name: 'FAQ', path: '/faq' },
   ];
 
+  // Helper to check if any dropdown link is active
+  const isDropdownActive = dropdownLinks.some(link => location.pathname === link.path);
+
   return (
     <>
       <nav className="bg-brand-light shadow-md sticky top-0 z-50">
@@ -58,15 +62,22 @@ const Navbar = () => {
 
             {/* Desktop links */}
             <div className="hidden lg:flex items-center space-x-6">
-              {mainLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.path}
-                  className="text-gray-700 hover:text-brand-maroon px-2 py-2 rounded-md text-sm font-medium transition-colors"
-                >
-                  {link.name}
-                </Link>
-              ))}
+              {mainLinks.map((link) => {
+                const isActive = location.pathname === link.path;
+                return (
+                  <Link
+                    key={link.name}
+                    to={link.path}
+                    className={`px-2 py-2 rounded-md text-sm font-medium transition-colors ${
+                      isActive 
+                        ? 'text-brand-maroon font-bold' 
+                        : 'text-gray-700 hover:text-brand-maroon'
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
 
               {/* Desktop Dropdown */}
               <div
@@ -74,7 +85,13 @@ const Navbar = () => {
                 onMouseEnter={() => setIsDropdownOpen(true)}
                 onMouseLeave={() => setIsDropdownOpen(false)}
               >
-                <button className="flex items-center text-gray-700 hover:text-brand-maroon px-2 py-2 rounded-md text-sm font-medium transition-colors">
+                <button 
+                  className={`flex items-center px-2 py-2 rounded-md text-sm font-medium transition-colors ${
+                    isDropdownActive 
+                      ? 'text-brand-maroon font-bold' 
+                      : 'text-gray-700 hover:text-brand-maroon'
+                  }`}
+                >
                   Pages <ChevronDown className="ml-1 w-4 h-4" />
                 </button>
                 <div
@@ -83,23 +100,34 @@ const Navbar = () => {
                   } border border-gray-100`}
                 >
                   <div className="py-2">
-                    {dropdownLinks.map((link) => (
-                      <Link
-                        key={link.name}
-                        to={link.path}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-brand-maroon hover:text-white transition-colors"
-                        onClick={() => setIsDropdownOpen(false)}
-                      >
-                        {link.name}
-                      </Link>
-                    ))}
+                    {dropdownLinks.map((link) => {
+                      const isActive = location.pathname === link.path;
+                      return (
+                        <Link
+                          key={link.name}
+                          to={link.path}
+                          className={`block px-4 py-2 text-sm transition-colors ${
+                            isActive
+                              ? 'bg-brand-light text-brand-maroon font-semibold border-l-4 border-brand-maroon'
+                              : 'text-gray-700 hover:bg-brand-maroon hover:text-white'
+                          }`}
+                          onClick={() => setIsDropdownOpen(false)}
+                        >
+                          {link.name}
+                        </Link>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
 
               <Link
                 to="/trade-enquiry"
-                className="bg-brand-maroon text-white px-4 py-2 rounded text-sm font-medium hover:bg-red-900 transition-colors shadow-sm ml-2"
+                className={`px-4 py-2 rounded text-sm font-medium transition-all shadow-sm ml-2 ${
+                  location.pathname === '/trade-enquiry'
+                    ? 'bg-red-900 text-white font-bold ring-2 ring-brand-maroon ring-offset-1'
+                    : 'bg-brand-maroon text-white hover:bg-red-900'
+                }`}
               >
                 Trade Enquiry
               </Link>
@@ -147,24 +175,35 @@ const Navbar = () => {
 
         {/* Scrollable links */}
         <div className="flex-1 overflow-y-auto px-4 py-4 space-y-1">
-          {mainLinks.map((link) => (
-            <Link
-              key={link.name}
-              to={link.path}
-              onClick={closeMenu}
-              className="block px-3 py-2.5 rounded-lg text-sm font-medium text-gray-700 hover:text-brand-maroon hover:bg-gray-50 transition-colors"
-            >
-              {link.name}
-            </Link>
-          ))}
+          {mainLinks.map((link) => {
+            const isActive = location.pathname === link.path;
+            return (
+              <Link
+                key={link.name}
+                to={link.path}
+                onClick={closeMenu}
+                className={`block px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                  isActive
+                    ? 'text-brand-maroon bg-brand-light font-bold border-l-4 border-brand-maroon'
+                    : 'text-gray-700 hover:text-brand-maroon hover:bg-gray-50'
+                }`}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
 
           {/* More Pages accordion */}
           <div className="border-t border-gray-100 mt-2 pt-2">
             <button
               onClick={() => setMoreOpen(!moreOpen)}
-              className="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-bold text-gray-800 hover:bg-gray-50 transition-colors"
+              className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-bold transition-colors ${
+                isDropdownActive 
+                  ? 'text-brand-maroon bg-brand-light' 
+                  : 'text-gray-800 hover:bg-gray-50'
+              }`}
             >
-              More Pages
+              <span>More Pages</span>
               <ChevronDown
                 className={`w-4 h-4 text-gray-500 transition-transform duration-200 ${
                   moreOpen ? 'rotate-180' : ''
@@ -174,16 +213,23 @@ const Navbar = () => {
 
             {moreOpen && (
               <div className="mt-1 ml-3 space-y-0.5">
-                {dropdownLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    to={link.path}
-                    onClick={closeMenu}
-                    className="block px-3 py-2 rounded-lg text-sm text-gray-600 hover:text-brand-maroon hover:bg-gray-50 transition-colors"
-                  >
-                    {link.name}
-                  </Link>
-                ))}
+                {dropdownLinks.map((link) => {
+                  const isActive = location.pathname === link.path;
+                  return (
+                    <Link
+                      key={link.name}
+                      to={link.path}
+                      onClick={closeMenu}
+                      className={`block px-3 py-2 rounded-lg text-sm transition-colors ${
+                        isActive
+                          ? 'text-brand-maroon bg-brand-light font-bold border-l-2 border-brand-maroon'
+                          : 'text-gray-600 hover:text-brand-maroon hover:bg-gray-50'
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                  );
+                })}
               </div>
             )}
           </div>
@@ -194,7 +240,11 @@ const Navbar = () => {
           <Link
             to="/trade-enquiry"
             onClick={closeMenu}
-            className="block w-full text-center px-4 py-3 rounded-lg text-sm font-bold bg-brand-maroon text-white hover:bg-red-900 transition-colors shadow-sm"
+            className={`block w-full text-center px-4 py-3 rounded-lg text-sm font-bold transition-colors shadow-sm ${
+              location.pathname === '/trade-enquiry'
+                ? 'bg-red-900 text-white'
+                : 'bg-brand-maroon text-white hover:bg-red-900'
+            }`}
           >
             Trade Enquiry
           </Link>

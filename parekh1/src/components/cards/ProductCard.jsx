@@ -5,9 +5,9 @@ const ProductCard = ({ product }) => {
   return (
     <div className="bg-white rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group">
       <div className="relative h-80 overflow-hidden">
-        <img 
-          src={product.image} 
-          alt={product.name} 
+        <img
+          src={product.image}
+          alt={product.name}
           className="w-full h-full object-cover group-hover:scale-105 group-hover:blur-[2px] transition-all duration-500"
         />
         <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">

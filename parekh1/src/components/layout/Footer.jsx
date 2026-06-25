@@ -5,7 +5,7 @@ import { Mail, Phone, MapPin } from 'lucide-react';
 const Footer = () => {
   return (
     <footer className="bg-brand-darkbrown text-brand-beige">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
             <h2 className="text-2xl font-serif font-bold text-white tracking-wider">Aura<span className="text-white">Weave</span></h2>
@@ -72,7 +72,7 @@ const Footer = () => {
           </div>
         </div>
         
-        <div className="border-t border-gray-700 mt-6 pt-4 text-center text-sm text-gray-400">
+        <div className="border-t border-gray-700 mt-12 pt-4 text-center text-sm text-gray-400">
           <p>&copy; {new Date().getFullYear()} AuraWeave Textiles. All rights reserved.</p>
         </div>
       </div>

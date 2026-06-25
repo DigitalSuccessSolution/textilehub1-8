@@ -38,15 +38,14 @@ const Products = () => {
               <h3 className="text-lg lg:text-xl font-serif font-bold text-brand-darkbrown mb-4 border-b pb-2 text-center lg:text-left">
                 Categories
               </h3>
-              <ul className="flex flex-wrap lg:flex-col gap-2 lg:gap-1.5 lg:max-h-[65vh] lg:overflow-y-auto lg:pr-2 custom-scrollbar justify-center lg:justify-start">
+              <ul className="flex flex-wrap lg:flex-col lg:flex-nowrap gap-2 lg:gap-1.5 lg:max-h-[65vh] lg:overflow-y-auto lg:overflow-x-hidden lg:pr-2 custom-scrollbar justify-center lg:justify-start">
                 <li>
                   <button
                     onClick={() => setActiveCategory('All')}
-                    className={`w-auto lg:w-full text-center lg:text-left px-3.5 py-1.5 lg:px-2.5 lg:py-1.5 rounded-full lg:rounded-md text-xs lg:text-sm font-sans font-medium transition-all border lg:border-0 cursor-pointer ${
-                      activeCategory === 'All'
+                    className={`w-auto lg:w-full text-center lg:text-left px-3.5 py-1.5 lg:px-2.5 lg:py-1.5 rounded-full lg:rounded-md text-xs lg:text-sm font-sans font-medium transition-all border lg:border-0 cursor-pointer ${activeCategory === 'All'
                         ? 'bg-brand-light text-brand-maroon border-brand-maroon font-semibold'
                         : 'bg-white lg:bg-transparent text-gray-600 border-gray-200 hover:text-brand-maroon hover:border-brand-maroon'
-                    }`}
+                      }`}
                   >
                     All Products
                   </button>
@@ -55,11 +54,10 @@ const Products = () => {
                   <li key={cat.id}>
                     <button
                       onClick={() => setActiveCategory(cat.name)}
-                      className={`w-auto lg:w-full text-center lg:text-left px-3.5 py-1.5 lg:px-2.5 lg:py-1.5 rounded-full lg:rounded-md text-xs lg:text-sm font-sans font-medium transition-all border lg:border-0 cursor-pointer ${
-                        activeCategory === cat.name
+                      className={`w-auto lg:w-full text-center lg:text-left px-3.5 py-1.5 lg:px-2.5 lg:py-1.5 rounded-full lg:rounded-md text-xs lg:text-sm font-sans font-medium transition-all border lg:border-0 cursor-pointer ${activeCategory === cat.name
                           ? 'bg-brand-light text-brand-maroon border-brand-maroon font-semibold'
                           : 'bg-white lg:bg-transparent text-gray-600 border-gray-200 hover:text-brand-maroon hover:border-brand-maroon'
-                      }`}
+                        }`}
                     >
                       {cat.name}
                     </button>

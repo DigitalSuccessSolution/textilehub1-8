@@ -23,7 +23,7 @@ const slides = [
   },
   {
     id: 3,
-    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&q=80&w=1920',
+    image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8SG9tZSUyMFVwaG9sc3Rlcnl8ZW58MHx8MHx8fDA%3D',
     tag: 'Home Decor',
     title: 'Elegant Home Upholstery',
     subtitle: 'Transform your living spaces with our luxurious home furnishing range.',
@@ -86,6 +86,7 @@ const HeroSlider = () => {
                 position: 'absolute',
                 bottom: 0, left: 0, right: 0,
                 padding: '16px 20px 20px',
+                textAlign: 'center',
               }}>
                 {/* Tag badge */}
                 <span style={{
@@ -217,17 +218,15 @@ const HeroSlider = () => {
         {slides.map((slide, index) => (
           <div
             key={slide.id}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === current ? 'opacity-100' : 'opacity-0'
-            }`}
+            className={`absolute inset-0 transition-opacity duration-1000 ${index === current ? 'opacity-100' : 'opacity-0'
+              }`}
           >
             <div className="absolute inset-0 bg-black/40 z-10" />
             <img
               src={slide.image}
               alt={slide.title}
-              className={`w-full h-full object-cover transition-transform duration-[10000ms] ${
-                index === current ? 'scale-110' : 'scale-100'
-              }`}
+              className={`w-full h-full object-cover transition-transform duration-[10000ms] ${index === current ? 'scale-110' : 'scale-100'
+                }`}
             />
             <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-8">
               <span className="inline-block bg-brand-maroon text-white text-xs font-bold tracking-widest uppercase px-4 py-1 rounded-full mb-4 opacity-90">
@@ -269,9 +268,8 @@ const HeroSlider = () => {
             <button
               key={index}
               onClick={() => setCurrent(index)}
-              className={`h-3 rounded-full transition-all ${
-                index === current ? 'bg-brand-maroon w-8' : 'bg-white/50 w-3 hover:bg-white/80'
-              }`}
+              className={`h-3 rounded-full transition-all ${index === current ? 'bg-brand-maroon w-8' : 'bg-white/50 w-3 hover:bg-white/80'
+                }`}
             />
           ))}
         </div>
