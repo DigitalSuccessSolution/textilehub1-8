@@ -5,7 +5,6 @@ import { FileText, Eye, Printer } from 'lucide-react';
 const TradeCircular = () => {
   const circulars = [
     { id: 1, title: 'Revised Pricing for Silk Yarns - Q4', date: 'Oct 15, 2023', ref: 'TC/2023/45' },
-    { id: 2, title: 'New Distributor Onboarding Guidelines', date: 'Sep 28, 2023', ref: 'TC/2023/42' },
     { id: 3, title: 'Festive Season Dispatch Schedule', date: 'Sep 10, 2023', ref: 'TC/2023/38' },
     { id: 4, title: 'GST Update on Handloom Products', date: 'Aug 05, 2023', ref: 'TC/2023/31' },
   ];

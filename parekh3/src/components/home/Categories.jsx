@@ -51,10 +51,10 @@ const Categories = () => {
               <Link
                 key={category.id}
                 to="/products"
-                className="group flex-none w-52 snap-start"
+                className="group flex-none w-52 snap-start bg-white overflow-hidden border border-[#0B1C3E]/6 hover:border-[#D4A853]/40 transition-all duration-400 hover:shadow-[0_8px_40px_rgba(11,28,62,0.12)] flex flex-col"
               >
                 {/* Image container */}
-                <div className="relative aspect-[2/3] overflow-hidden mb-4">
+                <div className="relative aspect-[2/3] overflow-hidden shrink-0">
                   <img
                     src={category.image}
                     alt={category.name}
@@ -69,10 +69,12 @@ const Categories = () => {
                   {/* Amber bottom line */}
                   <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#D4A853] scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                 </div>
-                {/* Category name */}
-                <h3 className="text-sm font-medium text-[#0B1C3E] group-hover:text-[#D4A853] transition-colors tracking-wide">
-                  {category.name}
-                </h3>
+                {/* Category name wrapper */}
+                <div className="p-3.5 border-t border-[#D4A853]/10 flex flex-col justify-center flex-grow bg-white">
+                  <h3 className="text-sm font-medium text-[#0B1C3E] group-hover:text-[#D4A853] transition-colors tracking-wide text-center truncate">
+                    {category.name}
+                  </h3>
+                </div>
               </Link>
             ))}
           </div>

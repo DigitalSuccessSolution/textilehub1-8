@@ -10,7 +10,7 @@ const FeaturedProducts = () => {
       <div className="max-w-7xl mx-auto px-5 md:px-8">
 
         {/* Header row */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 md:mb-14">
           <div>
             <p className="text-[#D4A853] text-xs uppercase tracking-[0.4em] font-medium mb-3">Curated Selection</p>
             <h2 className="text-4xl md:text-5xl font-serif font-light text-[#0B1C3E]">Featured Collection</h2>
@@ -25,8 +25,8 @@ const FeaturedProducts = () => {
           </Link>
         </div>
 
-        {/* Products grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Products grid - 2 columns on mobile, 3 on tablet, 5 on desktop */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-6">
           {featuredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}

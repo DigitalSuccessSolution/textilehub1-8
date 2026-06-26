@@ -1,42 +1,61 @@
 import React from 'react';
 import PageHeader from '../components/ui/PageHeader';
-import { Bell, ChevronRight } from 'lucide-react';
+import { Megaphone } from 'lucide-react';
 
 const NoticeBoard = () => {
   const notices = [
-    { id: 1, title: 'Annual General Meeting 2023', date: 'Nov 01, 2023', isNew: true },
-    { id: 2, title: 'Warehouse Closure Notice for Maintenance (Mumbai Depot)', date: 'Oct 20, 2023', isNew: true },
-    { id: 3, title: 'Introduction of e-Way Bill Integration in Partner Portal', date: 'Sep 15, 2023', isNew: false },
-    { id: 4, title: 'Recruitment Drive for Zonal Sales Managers', date: 'Aug 22, 2023', isNew: false },
+    {
+      id: 1,
+      title: 'Annual General Meeting 2023',
+      description: 'The Annual General Meeting of Lumina Textiles will be held on November 25th to discuss the yearly performance, audits, and future retail expansion plans.',
+      date: 'Nov 01, 2023'
+    },
+    {
+      id: 2,
+      title: 'Warehouse Closure Notice for Maintenance (Mumbai Depot)',
+      description: 'Our main Mumbai Depot depot will remain closed for biannual structural audit and equipment maintenance. Please plan supply logistics accordingly.',
+      date: 'Oct 20, 2023'
+    },
+    {
+      id: 3,
+      title: 'Introduction of e-Way Bill Integration in Partner Portal',
+      description: 'We are launching direct API integration for e-Way bills inside our partner distributor portal to speed up transport dispatch and logistics generation.',
+      date: 'Sep 15, 2023'
+    },
+    {
+      id: 4,
+      title: 'Recruitment Drive for Zonal Sales Managers',
+      description: 'Applications are open for Zonal Sales Managers across South and West zones. Eligible candidates with over 5 years of textile retail experience can apply.',
+      date: 'Aug 22, 2023'
+    },
   ];
 
   return (
     <div>
       <PageHeader title="Notice Board" />
 
-      <div className="bg-[#FAF7F0] py-24">
-        <div className="max-w-3xl mx-auto px-5 md:px-8">
-          <div className="space-y-3">
+      <div className="bg-[#FAF7F0] py-24 min-h-[60vh]">
+        <div className="max-w-7xl mx-auto px-5 md:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {notices.map((notice) => (
               <div
                 key={notice.id}
-                className={`group bg-white border-l-4 px-7 py-5 cursor-pointer flex items-center justify-between hover:shadow-[0_4px_20px_rgba(11,28,62,0.1)] transition-all duration-300 ${
-                  notice.isNew ? 'border-[#D4A853]' : 'border-[#0B1C3E]/15'
-                }`}
+                className="bg-white border border-[#0B1C3E]/6 p-6 rounded-lg hover:shadow-[0_8px_30px_rgba(11,28,62,0.08)] hover:border-[#D4A853]/40 transition-all duration-300 flex gap-4 items-start"
               >
-                <div className="flex items-start gap-4">
-                  <Bell size={16} className={`shrink-0 mt-1 ${notice.isNew ? 'text-[#D4A853]' : 'text-[#6B7A99]'}`} />
-                  <div>
-                    <div className="flex items-center gap-3 mb-1.5">
-                      <span className="text-xs text-[#6B7A99] font-light">{notice.date}</span>
-                      {notice.isNew && (
-                        <span className="bg-[#D4A853]/15 text-[#D4A853] text-[0.55rem] px-2 py-0.5 uppercase tracking-widest font-medium">NEW</span>
-                      )}
-                    </div>
-                    <h3 className="text-sm font-medium text-[#0B1C3E] group-hover:text-[#D4A853] transition-colors">{notice.title}</h3>
-                  </div>
+                <div className="w-10 h-10 bg-[#D4A853]/10 flex items-center justify-center shrink-0 rounded-full mt-1">
+                  <Megaphone size={16} className="text-[#D4A853]" />
                 </div>
-                <ChevronRight size={16} className="text-[#0B1C3E]/20 group-hover:text-[#D4A853] transition-colors shrink-0" />
+                <div className="flex flex-col gap-2">
+                  <span className="text-xs text-[#D4A853] font-medium tracking-wider">
+                    {notice.date}
+                  </span>
+                  <h3 className="text-lg font-serif font-medium text-[#0B1C3E] leading-snug">
+                    {notice.title}
+                  </h3>
+                  <p className="text-sm text-[#6B7A99] font-light leading-relaxed mt-1">
+                    {notice.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>

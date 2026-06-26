@@ -18,6 +18,7 @@ export const featuredProducts = [
   { id: 102, name: 'Designer Kurti Set', category: 'Kurtis', price: '$85', image: 'https://images.unsplash.com/photo-1741847639057-b51a25d42892?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8RGVzaWduZXIlMjBLdXJ0aSUyMFNldHxlbnwwfDF8MHx8fDA%3D' },
   { id: 103, name: 'Luxury Cotton Bedsheet', category: 'Linen', price: '$60', image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&q=80&w=800' },
   { id: 104, name: 'Classic Men Suit Fabric', category: 'Suiting', price: '$150', image: 'https://images.unsplash.com/photo-1611937663641-5cef5189d71b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2xhc3NpYyUyMG1lbiUyMHN1aXQlMjBmYWJyaWN8ZW58MHwxfDB8fHww' },
+  { id: 105, name: 'Bridal Lehenga', category: 'Formal & Ethnic Wear for Women', price: '$450', image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&q=80&w=800' },
 ];
 
 export const reviews = [
@@ -27,7 +28,7 @@ export const reviews = [
 ];
 
 export const blogPosts = [
-  { id: 1, title: 'The Art of Silk Weaving', date: 'Oct 12, 2023', image: 'https://images.unsplash.com/photo-1584227185011-8071e6be12b5?auto=format&fit=crop&q=80&w=800', excerpt: 'Discover the ancient techniques that make our silk sarees so special.' },
-  { id: 2, title: 'Top Trends in Home Furnishing 2024', date: 'Nov 05, 2023', image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&q=80&w=800', excerpt: 'Refresh your home with these upcoming upholstery trends.' },
-  { id: 3, title: 'Choosing the Right Fabric for Your Suit', date: 'Dec 01, 2023', image: 'https://images.unsplash.com/photo-1593030761757-71fae45fa0e5?auto=format&fit=crop&q=80&w=800', excerpt: 'A comprehensive guide to selecting the best suiting material.' },
+  { id: 1, title: 'The Art of Silk Weaving', date: 'Oct 12, 2023', image: 'https://images.unsplash.com/photo-1584227185011-8071e6be12b5?auto=format&fit=crop&q=80&w=800', excerpt: 'Discover the ancient techniques that make our silk sarees so special.', category: 'Heritage', author: 'Rajesh Lumina' },
+  { id: 2, title: 'Top Trends in Home Furnishing 2024', date: 'Nov 05, 2023', image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&q=80&w=800', excerpt: 'Refresh your home with these upcoming upholstery trends.', category: 'Home Decor', author: 'Sneha Sharma' },
+  { id: 3, title: 'Choosing the Right Fabric for Your Suit', date: 'Dec 01, 2023', image: 'https://images.unsplash.com/photo-1593030761757-71fae45fa0e5?auto=format&fit=crop&q=80&w=800', excerpt: 'A comprehensive guide to selecting the best suiting material.', category: 'Style & Tailoring', author: 'Ananya Sharma' },
 ];

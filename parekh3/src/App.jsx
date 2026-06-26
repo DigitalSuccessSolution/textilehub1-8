@@ -16,8 +16,9 @@ import TradeCircular from './pages/TradeCircular';
 import NoticeBoard from './pages/NoticeBoard';
 import Career from './pages/Career';
 import Blog from './pages/Blog';
-import CustomerReview from './pages/CustomerReview';
 import MediaGallery from './pages/MediaGallery';
+import CustomerReview from './pages/CustomerReview';
+import Faq from './pages/Faq';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -46,8 +47,9 @@ function App() {
             <Route path="/notice-board" element={<NoticeBoard />} />
             <Route path="/career" element={<Career />} />
             <Route path="/blog" element={<Blog />} />
-            <Route path="/customer-review" element={<CustomerReview />} />
             <Route path="/media-gallery" element={<MediaGallery />} />
+            <Route path="/customer-review" element={<CustomerReview />} />
+            <Route path="/faq" element={<Faq />} />
           </Routes>
         </Layout>
       </Preloader>

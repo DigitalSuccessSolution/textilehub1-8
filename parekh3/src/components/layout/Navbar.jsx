@@ -25,22 +25,23 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
-    { name: 'Products', path: '/products' },
-    { name: 'Contact', path: '/contact' },
+    { name: 'About us', path: '/about' },
+    { name: 'Contact us', path: '/contact' },
+    { name: 'Product', path: '/products' },
+    { name: 'Our Retail Management', path: '/retail-management' },
   ];
 
   const resourceLinks = [
-    { name: 'Our Retail Management', path: '/retail-management' },
     { name: 'Trade Enquiry', path: '/trade-enquiry' },
     { name: 'e-Quotation', path: '/e-quotation' },
     { name: 'e-Auction', path: '/e-auction' },
     { name: 'Trade Circular', path: '/trade-circular' },
+    { name: 'Blog', path: '/blog' },
     { name: 'Notice Board', path: '/notice-board' },
     { name: 'Career', path: '/career' },
     { name: 'Customer Review', path: '/customer-review' },
-    { name: 'Media Gallery', path: '/media-gallery' },
-    { name: 'Blog', path: '/blog' },
+    { name: 'Business Media Gallery', path: '/media-gallery' },
+    { name: 'FAQ', path: '/faq' },
   ];
 
   const isActive = (path) => location.pathname === path;
@@ -105,16 +106,25 @@ const Navbar = () => {
                   {/* Top accent */}
                   <div className="h-0.5 bg-[#D4A853]" />
                   <div className="py-3">
-                    {resourceLinks.map((link, i) => (
-                      <Link
-                        key={link.name}
-                        to={link.path}
-                        className="flex items-center px-5 py-2.5 text-[13px] text-white/75 hover:text-[#D4A853] hover:bg-white/5 transition-all duration-150 tracking-wider group"
-                      >
-                        <span className="w-1 h-1 rounded-full bg-[#D4A853]/40 group-hover:bg-[#D4A853] mr-3 transition-colors" />
-                        {link.name}
-                      </Link>
-                    ))}
+                    {resourceLinks.map((link, i) => {
+                      const active = isActive(link.path);
+                      return (
+                        <Link
+                          key={link.name}
+                          to={link.path}
+                          className={`flex items-center px-5 py-2.5 text-[13px] transition-all duration-150 tracking-wider group ${
+                            active
+                              ? 'text-[#D4A853] bg-white/5 font-medium'
+                              : 'text-white/75 hover:text-[#D4A853] hover:bg-white/5'
+                          }`}
+                        >
+                          <span className={`w-1.5 h-1.5 rounded-full mr-3 transition-colors ${
+                            active ? 'bg-[#D4A853]' : 'bg-[#D4A853]/40 group-hover:bg-[#D4A853]'
+                          }`} />
+                          {link.name}
+                        </Link>
+                      );
+                    })}
                   </div>
                 </motion.div>
               )}
@@ -171,15 +181,20 @@ const Navbar = () => {
                     exit={{ height: 0, opacity: 0 }}
                     className="overflow-hidden"
                   >
-                    {resourceLinks.map((link) => (
-                      <Link
-                        key={link.name}
-                        to={link.path}
-                        className="block py-2.5 pl-5 text-sm text-[#D4A853]/70 hover:text-[#D4A853] border-b border-white/5 tracking-wide transition-colors"
-                      >
-                        {link.name}
-                      </Link>
-                    ))}
+                    {resourceLinks.map((link) => {
+                      const active = isActive(link.path);
+                      return (
+                        <Link
+                          key={link.name}
+                          to={link.path}
+                          className={`block py-2.5 pl-5 text-sm border-b border-white/5 tracking-wide transition-colors ${
+                            active ? 'text-[#D4A853] font-medium' : 'text-[#D4A853]/70 hover:text-[#D4A853]'
+                          }`}
+                        >
+                          {link.name}
+                        </Link>
+                      );
+                    })}
                   </motion.div>
                 )}
               </AnimatePresence>

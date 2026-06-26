@@ -25,11 +25,11 @@ const Navbar = () => {
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
     { name: 'Products', path: '/products' },
-    { name: 'Contact', path: '/contact' },
+    { name: 'Contact Us', path: '/contact' },
+    { name: 'Our Retail Management', path: '/retail-management' },
   ];
 
   const moreLinks = [
-    { name: 'Retail Management', path: '/retail-management' },
     { name: 'Trade Enquiry', path: '/trade-enquiry' },
     { name: 'e-Quotation', path: '/e-quotation' },
     { name: 'e-Auction', path: '/e-auction' },
