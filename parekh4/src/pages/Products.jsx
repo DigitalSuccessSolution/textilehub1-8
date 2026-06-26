@@ -30,13 +30,13 @@ const allProducts = [
   {
     id: 5,
     name: 'Luxury Cotton Bedsheet Set',
-    category: 'Bedsheets',
+    category: 'Bedsheets & Linen',
     image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&auto=format&fit=crop&q=80',
   },
   {
     id: 6,
     name: 'Premium Cotton Hosiery',
-    category: 'Hosiery',
+    category: 'Hosiery Items',
     image: 'https://images.unsplash.com/photo-1586350977771-b3b0abd50c82?w=600&auto=format&fit=crop&q=80',
   },
   {
@@ -54,34 +54,41 @@ const allProducts = [
   {
     id: 9,
     name: 'Anarkali Ethnic Suit — Women',
-    category: "Women's Wear",
+    category: 'Formal & Ethnic Wear for Women',
     image: '/anarkali_ethnic_suit.png',
   },
   {
     id: 10,
     name: 'Sherwani — Men\'s Ethnic',
-    category: "Men's Wear",
+    category: 'Formal & Ethnic Wear for Men',
     image: 'https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600&auto=format&fit=crop&q=80',
   },
   {
     id: 11,
     name: 'Festive Wear — Children',
-    category: "Kids' Wear",
+    category: 'Formal & Ethnic Wear for Children',
     image: '/children_festive_wear.png',
   },
   {
     id: 12,
     name: 'Velvet Sofa Upholstery Fabric',
-    category: 'Home Furnishing',
+    category: 'Home Upholstery & Furnishing',
     image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&auto=format&fit=crop&q=80',
   },
 ];
 
 const categories = [
   'Sarees', 'Leggings', 'Kurtis', 'Dress Suits',
-  'Bedsheets', 'Hosiery', 'Suiting', 'Shirting',
-  "Women's Wear", "Men's Wear", "Kids' Wear", 'Home Furnishing',
+  'Bedsheets & Linen', 'Hosiery Items', 'Suiting', 'Shirting',
+  'Formal & Ethnic Wear for Women', 'Formal & Ethnic Wear for Men',
+  'Formal & Ethnic Wear for Children', 'Home Upholstery & Furnishing',
 ];
+
+const getColSpanClass = (length) => {
+  if (length < 10) return 'col-span-4 sm:col-auto';
+  if (length < 20) return 'col-span-6 sm:col-auto';
+  return 'col-span-12 sm:col-auto';
+};
 
 export default function Products() {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -104,14 +111,13 @@ export default function Products() {
       </div>
 
       {/* Category Filter */}
-      <div className="grid grid-cols-3 gap-1.5 sm:flex sm:flex-wrap sm:gap-3 mb-8 sm:mb-12">
+      <div className="grid grid-cols-12 gap-1.5 sm:flex sm:flex-wrap sm:gap-3 mb-8 sm:mb-12">
         <button
           onClick={() => setActiveCategory('All')}
-          className={`px-1.5 py-2 sm:px-6 sm:py-2.5 rounded-full text-[10px] sm:text-sm font-semibold transition-all border text-center truncate ${activeCategory === 'All'
-              ? 'bg-[#d8a5ad] text-white border-[#d8a5ad] shadow-md'
+          className={`col-span-4 sm:col-auto w-full py-2.5 px-2 rounded-full text-[10px] sm:text-sm font-semibold transition-all border text-center ${activeCategory === 'All'
+              ? 'bg-[#d8a5ad] text-white border-[#d8a5ad] shadow-sm'
               : 'bg-white text-gray-600 border-gray-200 hover:border-[#d8a5ad]'
             }`}
-          title="All"
         >
           All
         </button>
@@ -119,11 +125,10 @@ export default function Products() {
           <button
             key={cat}
             onClick={() => setActiveCategory(cat)}
-            className={`px-1.5 py-2 sm:px-6 sm:py-2.5 rounded-full text-[10px] sm:text-sm font-semibold transition-all border text-center truncate ${activeCategory === cat
-                ? 'bg-[#d8a5ad] text-white border-[#d8a5ad] shadow-md'
+            className={`${getColSpanClass(cat.length)} w-full py-2.5 px-2 rounded-full text-[10px] sm:text-sm font-semibold transition-all border text-center ${activeCategory === cat
+                ? 'bg-[#d8a5ad] text-white border-[#d8a5ad] shadow-sm'
                 : 'bg-white text-gray-600 border-gray-200 hover:border-[#d8a5ad]'
               }`}
-            title={cat}
           >
             {cat}
           </button>
