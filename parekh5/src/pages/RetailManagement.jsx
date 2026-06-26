@@ -3,94 +3,70 @@ import { motion } from 'framer-motion';
 import { Users, Mail } from 'lucide-react';
 
 const RetailManagement = () => {
-  const [hasTeamData, setHasTeamData] = useState(false);
-
   const teamMembers = [
     {
       id: 1,
       name: 'Rajesh Sharma',
       role: 'Managing Director',
-      image: null,
+      email: 'rajesh@textilemall.com',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&q=80',
     },
     {
       id: 2,
       name: 'Ananya Sharma',
       role: 'Head of Retail Operations',
-      image: null,
+      email: 'ananya@textilemall.com',
+      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop&q=80',
     },
     {
       id: 3,
       name: 'Vikram Mehta',
       role: 'Supply Chain Director',
-      image: null,
+      email: 'vikram@textilemall.com',
+      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&q=80',
     }
   ];
 
   return (
     <div className="pb-16 max-w-7xl mx-auto px-4">
-
-      
-      <div className="text-center py-10 mb-8">
-        <h1 className="font-playfair text-4xl lg:text-5xl text-[#1B484E] font-bold">Our Retail Management</h1>
-        <p className="text-gray-600 text-sm max-w-2xl mx-auto mt-4 leading-relaxed">
+      {/* Page Header conforming to unified heading style */}
+      <div className="text-center py-8 sm:py-10 mb-6 sm:mb-8">
+        <h1 className="font-playfair text-3xl sm:text-4xl lg:text-5xl text-[#1B484E] font-bold">Our Retail Management</h1>
+        <p className="text-gray-600 text-sm max-w-2xl mx-auto mt-4 leading-relaxed px-4">
           TEXTILE MALL is administered and governed by highly skilled, experienced and qualified Management.
         </p>
       </div>
 
-      <div className="mb-12 flex justify-center">
-        <button 
-          onClick={() => setHasTeamData(!hasTeamData)}
-          className="text-xs bg-[#1B484E] text-white px-5 py-2.5 rounded-full uppercase tracking-wider hover:bg-[#A8C6B6] transition-colors shadow-lg flex items-center gap-2"
-        >
-          <Users size={14} />
-          {hasTeamData ? "View Empty State" : "View Populated State"}
-        </button>
-      </div>
-
-      {!hasTeamData ? (
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-          className="bg-white rounded-[2rem] shadow-sm hover:shadow-md transition-shadow border border-gray-100 py-20 px-8 flex flex-col items-center justify-center max-w-3xl mx-auto"
-        >
-          <div className="w-20 h-20 bg-pearl-50 rounded-full flex items-center justify-center mb-6">
-            <Users size={32} className="text-[#A8C6B6]" />
-          </div>
-          <h3 className="text-xl md:text-2xl font-bold text-[#1B484E] uppercase tracking-wide mb-4">
-            No Leaders Listed
-          </h3>
-          <div className="bg-pearl-50 px-6 py-2 rounded-full border border-[#A8C6B6]/20">
-            <p className="text-[#A8C6B6] text-xs md:text-sm uppercase tracking-widest font-medium italic">
-              ( At present, team details are being updated )
-            </p>
-          </div>
-        </motion.div>
-      ) : (
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-5xl mx-auto"
-        >
-          {teamMembers.map((member) => (
-            <div key={member.id} className="bg-white group overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500 rounded-[2rem]">
-              <div className="relative overflow-hidden aspect-[3/4]">
-                <img 
-                  src={member.image || 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=800&q=80'} 
-                  alt={member.name} 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-[#1B484E]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                  <a href="#" className="w-10 h-10 bg-white/10 hover:bg-[#A8C6B6] rounded-full flex items-center justify-center text-white transition-colors backdrop-blur-sm">
-                    <Mail size={18} />
-                  </a>
-                </div>
-              </div>
-              <div className="p-6 text-center border-t border-[#A8C6B6]/20 relative">
-                <h3 className="text-xl font-playfair font-bold text-[#1B484E] mb-1">{member.name}</h3>
-                <p className="text-xs uppercase tracking-widest text-[#A8C6B6] font-medium">{member.role}</p>
-              </div>
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }} 
+        animate={{ opacity: 1, y: 0 }}
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto px-4"
+      >
+        {teamMembers.map((member) => (
+          <div 
+            key={member.id} 
+            className="bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow rounded-2xl p-6 text-center flex flex-col items-center"
+          >
+            {/* Rounded profile photo */}
+            <div className="w-24 h-24 rounded-full overflow-hidden mb-4 border-2 border-[#A8C6B6]/30 shadow-sm">
+              <img 
+                src={member.image} 
+                alt={member.name} 
+                className="w-full h-full object-cover"
+              />
             </div>
-          ))}
-        </motion.div>
-      )}
+            <h3 className="text-lg font-playfair font-bold text-[#1B484E] mb-1">{member.name}</h3>
+            <p className="text-xs uppercase tracking-widest text-[#A8C6B6] font-bold mb-3">{member.role}</p>
+            
+            <a 
+              href={`mailto:${member.email}`} 
+              className="w-8 h-8 bg-pearl-50 hover:bg-[#1B484E] hover:text-white rounded-full flex items-center justify-center text-gray-500 transition-colors border border-gray-100"
+            >
+              <Mail size={14} />
+            </a>
+          </div>
+        ))}
+      </motion.div>
     </div>
   );
 };

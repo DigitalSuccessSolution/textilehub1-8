@@ -1,18 +1,30 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ClipboardCheck, Inbox, FileText, Send, Mail } from 'lucide-react';
+import { ClipboardCheck, Inbox, FileText, Send } from 'lucide-react';
 
 const EQuotation = () => {
+  const activeQuotations = [
+    {
+      id: 1,
+      title: "Bulk Cotton Fabrics Q4 Supply",
+      description: "Request for price quotes on high-grade carded cotton shirting fabrics, 150-180 GSM, volume 5000+ meters.",
+      date: "Oct 25, 2026"
+    },
+    {
+      id: 2,
+      title: "Premium Banarasi Silk Saree Wholesale",
+      description: "Price solicitation for 200 units of Handloom Banarasi Silk Sarees for festive seasonal retail stock.",
+      date: "Nov 02, 2026"
+    }
+  ];
+
   return (
     <div className="pb-20 max-w-7xl mx-auto px-4 md:px-8">
-      {/* Page Header */}
-      <div className="py-10 mb-2 text-center">
-        <h1 className="font-playfair text-5xl lg:text-6xl text-[#1B484E] font-bold  tracking-wide">
+      {/* Page Header conforming to unified heading style */}
+      <div className="text-center py-8 sm:py-10 mb-6 sm:mb-8">
+        <h1 className="font-playfair text-3xl sm:text-4xl lg:text-5xl text-[#1B484E] font-bold">
           e-Quotation
         </h1>
-        <p className="text-gray-600 text-xs md:text-sm uppercase tracking-wider mt-4 font-medium">
-          Request a Price Quotes
-        </p>
       </div>
 
       {/* Main Content Area */}
@@ -25,11 +37,19 @@ const EQuotation = () => {
             <h2 className="text-[#1B484E] font-bold text-lg md:text-xl uppercase tracking-wide">Active Quotation Requests</h2>
           </div>
           
-          <div className="bg-white rounded-2xl py-16 flex flex-col items-center justify-center border border-gray-100 shadow-sm">
-            <Inbox size={40} className="text-gray-300 mb-4 stroke-1" />
-            <p className="text-[#A8C6B6] font-bold text-xs tracking-widest ">
-              ( At present, No e-Quotation published )
-            </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {activeQuotations.map((quote) => (
+              <div key={quote.id} className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex gap-4 hover:shadow-md transition-shadow">
+                <div className="w-12 h-12 rounded-xl bg-[#A8C6B6]/10 flex items-center justify-center text-[#1B484E] shrink-0">
+                  <FileText size={22} />
+                </div>
+                <div>
+                  <h3 className="font-bold text-[#1B484E] text-base sm:text-lg mb-1.5 leading-snug">{quote.title}</h3>
+                  <p className="text-gray-600 text-sm mb-3 leading-relaxed">{quote.description}</p>
+                  <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Due Date: {quote.date}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </motion.div>
 
@@ -120,12 +140,7 @@ const EQuotation = () => {
               </button>
             </div>
 
-            <div className="pt-8 text-center flex items-center justify-center gap-2">
-              <Mail size={14} className="text-[#A8C6B6]" />
-              <a href="mailto:info@textilemall.com" className="text-[#A8C6B6] text-[11px] font-bold tracking-widest hover:underline">
-                info@textilemall.com
-              </a>
-            </div>
+            
           </form>
         </motion.div>
       </div>

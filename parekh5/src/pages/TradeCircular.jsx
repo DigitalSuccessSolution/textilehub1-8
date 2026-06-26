@@ -14,8 +14,10 @@ const TradeCircular = () => {
     <div className="pb-16 max-w-5xl mx-auto px-4">
 
       
-      <div className="text-center py-10 mb-6">
-        <h1 className="font-playfair text-4xl lg:text-5xl text-[#1B484E] font-bold">Trade Circulars</h1>
+      <div className="text-center py-8 sm:py-10 mb-6 sm:mb-8">
+        <h1 className="font-playfair text-3xl sm:text-4xl lg:text-5xl text-[#1B484E] font-bold">
+          Trade Circulars
+        </h1>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

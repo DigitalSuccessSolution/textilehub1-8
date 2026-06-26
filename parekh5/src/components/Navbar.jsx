@@ -1,17 +1,34 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Navbar() {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
 
+  // Close menu and restore scroll on page change
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   const mainLinks = [
-    { name: 'Home Page', path: '/' },
+    { name: 'Home', path: '/' },
     { name: 'About us', path: '/about' },
     { name: 'Contact us', path: '/contact' },
-    { name: 'Product Page', path: '/products' },
+    { name: 'Product', path: '/products' },
     { name: 'Our Retail Management', path: '/retail-management' }
   ];
 
@@ -20,11 +37,12 @@ export default function Navbar() {
     { name: 'e-Quotation', path: '/e-quotation' },
     { name: 'e-Auction', path: '/e-auction' },
     { name: 'Trade Circular', path: '/trade-circular' },
-    { name: 'Blog Page', path: '/blog' },
+    { name: 'Blog', path: '/blog' },
     { name: 'Notice Board', path: '/notice-board' },
-    { name: 'Career Page', path: '/career' },
+    { name: 'Career', path: '/career' },
     { name: 'Customer Review', path: '/reviews' },
-    { name: 'Business Media Gallery', path: '/gallery' }
+    { name: 'Business Media Gallery', path: '/gallery' },
+    { name: 'FAQ', path: '/faq' }
   ];
 
   // Helper to check if any resources link is active
@@ -36,9 +54,9 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <Link to="/" className="flex flex-col items-center">
-              <span className="font-playfair text-2xl tracking-wider font-bold text-[#1B484E]">TEXTILE MALL</span>
-              <span className="text-[10px] tracking-widest uppercase text-gray-500 font-outfit mt-1">Threads of Trust, Style for Generations</span>
+            <Link to="/" className="flex flex-col items-center text-center">
+              <span className="font-playfair text-xl sm:text-2xl tracking-wider font-bold text-[#1B484E]">TEXTILE MALL</span>
+              <span className="text-[8px] sm:text-[10px] tracking-widest uppercase text-gray-500 font-outfit mt-1 max-w-[180px] xs:max-w-none leading-tight">India's retail mall</span>
             </Link>
           </div>
 
@@ -107,8 +125,8 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="lg:hidden bg-white border-t border-gray-100 max-h-[80vh] overflow-y-auto custom-scrollbar">
-          <div className="px-2 pt-2 pb-6 space-y-1 sm:px-3">
+        <div className="lg:hidden bg-white border-t border-gray-100 fixed inset-x-0 bottom-0 top-20 z-40 overflow-y-auto custom-scrollbar">
+          <div className="px-4 pt-4 pb-12 space-y-1 sm:px-6">
             {mainLinks.map((link) => (
               <Link
                 key={link.name}

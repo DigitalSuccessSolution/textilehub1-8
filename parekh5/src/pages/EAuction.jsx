@@ -1,18 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Gavel, Inbox, UploadCloud, Send, Mail } from 'lucide-react';
+import { Gavel, Inbox, UploadCloud, Send } from 'lucide-react';
 
 const EAuction = () => {
+  const [fileName, setFileName] = useState("");
+  const activeAuctions = [
+    {
+      id: 1,
+      title: "Premium Surplus Silk Fabrics",
+      description: "Liquidation of high-grade surplus silk woven fabrics from Karnataka manufacturing unit. Total stock: 2,500 meters.",
+      date: "Bidding ends: Nov 10, 2026",
+      image: "https://images.unsplash.com/photo-1606744824163-985d376605aa?w=600&auto=format&fit=crop&q=80"
+    },
+    {
+      id: 2,
+      title: "Imported Linen Stock Bidding",
+      description: "Direct clearance auction of pure linen fabrics, multi-color stock, suitable for designer shirts & upholstery.",
+      date: "Bidding ends: Nov 15, 2026",
+      image: "https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?w=600&auto=format&fit=crop&q=80"
+    }
+  ];
+
   return (
     <div className="pb-20 max-w-7xl mx-auto px-4 md:px-8">
-      {/* Page Header */}
-      <div className="py-10 mb-2 text-center">
-        <h1 className="font-playfair text-5xl lg:text-6xl text-[#1B484E] font-bold  tracking-wide">
+      {/* Page Header conforming to unified heading style */}
+      <div className="text-center py-8 sm:py-10 mb-6 sm:mb-8">
+        <h1 className="font-playfair text-3xl sm:text-4xl lg:text-5xl text-[#1B484E] font-bold">
           e-Auction
         </h1>
-        <p className="text-gray-600 text-xs md:text-sm uppercase tracking-wider mt-4 font-medium">
-          Digital liquidation and transparent auction system across our corporate ecosystem.
-        </p>
       </div>
 
       {/* Main Content Area */}
@@ -22,14 +37,24 @@ const EAuction = () => {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-10">
           <div className="flex items-center gap-3 mb-4">
             <Gavel size={20} className="text-[#A8C6B6]" />
-            <h2 className="text-[#1B484E] font-playfair font-bold text-xl">Active e-Auctions</h2>
+            <h2 className="text-[#1B484E] font-bold text-lg md:text-xl  tracking-wide">Active e-Auctions</h2>
           </div>
           
-          <div className="bg-white rounded-2xl py-16 flex flex-col items-center justify-center border border-gray-100 shadow-sm">
-            <Inbox size={40} className="text-gray-300 mb-4 stroke-1" />
-            <p className="text-[#A8C6B6] font-bold text-sm tracking-wide">
-              At present, No e-Auction published
-            </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {activeAuctions.map((auction) => (
+              <div key={auction.id} className="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col sm:flex-row">
+                <div className="sm:w-1/3 h-48 sm:h-auto relative shrink-0">
+                  <img src={auction.image} alt={auction.title} className="absolute inset-0 w-full h-full object-cover" />
+                </div>
+                <div className="p-6 flex flex-col justify-between flex-grow">
+                  <div>
+                    <h3 className="font-bold text-[#1B484E] text-base sm:text-lg mb-1.5 leading-snug">{auction.title}</h3>
+                    <p className="text-gray-600 text-sm mb-4 leading-relaxed">{auction.description}</p>
+                  </div>
+                  <p className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">{auction.date}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </motion.div>
 
@@ -40,8 +65,8 @@ const EAuction = () => {
               <Gavel size={24} className="text-[#A8C6B6]" />
             </div>
             <div>
-              <h2 className="text-[#1B484E] font-playfair font-bold text-2xl uppercase tracking-wide">Participation Registration</h2>
-              <p className="text-gray-400 text-xs uppercase tracking-widest font-bold mt-1">Register your interest for upcoming auctions</p>
+              <h2 className="text-[#1B484E] font-bold text-xl uppercase tracking-wide">Participation Registration</h2>
+              <p className="text-gray-400 text-[10px] uppercase tracking-widest font-bold mt-1">Register your interest for upcoming auctions</p>
             </div>
           </div>
 
@@ -62,7 +87,7 @@ const EAuction = () => {
 
               <div>
                 <label className="block text-[10px] uppercase tracking-widest text-[#1B484E] font-bold mb-2">
-                  Business Address with PIN Code <span className="text-[#A8C6B6]">*</span>
+                  Business Address with Pin Code <span className="text-[#A8C6B6]">*</span>
                 </label>
                 <input type="text" className="w-full px-4 py-3 bg-[#fcfbf9] rounded-xl border border-gray-200 focus:outline-none focus:border-[#A8C6B6] transition-colors" required />
               </div>
@@ -89,13 +114,30 @@ const EAuction = () => {
 
             <div className="pt-4">
               <label className="block text-[10px] uppercase tracking-widest text-[#1B484E] font-bold mb-3">
-                Upload GST Certificate
+                Upload GST Certificate <span className="text-[#A8C6B6]">*</span>
               </label>
-              <div className="w-full border-2 border-dashed border-gray-200 rounded-2xl py-12 flex flex-col items-center justify-center bg-white hover:bg-gray-50 transition-colors cursor-pointer group">
+              <input 
+                type="file" 
+                id="gst-upload" 
+                accept=".pdf,.jpg,.jpeg,.png"
+                className="hidden" 
+                onChange={(e) => {
+                  if (e.target.files && e.target.files[0]) {
+                    setFileName(e.target.files[0].name);
+                  }
+                }}
+                required 
+              />
+              <label 
+                htmlFor="gst-upload"
+                className="w-full border-2 border-dashed border-gray-200 rounded-2xl py-12 flex flex-col items-center justify-center bg-white hover:bg-gray-50 transition-colors cursor-pointer group"
+              >
                 <UploadCloud size={32} className="text-gray-300 group-hover:text-[#A8C6B6] mb-3 transition-colors" />
-                <p className="text-gray-500 font-medium text-sm">Click to upload GST Certificate</p>
+                <p className="text-gray-500 font-medium text-sm">
+                  {fileName ? `Selected: ${fileName}` : "Click to upload GST Certificate"}
+                </p>
                 <p className="text-gray-400 text-xs mt-1 uppercase tracking-widest font-bold">PDF, JPG, PNG ACCEPTED</p>
-              </div>
+              </label>
             </div>
 
             <div className="pt-6">
@@ -107,12 +149,7 @@ const EAuction = () => {
               </button>
             </div>
 
-            <div className="pt-8 text-center flex items-center justify-center gap-2">
-              <Mail size={14} className="text-[#A8C6B6]" />
-              <a href="mailto:info@textilemall.com" className="text-[#A8C6B6] text-[11px] font-bold tracking-widest hover:underline">
-                info@textilemall.com
-              </a>
-            </div>
+            
           </form>
         </motion.div>
       </div>

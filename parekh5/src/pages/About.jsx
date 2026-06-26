@@ -6,9 +6,8 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Page Header */}
-        <div className="mb-12 md:mb-16">
-          <p className="text-[#1B484E] font-bold tracking-[0.2em] uppercase text-sm mb-2">Our Story</p>
-          <h1 className="font-playfair text-5xl text-[#1B484E] font-bold">About Us</h1>
+        <div className="text-center py-8 sm:py-10 mb-6 sm:mb-8">
+          <h1 className="font-playfair text-3xl sm:text-4xl lg:text-5xl text-[#1B484E] font-bold">About Us</h1>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">

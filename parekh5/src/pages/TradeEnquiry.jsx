@@ -2,16 +2,17 @@ import { motion } from 'framer-motion';
 
 export default function TradeEnquiry() {
   return (
-    <div className="space-y-16">
-      <div className="text-center py-12">
-        
-        <h1 className="font-playfair text-5xl text-sapphire-900">Trade Enquiry</h1>
-        <p className="mt-6 max-w-2xl mx-auto text-sapphire-800/70">
+    <div className="space-y-8 sm:space-y-16">
+      <div className="text-center py-8 sm:py-10 mb-6 sm:mb-8">
+        <h1 className="font-playfair text-3xl sm:text-4xl lg:text-5xl text-[#1B484E] font-bold">
+          Trade Enquiry
+        </h1>
+        <p className="mt-4 max-w-2xl mx-auto text-gray-500 px-4 text-sm sm:text-base font-medium">
           We welcome bulk orders, wholesale partnerships, and custom textile manufacturing requests. Fill out the form below to begin our collaboration.
         </p>
       </div>
 
-      <div className="max-w-3xl mx-auto bg-white p-10 md:p-14 rounded-3xl shadow-xl border border-pearl-100">
+      <div className="max-w-3xl mx-auto bg-white p-6 sm:p-10 md:p-14 rounded-3xl shadow-xl border border-pearl-100 mx-4 sm:mx-auto">
         <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
           <div className="space-y-6">
             <h3 className="font-playfair text-2xl text-sapphire-900 border-b border-pearl-100 pb-4">Company Details</h3>
@@ -69,7 +70,7 @@ export default function TradeEnquiry() {
             </div>
           </div>
 
-          <button className="w-full bg-sapphire-900 text-pearl-50 py-4 rounded-lg font-medium tracking-wide hover:bg-rosegold-400 hover:text-sapphire-900 transition-colors mt-8">
+          <button className="w-full bg-[#1B484E] text-white py-4 rounded-lg font-medium tracking-wide hover:bg-[#A8C6B6] transition-colors mt-8">
             Submit Trade Enquiry
           </button>
         </form>

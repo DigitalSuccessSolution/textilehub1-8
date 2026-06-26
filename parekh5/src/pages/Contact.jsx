@@ -4,6 +4,11 @@ import { motion } from 'framer-motion';
 export default function Contact() {
   return (
     <div className="pt-12 pb-10 max-w-6xl mx-auto px-4">
+      <div className="text-center py-8 sm:py-10 mb-6 sm:mb-8">
+        <h1 className="font-playfair text-3xl sm:text-4xl lg:text-5xl text-[#1B484E] font-bold">
+          Contact Us
+        </h1>
+      </div>
 
       <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-start">
         {/* Left Column */}
