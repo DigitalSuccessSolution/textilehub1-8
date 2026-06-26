@@ -19,17 +19,17 @@ const Blog = () => {
         <div className="max-w-7xl mx-auto px-5 md:px-8">
 
           {/* Title and paragraph description */}
-          <div className="mb-10">
+          <div className="text-center max-w-2xl mx-auto mb-10">
             <p className="text-[#D4A853] text-xs uppercase tracking-[0.4em] font-medium mb-3">Insights & Stories</p>
             <h2 className="text-4xl font-serif font-light text-[#0B1C3E]">From Our Desk</h2>
-            <div className="w-12 h-0.5 bg-[#D4A853] mt-4 mb-5" />
-            <p className="text-[#6B7A99] font-light text-sm md:text-base max-w-2xl leading-relaxed">
+            <div className="w-12 h-0.5 bg-[#D4A853] mx-auto mt-4 mb-5" />
+            <p className="text-[#6B7A99] font-light text-sm md:text-base leading-relaxed">
               Explore our curated articles on luxury weaving heritage, home decor trends, and master tailoring advice.
             </p>
           </div>
 
           {/* Categories Filter Tabs */}
-          <div className="flex flex-wrap gap-2 mb-12">
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
             {categoriesList.map((cat) => (
               <button
                 key={cat}

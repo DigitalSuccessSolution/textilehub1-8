@@ -1,6 +1,6 @@
 import React from 'react';
 import PageHeader from '../components/ui/PageHeader';
-import { Briefcase, MapPin, Mail } from 'lucide-react';
+import { Briefcase, MapPin, Mail, IndianRupee } from 'lucide-react';
 
 const Career = () => {
   const jobs = [
@@ -8,32 +8,28 @@ const Career = () => {
       id: 1,
       title: 'Retail Operations Manager',
       location: 'Mumbai, India',
-      type: 'Full-time',
-      experience: '5-8 Years',
+      salary: '₹8,00,000 - ₹12,00,000 P.A.',
       description: 'Oversee daily store operations, manage staff, and ensure a premium customer experience across our flagship retail outlets.',
     },
     {
       id: 2,
       title: 'Senior Fabric Technologist',
       location: 'Surat, India',
-      type: 'Full-time',
-      experience: '7+ Years',
+      salary: '₹10,00,000 - ₹15,00,000 P.A.',
       description: 'Lead quality control for incoming fabrics, develop new textile blends, and maintain our high standards of material excellence.',
     },
     {
       id: 3,
       title: 'B2B Sales Executive',
       location: 'Delhi, India',
-      type: 'Full-time',
-      experience: '2-4 Years',
+      salary: '₹4,00,000 - ₹6,00,000 P.A.',
       description: 'Expand our wholesale network, acquire new B2B accounts, and maintain strong relationships with our key clients.',
     },
     {
       id: 4,
       title: 'Digital Marketing Specialist',
       location: 'Remote',
-      type: 'Full-time',
-      experience: '3+ Years',
+      salary: '₹5,00,000 - ₹8,00,000 P.A.',
       description: 'Drive our online presence, manage social media campaigns, and optimize e-commerce conversion rates.',
     },
   ];
@@ -45,10 +41,9 @@ const Career = () => {
       <div className="bg-[#FAF7F0] py-24">
         <div className="max-w-7xl mx-auto px-5 md:px-8">
 
-          <div className="max-w-2xl mb-16">
-            <p className="text-[#D4A853] text-xs uppercase tracking-[0.4em] font-medium mb-4">Join Our Team</p>
+          <div className="text-center max-w-2xl mx-auto mb-16">
             <h2 className="text-4xl font-serif font-light text-[#0B1C3E] mb-4">Join Our Journey</h2>
-            <div className="w-12 h-0.5 bg-[#D4A853] mb-6" />
+            <div className="w-12 h-0.5 bg-[#D4A853] mx-auto mb-6" />
             <p className="text-[#6B7A99] text-sm leading-relaxed font-light">
               At Lumina Textiles, we believe our people are the fabric of our success. We offer a dynamic work environment where tradition meets innovation. Explore our current openings and become part of a legacy.
             </p>
@@ -65,7 +60,7 @@ const Career = () => {
                       <MapPin size={12} className="text-[#D4A853]" /> {job.location}
                     </div>
                     <div className="flex items-center gap-2.5 text-xs text-[#6B7A99]">
-                      <Briefcase size={12} className="text-[#D4A853]" /> {job.type} · {job.experience}
+                      <IndianRupee size={12} className="text-[#D4A853]" /> {job.salary}
                     </div>
                     <div className="flex items-center gap-2.5 text-xs text-[#6B7A99]">
                       <Mail size={12} className="text-[#D4A853]" />

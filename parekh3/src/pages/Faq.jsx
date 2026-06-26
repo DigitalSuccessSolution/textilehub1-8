@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PageHeader from '../components/ui/PageHeader';
 import { HelpCircle, ChevronDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Faq = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -98,12 +99,12 @@ const Faq = () => {
               If you couldn't find the answers you were looking for, please submit a trade enquiry or get in touch with our support desk.
             </p>
             <div className="pt-2">
-              <a 
-                href="/contact" 
+              <Link 
+                to="/contact" 
                 className="inline-block bg-[#D4A853] text-[#0B1C3E] px-8 py-3 text-xs font-semibold uppercase tracking-widest hover:bg-white hover:text-[#0B1C3E] transition-all duration-300"
               >
                 Contact Support
-              </a>
+              </Link>
             </div>
           </div>
 

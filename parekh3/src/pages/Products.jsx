@@ -7,7 +7,7 @@ const Products = () => {
   const [activeCategory, setActiveCategory] = useState('All');
 
   const allProducts = [
-    { id: 101, name: 'Premium Banarasi Silk Saree', category: 'Sarees', price: '$120', image: 'https://images.unsplash.com/photo-1583391733958-650fac5ecf7c?auto=format&fit=crop&q=80&w=800' },
+    { id: 101, name: 'Premium Banarasi Silk Saree', category: 'Sarees', price: '$120', image: 'https://images.unsplash.com/photo-1727430228383-aa1fb59db8bf?w=800&auto=format&fit=crop&q=80' },
     { id: 102, name: 'Premium Stretch Cotton Leggings', category: 'Leggings', price: '$25', image: 'https://images.unsplash.com/photo-1644225450138-9f4f9e2d4582?w=600&auto=format&fit=crop&q=60' },
     { id: 103, name: 'Designer Georgette Anarkali Kurti', category: 'Kurtis', price: '$85', image: 'https://images.unsplash.com/photo-1741847639057-b51a25d42892?w=600&auto=format&fit=crop&q=60' },
     { id: 104, name: 'Embroidered Salwar Kameez Suit', category: 'Dress Suits', price: '$95', image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&q=80&w=800' },

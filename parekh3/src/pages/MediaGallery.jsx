@@ -21,8 +21,15 @@ const MediaGallery = () => {
       <div className="bg-[#FAF7F0] py-24">
         <div className="max-w-7xl mx-auto px-5 md:px-8">
 
+          {/* Description Paragraph */}
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <p className="text-sm text-[#6B7A99] font-light leading-relaxed">
+              Explore our visual journey through major retail events, flagship store launches, and international exhibitions. Filter the collection to view specific highlights from our business media updates.
+            </p>
+          </div>
+
           {/* Filter tabs */}
-          <div className="flex flex-wrap gap-2 mb-12">
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
             {filters.map((f) => (
               <button
                 key={f}

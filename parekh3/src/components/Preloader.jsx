@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const Preloader = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState(0);
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -16,13 +17,18 @@ const Preloader = ({ children }) => {
       });
     }, 80);
 
+    let popupTimer;
     const timer = setTimeout(() => {
       setLoading(false);
+      popupTimer = setTimeout(() => {
+        setShowPopup(true);
+      }, 800);
     }, 2400);
 
     return () => {
       clearInterval(interval);
       clearTimeout(timer);
+      if (popupTimer) clearTimeout(popupTimer);
     };
   }, []);
 
@@ -98,6 +104,71 @@ const Preloader = ({ children }) => {
                 </p>
               </motion.div>
             </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {showPopup && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[110] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+          >
+            {/* Click outside to close */}
+            <div className="absolute inset-0" onClick={() => setShowPopup(false)} />
+            
+            <motion.div
+              initial={{ scale: 0.9, y: 20, opacity: 0 }}
+              animate={{ scale: 1, y: 0, opacity: 1 }}
+              exit={{ scale: 0.9, y: 20, opacity: 0 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+              className="relative w-full max-w-md bg-[#0B1C3E] border border-[#D4A853]/30 p-8 text-center overflow-hidden shadow-[0_25px_60px_-15px_rgba(0,0,0,0.5)]"
+            >
+              {/* Gold decorative borders in corners */}
+              <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#D4A853]/40" />
+              <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-[#D4A853]/40" />
+              <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-[#D4A853]/40" />
+              <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#D4A853]/40" />
+
+              {/* Close Button */}
+              <button
+                onClick={() => setShowPopup(false)}
+                className="absolute top-4 right-4 text-white/50 hover:text-[#D4A853] transition-colors p-1"
+                aria-label="Close popup"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+
+              {/* Content */}
+              <div className="relative z-10 py-2">
+                {/* Gold diamond ornament */}
+                <div className="w-2.5 h-2.5 bg-[#D4A853] rotate-45 mx-auto mb-4" />
+                
+                <h3 className="text-xs uppercase tracking-[0.25em] text-[#D4A853] font-medium mb-1">
+                  Welcome to
+                </h3>
+                <h2 className="text-3xl font-serif text-white tracking-[0.1em] mb-4">
+                  Lumina Textiles
+                </h2>
+                
+                <div className="w-12 h-[1px] bg-[#D4A853]/40 mx-auto mb-5" />
+                
+                <p className="text-xs sm:text-sm text-white/80 leading-relaxed font-light mb-6 px-2">
+                  Experience the fine art of premium fabrics. From exquisite Banarasi silk sarees to custom suiting and luxury furnishings, discover elegance crafted for generations.
+                </p>
+                
+                <button
+                  onClick={() => setShowPopup(false)}
+                  className="bg-[#D4A853] hover:bg-[#c29642] text-[#0B1C3E] text-xs uppercase tracking-widest font-semibold px-8 py-3 transition-colors duration-300"
+                >
+                  Explore Collection
+                </button>
+              </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
