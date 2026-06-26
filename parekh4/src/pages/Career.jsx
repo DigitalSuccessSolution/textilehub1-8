@@ -8,32 +8,28 @@ const Career = () => {
       id: 1,
       title: 'Retail Operations Manager',
       location: 'Mumbai, India',
-      type: 'Full-time',
-      experience: '5-8 Years',
+      salary: '₹65,000 - ₹84,000 / Month',
       description: 'Oversee daily store operations, manage staff, and ensure a premium customer experience across our flagship retail outlets.',
     },
     {
       id: 2,
       title: 'Senior Fabric Technologist',
       location: 'Surat, India',
-      type: 'Full-time',
-      experience: '7+ Years',
+      salary: '₹80,000 - ₹1,10,000 / Month',
       description: 'Lead quality control for incoming fabrics, develop new textile blends, and maintain our high standards of material excellence.',
     },
     {
       id: 3,
       title: 'B2B Sales Executive',
       location: 'Delhi, India',
-      type: 'Full-time',
-      experience: '2-4 Years',
+      salary: '₹40,000 - ₹55,000 / Month',
       description: 'Expand our wholesale network, acquire new B2B accounts, and maintain strong relationships with our key clients.',
     },
     {
       id: 4,
       title: 'Digital Marketing Specialist',
       location: 'Remote',
-      type: 'Full-time',
-      experience: '3+ Years',
+      salary: '₹50,000 - ₹70,000 / Month',
       description: 'Drive our online presence, manage social media campaigns, and optimize e-commerce conversion rates.',
     },
   ];
@@ -41,7 +37,7 @@ const Career = () => {
   return (
     <div className="pb-12 sm:pb-16 max-w-7xl mx-auto">
       <div className="text-center py-8 sm:py-10 mb-6 sm:mb-8">
-        <h1 className="font-playfair text-3xl sm:text-4xl lg:text-5xl text-[#2d0a4e] font-bold">Career Page</h1>
+        <h1 className="font-playfair text-3xl sm:text-4xl lg:text-5xl text-[#2d0a4e] font-bold">Career</h1>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8">
@@ -61,7 +57,7 @@ const Career = () => {
                   <MapPin size={14} className="text-[#d8a5ad] shrink-0" /> {job.location}
                 </div>
                 <div className="flex items-center gap-2.5 sm:gap-3 text-xs sm:text-sm font-bold text-gray-500">
-                  <Briefcase size={14} className="text-[#d8a5ad] shrink-0" /> {job.type} · {job.experience}
+                  <Briefcase size={14} className="text-[#d8a5ad] shrink-0" /> {job.salary}
                 </div>
                 <div className="flex items-start gap-2.5 sm:gap-3 text-xs sm:text-sm font-bold text-gray-500">
                   <Mail size={14} className="text-[#d8a5ad] shrink-0 mt-0.5" />
