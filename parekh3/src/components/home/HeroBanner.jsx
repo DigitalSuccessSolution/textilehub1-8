@@ -65,14 +65,14 @@ const HeroBanner = () => {
           >
             <Link
               to="/products"
-              className="group inline-flex items-center gap-3 bg-[#D4A853] text-[#0B1C3E] px-8 py-4 text-sm font-semibold tracking-[0.1em] uppercase hover:bg-white transition-all duration-300"
+              className="group inline-flex items-center justify-center gap-3 bg-[#D4A853] text-[#0B1C3E] px-8 py-4 text-sm font-semibold tracking-[0.1em] uppercase hover:bg-white transition-all duration-300"
             >
               Explore Collection
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>
             <Link
               to="/about"
-              className="inline-flex items-center gap-3 border border-white/25 text-white px-8 py-4 text-sm font-medium tracking-[0.1em] uppercase hover:border-[#D4A853] hover:text-[#D4A853] transition-all duration-300"
+              className="inline-flex items-center justify-center gap-3 border border-white/25 text-white px-8 py-4 text-sm font-medium tracking-[0.1em] uppercase hover:border-[#D4A853] hover:text-[#D4A853] transition-all duration-300"
             >
               Our Heritage
             </Link>

@@ -57,14 +57,14 @@ const BrandStory = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 to="/about"
-                className="group inline-flex items-center gap-3 bg-[#0B1C3E] text-white px-8 py-3.5 text-xs font-medium tracking-widest uppercase hover:bg-[#D4A853] hover:text-[#0B1C3E] transition-all duration-300"
+                className="group inline-flex items-center justify-center gap-3 bg-[#0B1C3E] text-white px-8 py-3.5 text-xs font-medium tracking-widest uppercase hover:bg-[#D4A853] hover:text-[#0B1C3E] transition-all duration-300"
               >
                 Discover Our Story
                 <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-3 border border-[#D4A853] text-[#D4A853] px-8 py-3.5 text-xs font-medium tracking-widest uppercase hover:bg-[#D4A853] hover:text-[#0B1C3E] transition-all duration-300"
+                className="inline-flex items-center justify-center gap-3 border border-[#D4A853] text-[#D4A853] px-8 py-3.5 text-xs font-medium tracking-widest uppercase hover:bg-[#D4A853] hover:text-[#0B1C3E] transition-all duration-300"
               >
                 Contact Us
               </Link>

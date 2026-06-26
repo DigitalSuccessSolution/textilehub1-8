@@ -32,7 +32,7 @@ const Footer = () => {
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-3 mb-6 group">
               <div className="w-7 h-7 border border-[#D4A853] flex items-center justify-center rotate-45">
-                <span className="rotate-[-45deg] text-[#D4A853] text-xs font-serif font-bold">P</span>
+                <span className="rotate-[-45deg] text-[#D4A853] text-xs font-serif font-bold">L</span>
               </div>
               <div>
                 <span className="text-xl font-serif font-semibold text-white tracking-[0.2em]">LUMINA</span>

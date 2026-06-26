@@ -59,7 +59,7 @@ const Navbar = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-3 z-50 group">
           <div className="w-8 h-8 border border-[#D4A853] flex items-center justify-center rotate-45 group-hover:bg-[#D4A853] transition-colors duration-300">
-            <span className="rotate-[-45deg] text-[#D4A853] group-hover:text-[#0B1C3E] text-xs font-serif font-bold transition-colors duration-300">P</span>
+            <span className="rotate-[-45deg] text-[#D4A853] group-hover:text-[#0B1C3E] text-xs font-serif font-bold transition-colors duration-300">L</span>
           </div>
           <div className="flex flex-col">
             <span className="text-xl md:text-2xl font-serif font-semibold text-white tracking-[0.2em] leading-none">LUMINA</span>
