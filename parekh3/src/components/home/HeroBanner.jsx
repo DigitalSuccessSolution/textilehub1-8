@@ -39,11 +39,10 @@ const HeroBanner = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15 }}
-            className="text-6xl md:text-7xl lg:text-8xl font-serif font-light text-white leading-[1.05] mb-6"
+            className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-light text-white leading-[1.05] mb-6"
           >
             Threads of<br />
-            <em className="not-italic text-[#D4A853]">Timeless</em>
-            Elegance
+            <em className="not-italic text-[#D4A853] mr-2 sm:mr-3">Timeless</em>Elegance
           </motion.h1>
 
           {/* Subtext */}
