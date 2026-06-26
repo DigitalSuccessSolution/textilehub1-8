@@ -5,9 +5,8 @@ export default function Contact() {
   return (
     <div className="pt-12 flex flex-col bg-vastram-cream">
       <div className="max-w-6xl mx-auto px-4 w-full mb-12">
-        <div className="text-center mb-10">
-          <h1 className="font-playfair text-4xl text-vastram-text uppercase tracking-widest">Get In Touch</h1>
-          <div className="h-[2px] w-12 bg-vastram-gold mx-auto mt-4"></div>
+        <div className="text-center py-10 mb-8">
+          <h1 className="font-playfair text-4xl lg:text-5xl text-vastram-brown font-bold">Contact us</h1>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-start">

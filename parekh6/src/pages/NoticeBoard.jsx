@@ -1,21 +1,40 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Bell, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 const NoticeBoard = () => {
   const notices = [
-    { id: 1, title: 'Annual General Meeting 2026', date: 'Nov 01, 2026', isNew: true },
-    { id: 2, title: 'Warehouse Closure Notice for Maintenance (Mumbai Depot)', date: 'Oct 20, 2026', isNew: true },
-    { id: 3, title: 'Introduction of e-Way Bill Integration in Partner Portal', date: 'Sep 15, 2026', isNew: true },
-    { id: 4, title: 'Recruitment Drive for Zonal Sales Managers', date: 'Aug 22, 2026', isNew: true },
+    { 
+      id: 1, 
+      title: 'Annual General Meeting 2026', 
+      date: 'Nov 01, 2026', 
+      description: 'The Board of Directors cordially invites all shareholders to the Annual General Meeting of Textile Mall to discuss financial statements, dividend declarations, and future growth strategies.' 
+    },
+    { 
+      id: 2, 
+      title: 'Warehouse Closure Notice for Maintenance', 
+      date: 'Oct 20, 2026', 
+      description: 'Our main logistics hub in Mumbai will remain closed for biannual structural maintenance and inventory audit. Partners are advised to plan dispatch schedules accordingly.' 
+    },
+    { 
+      id: 3, 
+      title: 'Introduction of e-Way Bill Integration', 
+      date: 'Sep 15, 2026', 
+      description: 'Starting next month, our B2B partner portal will support automated e-way bill generation to speed up invoice clearing and improve dispatch logistics transparency.' 
+    },
+    { 
+      id: 4, 
+      title: 'Recruitment Drive for Zonal Sales Managers', 
+      date: 'Aug 22, 2026', 
+      description: 'We are expanding our retail footprint in Northern and Western regions. Applications are now open for experienced retail professionals to lead regional operations.' 
+    },
   ];
 
   return (
-    <div className="pb-20 pt-12 max-w-7xl mx-auto px-6 bg-vastram-cream min-h-screen">
+    <div className="pb-20 max-w-7xl mx-auto px-4 md:px-8">
       
-      <div className="text-center mb-16">
-        <h1 className="font-playfair text-5xl text-vastram-brown">Notice Board</h1>
-        <div className="h-[2px] w-12 bg-vastram-gold mx-auto mt-4"></div>
+      <div className="text-center py-10 mb-8">
+        <h1 className="font-playfair text-4xl lg:text-5xl text-vastram-brown font-bold">Notice Board</h1>
       </div>
 
       <motion.div 
@@ -26,31 +45,24 @@ const NoticeBoard = () => {
         {notices.map((notice) => (
           <div
             key={notice.id}
-            className={`group bg-vastram-light rounded-none border border-vastram-border p-8 cursor-pointer flex flex-col justify-between hover:border-vastram-gold transition-all duration-300 aspect-square ${
-              notice.isNew ? 'border-t-4 border-t-vastram-gold' : ''
-            }`}
+            className="group bg-white rounded-none border border-gray-100 p-6 md:p-8 cursor-pointer flex flex-col justify-between hover:border-vastram-gold hover:shadow-lg transition-all duration-300"
           >
             <div>
-              <div className="flex justify-between items-start mb-6">
-                <div className={`p-3 rounded-none ${notice.isNew ? 'bg-vastram-gold text-vastram-brown' : 'bg-vastram-border text-vastram-text/50'}`}>
-                  <Bell size={24} />
-                </div>
-                {notice.isNew && (
-                  <span className="bg-vastram-brown text-vastram-gold text-[9px] px-3 py-1 rounded-none uppercase tracking-widest font-bold">NEW</span>
-                )}
-              </div>
-              
-              <span className="text-[10px] text-vastram-text/60 font-bold uppercase tracking-[0.1em] block mb-3">
+              <span className="text-[10px] text-vastram-gold font-bold uppercase tracking-[0.1em] block mb-3">
                 {notice.date}
               </span>
               
-              <h3 className="text-lg font-playfair font-bold text-vastram-text group-hover:text-vastram-gold transition-colors leading-snug">
+              <h3 className="text-lg font-playfair font-bold text-vastram-brown group-hover:text-vastram-gold transition-colors leading-snug mb-3">
                 {notice.title}
               </h3>
+
+              <p className="text-gray-500 text-xs leading-relaxed">
+                {notice.description}
+              </p>
             </div>
             
-            <div className="mt-6 flex items-center text-[11px] font-bold tracking-widest text-vastram-text uppercase group-hover:text-vastram-gold transition-colors">
-              Read Details <ArrowRight size={14} className="ml-2 transform group-hover:translate-x-1 transition-transform" />
+            <div className="mt-6 pt-4 border-t border-gray-50 flex items-center text-[10px] font-bold tracking-widest text-vastram-brown uppercase group-hover:text-vastram-gold transition-colors">
+              Read Details <ArrowRight size={12} className="ml-2 transform group-hover:translate-x-1 transition-transform" />
             </div>
           </div>
         ))}

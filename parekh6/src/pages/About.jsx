@@ -6,9 +6,8 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Page Header */}
-        <div className="text-center mb-16">
-          <h1 className="font-playfair text-4xl text-vastram-text uppercase tracking-widest">Our Story</h1>
-          <div className="h-[2px] w-12 bg-vastram-gold mx-auto mt-4"></div>
+        <div className="text-center py-10 mb-8">
+          <h1 className="font-playfair text-4xl lg:text-5xl text-vastram-brown font-bold">About us</h1>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
@@ -19,11 +18,11 @@ export default function About() {
             animate={{ opacity: 1, x: 0 }}
             className="w-full lg:w-2/5 flex justify-center lg:justify-start"
           >
-            <div className="relative rounded-none overflow-hidden shadow-lg max-w-[280px] sm:max-w-xs md:max-w-sm w-full mx-auto lg:mx-0 border-4 border-vastram-light group">
+            <div className="relative rounded-none overflow-hidden shadow-lg max-w-[280px] sm:max-w-xs md:max-w-sm w-full mx-auto lg:mx-0 border-4 border-vastram-light">
               <img 
                 src="images/image copy.png" 
                 alt="About VASTRAM" 
-                className="w-full h-auto max-h-[450px] object-cover block transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-auto max-h-[450px] object-cover block"
               />
               <div className="absolute inset-0 bg-vastram-brown/10 mix-blend-multiply pointer-events-none"></div>
             </div>

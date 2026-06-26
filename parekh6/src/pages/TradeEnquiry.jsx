@@ -3,10 +3,9 @@ import { motion } from 'framer-motion';
 export default function TradeEnquiry() {
   return (
     <div className="space-y-16">
-      <div className="text-center py-12">
-        
-        <h1 className="font-playfair text-5xl text-vastram-brown">Trade Enquiry</h1>
-        <p className="mt-6 max-w-2xl mx-auto text-vastram-brown/70">
+      <div className="text-center py-10 mb-8">
+        <h1 className="font-playfair text-4xl lg:text-5xl text-vastram-brown font-bold">Trade Enquiry</h1>
+        <p className="mt-4 max-w-2xl mx-auto text-vastram-brown/70 text-sm">
           We welcome bulk orders, wholesale partnerships, and custom textile manufacturing requests. Fill out the form below to begin our collaboration.
         </p>
       </div>

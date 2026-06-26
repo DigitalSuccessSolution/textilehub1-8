@@ -28,7 +28,7 @@ const EQuotation = () => {
       </div>
 
       {/* Main Content Area */}
-      <div className="bg-[#fcfbf9] rounded-[2rem] p-6 md:p-10 lg:p-12 border border-gray-100 shadow-sm">
+      
         
         {/* Active Quotation Requests Section */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-10">
@@ -134,7 +134,7 @@ const EQuotation = () => {
             <div className="pt-6">
               <button
                 type="submit"
-                className="w-full bg-[#1B484E] text-white py-4 rounded-xl text-sm font-bold uppercase tracking-widest hover:bg-[#A8C6B6] transition-all duration-300 shadow-md flex items-center justify-center gap-3"
+                className="w-full bg-[#1B484E] text-white py-3.5 sm:py-4 rounded-xl text-xs sm:text-sm font-bold uppercase tracking-wide sm:tracking-widest hover:bg-[#A8C6B6] transition-all duration-300 shadow-md flex items-center justify-center gap-2 sm:gap-3"
               >
                 <Send size={16} /> Submit Quotation Request
               </button>
@@ -143,7 +143,7 @@ const EQuotation = () => {
             
           </form>
         </motion.div>
-      </div>
+      
     </div>
   );
 };

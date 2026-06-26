@@ -12,14 +12,14 @@ export default function Products() {
 
   const allProducts = [
     { id: 101, name: 'Premium Banarasi Silk Saree', category: 'Sarees', image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600&auto=format&fit=crop&q=80' },
-    { id: 102, name: 'Lycra Stretchable Active Leggings', category: 'Leggings', image: 'https://images.unsplash.com/photo-1556906781-9a412961c28c?w=600&auto=format&fit=crop&q=80' },
-    { id: 103, name: 'Designer Cotton Printed Kurti Set', category: 'Kurtis', image: 'https://images.unsplash.com/photo-1608748010899-18f300247112?w=600&auto=format&fit=crop&q=80' },
-    { id: 104, name: 'Traditional Embroidered Salwar Kameez Suit', category: 'Dress Suits', image: 'https://images.unsplash.com/photo-1583391733958-d25e07fac992?w=600&auto=format&fit=crop&q=80' },
+    { id: 102, name: 'Lycra Stretchable Active Leggings', category: 'Leggings', image: 'https://images.pexels.com/photos/16701769/pexels-photo-16701769.jpeg' },
+    { id: 103, name: 'Designer Cotton Printed Kurti Set', category: 'Kurtis', image: 'https://images.pexels.com/photos/20702674/pexels-photo-20702674.jpeg' },
+    { id: 104, name: 'Traditional Embroidered Salwar Kameez Suit', category: 'Dress Suits', image: 'https://images.pexels.com/photos/7679742/pexels-photo-7679742.jpeg' },
     { id: 105, name: 'Luxury Cotton Bedsheet Set', category: 'Bedsheets & Linen', image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&auto=format&fit=crop&q=80' },
-    { id: 106, name: 'Premium Cotton Socks & Hosiery Set', category: 'Hosiery Items', image: 'https://images.unsplash.com/photo-1582966772680-860e372bb558?w=600&auto=format&fit=crop&q=80' },
+    { id: 106, name: 'Premium Cotton Socks & Hosiery Set', category: 'Hosiery Items', image: 'https://images.pexels.com/photos/36501061/pexels-photo-36501061.jpeg' },
     { id: 107, name: 'Italian Wool Suiting Fabric', category: 'Suiting', image: 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&auto=format&fit=crop&q=80' },
     { id: 108, name: 'Oxford Cotton Shirting Fabric', category: 'Shirting', image: 'https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=600&auto=format&fit=crop&q=80' },
-    { id: 109, name: 'Bridal Designer Lehenga Choli', category: 'Formal & Ethnic Wear for Women', image: 'https://images.unsplash.com/photo-1610030469668-93535c17b6b3?w=600&auto=format&fit=crop&q=80' },
+    { id: 109, name: 'Bridal Designer Lehenga Choli', category: 'Formal & Ethnic Wear for Women', image: 'https://images.pexels.com/photos/5376740/pexels-photo-5376740.jpeg' },
     { id: 110, name: 'Designer Wedding Sherwani', category: 'Formal & Ethnic Wear for Men', image: 'https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600&auto=format&fit=crop&q=80' },
     { id: 111, name: 'Kids Traditional Kurta Pajama Set', category: 'Formal & Ethnic Wear for Children', image: 'https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?w=600&auto=format&fit=crop&q=80' },
     { id: 112, name: 'Luxury Velvet Window Curtains', category: 'Home Upholstery & Furnishing', image: 'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=600&auto=format&fit=crop&q=80' }

@@ -25,8 +25,8 @@ export default function CustomerReview() {
 
   return (
     <div className="pb-20 max-w-7xl mx-auto px-4">
-      <div className="text-center py-16">
-        <h1 className="font-playfair text-5xl text-vastram-brown">Customer Reviews</h1>
+      <div className="text-center py-10 mb-8">
+        <h1 className="font-playfair text-4xl lg:text-5xl text-vastram-brown font-bold">Customer Review</h1>
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">

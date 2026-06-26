@@ -1,60 +1,85 @@
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
 export default function BusinessMediaGallery() {
+  const [selectedCategory, setSelectedCategory] = useState('All');
+
   const galleryItems = [
     {
-      title: "Global Textile Summit 2026",
-      desc: "Our leadership team presenting the future of sustainable fabrics to international delegates and industry leaders.",
+      title: "Surat Mega Retail Mall Launch",
       category: "Event",
-      image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&auto=format&fit=crop&q=60"
+      date: "June 15, 2026",
+      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&auto=format&fit=crop&q=60"
     },
     {
-      title: "New Manufacturing Unit Inauguration",
-      desc: "Expanding our footprint with a state-of-the-art facility in Gujarat, boosting our production capacity by 40%.",
-      category: "Infrastructure",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&auto=format&fit=crop&q=60"
+      title: "Banarasi Silk Saree Showcase",
+      category: "Technology",
+      date: "May 20, 2026",
+      image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=800&auto=format&fit=crop&q=60"
     },
     {
-      title: "Award for Excellence in Exports",
-      desc: "Receiving the national award for outstanding contribution to textile exports from the Ministry of Commerce.",
+      title: "Designer Sherwani Collection",
+      category: "Launch",
+      date: "April 10, 2026",
+      image: "https://images.unsplash.com/photo-1617137968427-85924c800a22?w=800&auto=format&fit=crop&q=60"
+    },
+    {
+      title: "Premium Kids Festive Wear",
       category: "Achievement",
-      image: "https://images.unsplash.com/photo-1561489422-45de3d015e3e?w=800&auto=format&fit=crop&q=60"
+      date: "March 05, 2026",
+      image: "https://images.unsplash.com/photo-1622290319146-7b63df48a635?w=800&auto=format&fit=crop&q=60"
     },
     {
-      title: "Annual Retailers Meet",
-      desc: "Celebrating success and building stronger bonds with our 50,000+ retail partners across India.",
-      category: "Community",
-      image: "https://images.unsplash.com/photo-1515169067868-5387ec356754?w=800&auto=format&fit=crop&q=60"
-    },
-    {
-      title: "Launch of Eco-Weave Collection",
-      desc: "A milestone event marking our commitment to 100% organic materials and environmentally friendly dyes.",
-      category: "Product Launch",
-      image: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&auto=format&fit=crop&q=60"
-    },
-    {
-      title: "Skill Development Workshop",
-      desc: "Empowering local artisans and weavers with modern textile technologies to preserve heritage crafts.",
-      category: "CSR Initiative",
-      image: "https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?w=800&auto=format&fit=crop&q=60"
+      title: "Heritage Chikankari Collection",
+      category: "CSR",
+      date: "Feb 18, 2026",
+      image: "https://images.pexels.com/photos/8886951/pexels-photo-8886951.jpeg"
     }
   ];
 
+  const categories = ['All', 'Event', 'Technology', 'Launch', 'Achievement', 'CSR'];
+
+  const filteredItems = selectedCategory === 'All'
+    ? galleryItems
+    : galleryItems.filter(item => item.category === selectedCategory);
+
   return (
-    <div className="pb-20 max-w-7xl mx-auto px-4 bg-[#faf8f5]">
-      <div className="text-center py-16">
-        <h1 className="font-playfair text-5xl text-vastram-brown">Business Media Gallery</h1>
+    <div className="pb-20 max-w-7xl mx-auto px-4">
+      {/* Page Header */}
+      <div className="text-center py-10 mb-8">
+        <h1 className="font-playfair text-4xl lg:text-5xl text-vastram-brown font-bold">Business Media Gallery</h1>
+        <p className="text-gray-600 text-sm max-w-2xl mx-auto mt-4 leading-relaxed">
+          Explore images and highlights of our industrial operations, corporate events, global summits, and CSR initiatives.
+        </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-        {galleryItems.map((item, idx) => (
+      {/* Category Filters */}
+      <div className="flex flex-wrap justify-center gap-3 mb-12">
+        {categories.map((category) => (
+          <button
+            key={category}
+            onClick={() => setSelectedCategory(category)}
+            className={`text-xs px-5 py-2.5 rounded-none uppercase tracking-wider font-bold transition-all duration-300 border ${
+              selectedCategory === category
+                ? 'bg-vastram-brown text-white border-vastram-brown shadow-md'
+                : 'bg-white text-gray-600 border-gray-100 hover:border-vastram-gold hover:text-vastram-gold'
+            }`}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+
+      {/* Gallery Cards Grid */}
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 lg:gap-10">
+        {filteredItems.map((item, idx) => (
           <motion.div 
             key={idx}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: idx * 0.1 }}
-            className="bg-white rounded-none overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 group flex flex-col cursor-pointer"
+            className="bg-white rounded-none overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 group flex flex-col cursor-pointer p-2 md:p-4"
           >
             {/* Image Container */}
             <div className="w-full aspect-[4/3] overflow-hidden relative">
@@ -63,22 +88,20 @@ export default function BusinessMediaGallery() {
                 alt={item.title}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-vastram-brown/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              
               {/* Category Pill */}
-              <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-vastram-brown px-3 py-1 text-[10px] font-bold uppercase tracking-widest rounded-none shadow-sm">
+              <div className="absolute top-4 left-4 bg-vastram-brown text-white px-3 py-1 text-[10px] font-bold uppercase tracking-widest rounded-none shadow-sm">
                 {item.category}
               </div>
             </div>
 
             {/* Content Container */}
-            <div className="p-8 flex flex-col flex-1">
-              <h3 className="font-playfair text-xl font-bold text-vastram-brown mb-3 group-hover:text-vastram-gold transition-colors leading-snug">
+            <div className="pt-4 md:pt-6 flex flex-col flex-1">
+              <span className="text-[10px] text-vastram-gold font-bold uppercase tracking-wider mb-2">
+                {item.date}
+              </span>
+              <h3 className="font-playfair text-base md:text-lg font-bold text-vastram-brown group-hover:text-vastram-gold transition-colors leading-snug">
                 {item.title}
               </h3>
-              <p className="text-sm text-gray-500 leading-relaxed font-medium">
-                {item.desc}
-              </p>
             </div>
           </motion.div>
         ))}

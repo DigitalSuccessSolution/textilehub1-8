@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Navbar() {
   const location = useLocation();
@@ -8,10 +8,10 @@ export default function Navbar() {
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
 
   const mainLinks = [
-    { name: 'Home Page', path: '/' },
+    { name: 'Home', path: '/' },
     { name: 'About us', path: '/about' },
     { name: 'Contact us', path: '/contact' },
-    { name: 'Product Page', path: '/products' },
+    { name: 'Product', path: '/products' },
     { name: 'Our Retail Management', path: '/retail-management' }
   ];
 
@@ -20,15 +20,28 @@ export default function Navbar() {
     { name: 'e-Quotation', path: '/e-quotation' },
     { name: 'e-Auction', path: '/e-auction' },
     { name: 'Trade Circular', path: '/trade-circular' },
-    { name: 'Blog Page', path: '/blog' },
+    { name: 'Blog', path: '/blog' },
     { name: 'Notice Board', path: '/notice-board' },
-    { name: 'Career Page', path: '/career' },
+    { name: 'Career', path: '/career' },
     { name: 'Customer Review', path: '/reviews' },
-    { name: 'Business Media Gallery', path: '/gallery' }
+    { name: 'Business Media Gallery', path: '/gallery' },
+    { name: 'FAQ Page', path: '/faq' }
   ];
 
   // Helper to check if any resources link is active
   const isResourceActive = resourcesLinks.some(link => location.pathname === link.path);
+
+  // Disable body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
 
   return (
     <nav className="bg-vastram-light border-b border-vastram-border sticky top-0 z-50">
@@ -84,7 +97,13 @@ export default function Navbar() {
                             : 'text-vastram-text hover:bg-vastram-brown hover:text-vastram-cream'
                         }`}
                       >
-                        {link.name}
+                        {link.name === 'e-Quotation' ? (
+                          <span><span className="lowercase">e</span>-quotation</span>
+                        ) : link.name === 'e-Auction' ? (
+                          <span><span className="lowercase">e</span>-auction</span>
+                        ) : (
+                          link.name
+                        )}
                       </Link>
                     ))}
                   </div>
@@ -107,15 +126,15 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="lg:hidden bg-vastram-light border-t border-vastram-border max-h-[80vh] overflow-y-auto custom-scrollbar">
-          <div className="px-2 pt-2 pb-6 space-y-1 sm:px-3">
+        <div className="lg:hidden fixed top-20 left-0 right-0 bottom-0 bg-vastram-light z-50 overflow-y-auto px-6 py-8 border-t border-vastram-border flex flex-col justify-between">
+          <div className="space-y-6">
             {mainLinks.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
                 onClick={() => setIsOpen(false)}
-                className={`block px-4 py-3 rounded-none text-[13px] font-bold tracking-widest uppercase ${
-                  location.pathname === link.path ? 'text-vastram-gold bg-vastram-cream' : 'text-vastram-text hover:text-vastram-gold hover:bg-vastram-cream'
+                className={`block py-3 border-b border-vastram-border/50 text-[14px] font-bold tracking-widest uppercase transition-colors ${
+                  location.pathname === link.path ? 'text-vastram-gold' : 'text-vastram-text hover:text-vastram-gold'
                 }`}
               >
                 {link.name}
@@ -123,22 +142,30 @@ export default function Navbar() {
             ))}
             
             {/* Mobile Resources Section */}
-            <div className="mt-4 pt-4 border-t border-vastram-border">
-              <p className="px-4 text-[11px] font-bold text-vastram-gold tracking-[0.2em] uppercase mb-2">Resources</p>
-              {resourcesLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.path}
-                  onClick={() => setIsOpen(false)}
-                  className={`block px-6 py-2.5 rounded-none text-[13px] font-medium tracking-widest uppercase transition-colors ${
-                    location.pathname === link.path 
-                      ? 'bg-vastram-brown text-vastram-cream' 
-                      : 'text-vastram-text hover:bg-vastram-brown hover:text-vastram-cream'
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              ))}
+            <div className="pt-6 border-t border-vastram-border">
+              <p className="text-[11px] font-bold text-vastram-gold tracking-[0.2em] uppercase mb-4">Resources</p>
+              <div className="grid grid-cols-2 gap-x-4 gap-y-3">
+                {resourcesLinks.map((link) => (
+                  <Link
+                    key={link.name}
+                    to={link.path}
+                    onClick={() => setIsOpen(false)}
+                    className={`block py-2 text-[12px] font-semibold tracking-wider uppercase transition-colors ${
+                      location.pathname === link.path 
+                        ? 'text-vastram-gold' 
+                        : 'text-vastram-text hover:text-vastram-gold'
+                    }`}
+                  >
+                    {link.name === 'e-Quotation' ? (
+                      <span><span className="lowercase">e</span>-quotation</span>
+                    ) : link.name === 'e-Auction' ? (
+                      <span><span className="lowercase">e</span>-auction</span>
+                    ) : (
+                      link.name
+                    )}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         </div>

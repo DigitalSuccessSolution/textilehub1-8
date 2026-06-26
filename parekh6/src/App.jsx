@@ -15,17 +15,21 @@ import NoticeBoard from './pages/NoticeBoard';
 import Career from './pages/Career';
 import CustomerReview from './pages/CustomerReview';
 import BusinessMediaGallery from './pages/BusinessMediaGallery';
+import FAQ from './pages/FAQ';
 import Preloader from './components/Preloader';
 import ScrollToTop from './components/ScrollToTop';
+import Popup from './components/Popup';
 import { useState, useEffect } from 'react';
 
 function App() {
   const [loading, setLoading] = useState(true);
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     // Premium preloader timing
     const timer = setTimeout(() => {
       setLoading(false);
+      setShowPopup(true);
     }, 2000);
     return () => clearTimeout(timer);
   }, []);
@@ -37,24 +41,28 @@ function App() {
         {loading ? (
           <Preloader key="preloader" />
         ) : (
-          <Routes key="routes">
-            <Route path="/" element={<Layout />}>
-              <Route index element={<Home />} />
-              <Route path="about" element={<About />} />
-              <Route path="contact" element={<Contact />} />
-              <Route path="products" element={<Products />} />
-              <Route path="retail-management" element={<RetailManagement />} />
-              <Route path="trade-enquiry" element={<TradeEnquiry />} />
-              <Route path="e-quotation" element={<EQuotation />} />
-              <Route path="e-auction" element={<EAuction />} />
-              <Route path="trade-circular" element={<TradeCircular />} />
-              <Route path="blog" element={<Blog />} />
-              <Route path="notice-board" element={<NoticeBoard />} />
-              <Route path="career" element={<Career />} />
-              <Route path="reviews" element={<CustomerReview />} />
-              <Route path="gallery" element={<BusinessMediaGallery />} />
-            </Route>
-          </Routes>
+          <>
+            <Routes key="routes">
+              <Route path="/" element={<Layout />}>
+                <Route index element={<Home />} />
+                <Route path="about" element={<About />} />
+                <Route path="contact" element={<Contact />} />
+                <Route path="products" element={<Products />} />
+                <Route path="retail-management" element={<RetailManagement />} />
+                <Route path="trade-enquiry" element={<TradeEnquiry />} />
+                <Route path="e-quotation" element={<EQuotation />} />
+                <Route path="e-auction" element={<EAuction />} />
+                <Route path="trade-circular" element={<TradeCircular />} />
+                <Route path="blog" element={<Blog />} />
+                <Route path="notice-board" element={<NoticeBoard />} />
+                <Route path="career" element={<Career />} />
+                <Route path="reviews" element={<CustomerReview />} />
+                <Route path="gallery" element={<BusinessMediaGallery />} />
+                <Route path="faq" element={<FAQ />} />
+              </Route>
+            </Routes>
+            <Popup isOpen={showPopup} onClose={() => setShowPopup(false)} />
+          </>
         )}
       </AnimatePresence>
     </Router>

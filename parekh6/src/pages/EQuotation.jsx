@@ -1,35 +1,78 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ClipboardCheck, Inbox, FileText, Send, Mail } from 'lucide-react';
+import { ClipboardCheck, FileText, Send } from 'lucide-react';
 
 const EQuotation = () => {
   return (
     <div className="pb-20 max-w-7xl mx-auto px-4 md:px-8">
       {/* Page Header */}
-      <div className="py-10 mb-2 text-center">
-        <h1 className="font-playfair text-5xl text-vastram-brown">
-          e-Quotation
-        </h1>
-        <p className="text-gray-600 text-xs md:text-sm uppercase tracking-wider mt-4 font-medium">
-          Request a Price Quotes
-        </p>
+      <div className="text-center py-10 mb-8">
+        <h1 className="font-playfair text-4xl lg:text-5xl text-vastram-brown font-bold">e-Quotation</h1>
       </div>
 
       {/* Main Content Area */}
-      <div className="bg-[#fcfbf9] rounded-none p-6 md:p-10 lg:p-12 border border-gray-100 shadow-sm">
+      {/* Main Content Area */}
+      <div className="space-y-12">
         
         {/* Active Quotation Requests Section */}
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-10">
-          <div className="flex items-center gap-3 mb-4">
+          <div className="flex items-center gap-3 mb-6">
             <ClipboardCheck size={20} className="text-vastram-gold" />
             <h2 className="text-vastram-brown font-bold text-lg md:text-xl uppercase tracking-wide">Active Quotation Requests</h2>
           </div>
           
-          <div className="bg-white rounded-none py-16 flex flex-col items-center justify-center border border-gray-100 shadow-sm">
-            <Inbox size={40} className="text-gray-300 mb-4 stroke-1" />
-            <p className="text-vastram-gold font-bold text-xs tracking-widest ">
-              ( At present, No e-Quotation published )
-            </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Card 1 */}
+            <div className="bg-white p-6 border border-gray-100 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+              <div className="flex items-start justify-between mb-4">
+                <div className="p-3 bg-vastram-cream text-vastram-gold">
+                  <FileText size={20} />
+                </div>
+                <span className="text-[10px] bg-vastram-cream text-vastram-gold font-bold px-2.5 py-1 uppercase tracking-wider">Active</span>
+              </div>
+              <h3 className="text-vastram-brown font-bold font-playfair text-lg mb-2">Premium Cotton Fabric Supply</h3>
+              <p className="text-gray-600 text-xs mb-4 flex-grow leading-relaxed">
+                Requirement for 10,000 meters of 100% organic combed cotton, 180 GSM, width 58/60 inches, dyed in standard pastel colors.
+              </p>
+              <div className="pt-4 border-t border-gray-50 flex items-center justify-between text-[11px] text-gray-400 font-bold uppercase tracking-wider">
+                <span>Ref: EQ-2026-004</span>
+                <span>Due: 15 July 2026</span>
+              </div>
+            </div>
+            {/* Card 2 */}
+            <div className="bg-white p-6 border border-gray-100 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+              <div className="flex items-start justify-between mb-4">
+                <div className="p-3 bg-vastram-cream text-vastram-gold">
+                  <FileText size={20} />
+                </div>
+                <span className="text-[10px] bg-vastram-cream text-vastram-gold font-bold px-2.5 py-1 uppercase tracking-wider">Active</span>
+              </div>
+              <h3 className="text-vastram-brown font-bold font-playfair text-lg mb-2">Jacquard Silk Brocade</h3>
+              <p className="text-gray-600 text-xs mb-4 flex-grow leading-relaxed">
+                Seeking suppliers for premium Jacquard silk brocade fabric for festive wear. Quantity: 2,500 meters in multi-color ethnic motifs.
+              </p>
+              <div className="pt-4 border-t border-gray-50 flex items-center justify-between text-[11px] text-gray-400 font-bold uppercase tracking-wider">
+                <span>Ref: EQ-2026-005</span>
+                <span>Due: 20 July 2026</span>
+              </div>
+            </div>
+            {/* Card 3 */}
+            <div className="bg-white p-6 border border-gray-100 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+              <div className="flex items-start justify-between mb-4">
+                <div className="p-3 bg-vastram-cream text-vastram-gold">
+                  <FileText size={20} />
+                </div>
+                <span className="text-[10px] bg-vastram-cream text-vastram-gold font-bold px-2.5 py-1 uppercase tracking-wider">Active</span>
+              </div>
+              <h3 className="text-vastram-brown font-bold font-playfair text-lg mb-2">Linen-Viscose Blends</h3>
+              <p className="text-gray-600 text-xs mb-4 flex-grow leading-relaxed">
+                Bulk quotation for linen-viscose blend fabrics suitable for summer shirting. 55% linen / 45% viscose. Volume: 5,000 meters.
+              </p>
+              <div className="pt-4 border-t border-gray-50 flex items-center justify-between text-[11px] text-gray-400 font-bold uppercase tracking-wider">
+                <span>Ref: EQ-2026-006</span>
+                <span>Due: 25 July 2026</span>
+              </div>
+            </div>
           </div>
         </motion.div>
 
@@ -62,7 +105,7 @@ const EQuotation = () => {
 
               <div>
                 <label className="block text-[10px] uppercase tracking-widest text-vastram-brown font-bold mb-2">
-                  Business Address with PIN Code <span className="text-vastram-gold">*</span>
+                  Business Address with Pin Code <span className="text-vastram-gold">*</span>
                 </label>
                 <input type="text" className="w-full px-4 py-3 bg-[#fcfbf9] rounded-none border border-gray-200 focus:outline-none focus:border-vastram-gold transition-colors" required />
               </div>
@@ -118,13 +161,6 @@ const EQuotation = () => {
               >
                 <Send size={16} /> Submit Quotation Request
               </button>
-            </div>
-
-            <div className="pt-8 text-center flex items-center justify-center gap-2">
-              <Mail size={14} className="text-vastram-gold" />
-              <a href="mailto:info@textilemall.com" className="text-vastram-gold text-[11px] font-bold tracking-widest hover:underline">
-                info@textilemall.com
-              </a>
             </div>
           </form>
         </motion.div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, MapPin, Mail } from 'lucide-react';
+import { IndianRupee, MapPin, Mail } from 'lucide-react';
 
 const Career = () => {
   const jobs = [
@@ -8,32 +8,28 @@ const Career = () => {
       id: 1,
       title: 'Retail Operations Manager',
       location: 'Mumbai, India',
-      type: 'Full-time',
-      experience: '5-8 Years',
+      salary: '₹6,00,000 - ₹9,00,000 P.A.',
       description: 'Oversee daily store operations, manage staff, and ensure a premium customer experience across our flagship retail outlets.',
     },
     {
       id: 2,
       title: 'Senior Fabric Technologist',
       location: 'Surat, India',
-      type: 'Full-time',
-      experience: '7+ Years',
+      salary: '₹8,00,000 - ₹12,00,000 P.A.',
       description: 'Lead quality control for incoming fabrics, develop new textile blends, and maintain our high standards of material excellence.',
     },
     {
       id: 3,
       title: 'B2B Sales Executive',
       location: 'Delhi, India',
-      type: 'Full-time',
-      experience: '2-4 Years',
+      salary: '₹4,00,000 - ₹6,50,000 P.A.',
       description: 'Expand our wholesale network, acquire new B2B accounts, and maintain strong relationships with our key clients.',
     },
     {
       id: 4,
       title: 'Digital Marketing Specialist',
       location: 'Remote',
-      type: 'Full-time',
-      experience: '3+ Years',
+      salary: '₹5,00,000 - ₹8,00,000 P.A.',
       description: 'Drive our online presence, manage social media campaigns, and optimize e-commerce conversion rates.',
     },
   ];
@@ -41,9 +37,8 @@ const Career = () => {
   return (
     <div className="pb-16 max-w-7xl mx-auto px-4">
 
-      
-      <div className="text-center mb-12 py-8">
-        <h1 className="font-playfair text-5xl text-vastram-brown">Career Page</h1>
+      <div className="text-center py-10 mb-8">
+        <h1 className="font-playfair text-4xl lg:text-5xl text-vastram-brown font-bold">Career Page</h1>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -63,7 +58,7 @@ const Career = () => {
                   <MapPin size={16} className="text-vastram-gold" /> {job.location}
                 </div>
                 <div className="flex items-center gap-3 text-sm font-bold text-gray-500">
-                  <Briefcase size={16} className="text-vastram-gold" /> {job.type} · {job.experience}
+                  <IndianRupee size={16} className="text-vastram-gold" /> {job.salary}
                 </div>
                 <div className="flex items-center gap-3 text-sm font-bold text-gray-500">
                   <Mail size={16} className="text-vastram-gold" />
