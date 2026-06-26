@@ -8,7 +8,7 @@ const Career = () => {
       id: 1,
       title: 'Retail Operations Manager',
       location: 'Mumbai, India',
-      salary: '₹65,000 - ₹85,000 / Month',
+      salary: '₹65,000 - ₹84,000 / Month',
       description: 'Oversee daily store operations, manage staff, and ensure a premium customer experience across our flagship retail outlets.',
     },
     {
