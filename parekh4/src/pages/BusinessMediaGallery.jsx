@@ -82,7 +82,7 @@ export default function BusinessMediaGallery() {
       </div>
 
       {/* Gallery Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6">
         {filtered.map((item, idx) => (
           <motion.div
             key={item.id}
@@ -93,23 +93,23 @@ export default function BusinessMediaGallery() {
             className="group bg-white rounded-xl sm:rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100"
           >
             {/* Image */}
-            <div className="h-48 sm:h-52 overflow-hidden relative">
+            <div className="h-32 sm:h-52 overflow-hidden relative">
               <img
                 src={item.image}
                 alt={item.title}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-sapphire-900/0 group-hover:bg-sapphire-900/30 transition-colors duration-300 flex items-center justify-center">
+              <div className="absolute inset-0 bg-[#2d0a4e]/0 group-hover:bg-[#2d0a4e]/30 transition-colors duration-300 flex items-center justify-center">
                 <span className="text-white font-playfair text-base opacity-0 group-hover:opacity-100 transition-opacity drop-shadow">View</span>
               </div>
             </div>
 
             {/* Card Content */}
-            <div className="p-4 sm:p-5">
-              <h3 className="font-playfair font-bold text-[#2d0a4e] text-sm sm:text-base leading-snug mb-2">
+            <div className="p-3 sm:p-5">
+              <h3 className="font-playfair font-bold text-[#2d0a4e] text-xs sm:text-base leading-snug mb-2 line-clamp-2">
                 {item.title}
               </h3>
-              <div className="flex items-center justify-between text-[10px] text-gray-400 font-bold uppercase tracking-widest">
+              <div className="flex flex-wrap items-center justify-between gap-y-1 gap-x-2 text-[9px] sm:text-[10px] text-gray-400 font-bold uppercase tracking-wider">
                 <span className="flex items-center gap-1.5">
                   <Tag size={10} className="text-[#d8a5ad]" /> {item.category}
                 </span>
