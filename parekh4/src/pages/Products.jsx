@@ -108,11 +108,10 @@ export default function Products() {
       <div className="flex flex-wrap gap-2 sm:gap-3 mb-8 sm:mb-12">
         <button
           onClick={() => setActiveCategory('All')}
-          className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors border ${
-            activeCategory === 'All'
-              ? 'bg-[#d8a5ad] text-white border-[#d8a5ad]'
-              : 'bg-white text-gray-600 border-gray-200 hover:border-[#d8a5ad]'
-          }`}
+          className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors border ${activeCategory === 'All'
+            ? 'bg-[#d8a5ad] text-white border-[#d8a5ad]'
+            : 'bg-white text-gray-600 border-gray-200 hover:border-[#d8a5ad]'
+            }`}
         >
           All
         </button>
@@ -120,11 +119,10 @@ export default function Products() {
           <button
             key={cat}
             onClick={() => setActiveCategory(cat)}
-            className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors border ${
-              activeCategory === cat
-                ? 'bg-[#d8a5ad] text-white border-[#d8a5ad]'
-                : 'bg-white text-gray-600 border-gray-200 hover:border-[#d8a5ad]'
-            }`}
+            className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors border ${activeCategory === cat
+              ? 'bg-[#d8a5ad] text-white border-[#d8a5ad]'
+              : 'bg-white text-gray-600 border-gray-200 hover:border-[#d8a5ad]'
+              }`}
           >
             {cat}
           </button>
