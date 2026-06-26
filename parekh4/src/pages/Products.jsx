@@ -2,120 +2,161 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ShoppingBag } from 'lucide-react';
 
+const allProducts = [
+  {
+    id: 1,
+    name: 'Premium Silk Saree',
+    category: 'Sarees',
+    image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600&auto=format&fit=crop&q=80',
+  },
+  {
+    id: 2,
+    name: 'Stretch Cotton Leggings',
+    category: 'Leggings',
+    image: 'https://images.unsplash.com/photo-1506152983158-b4a74a01c721?w=600&auto=format&fit=crop&q=80',
+  },
+  {
+    id: 3,
+    name: 'Designer Kurti Set',
+    category: 'Kurtis',
+    image: '/designer_kurti.png',
+  },
+  {
+    id: 4,
+    name: 'Embroidered Dress Suit',
+    category: 'Dress Suits',
+    image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&auto=format&fit=crop&q=80',
+  },
+  {
+    id: 5,
+    name: 'Luxury Cotton Bedsheet Set',
+    category: 'Bedsheets & Linen',
+    image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&auto=format&fit=crop&q=80',
+  },
+  {
+    id: 6,
+    name: 'Premium Cotton Hosiery',
+    category: 'Hosiery Items',
+    image: 'https://images.unsplash.com/photo-1586350977771-b3b0abd50c82?w=600&auto=format&fit=crop&q=80',
+  },
+  {
+    id: 7,
+    name: 'Classic Men\'s Suit Fabric',
+    category: 'Suiting',
+    image: 'https://images.unsplash.com/photo-1598808503746-f34c53b9323e?w=600&auto=format&fit=crop&q=80',
+  },
+  {
+    id: 8,
+    name: 'Oxford Formal Shirt Fabric',
+    category: 'Shirting',
+    image: 'https://images.unsplash.com/photo-1603251579431-8041402bdeda?w=600&auto=format&fit=crop&q=80',
+  },
+  {
+    id: 9,
+    name: 'Anarkali Ethnic Suit — Women',
+    category: 'Formal & Ethnic Wear for Women',
+    image: '/anarkali_ethnic_suit.png',
+  },
+  {
+    id: 10,
+    name: 'Sherwani — Men\'s Ethnic',
+    category: 'Formal & Ethnic Wear for Men',
+    image: 'https://images.unsplash.com/photo-1617137968427-85924c800a22?w=600&auto=format&fit=crop&q=80',
+  },
+  {
+    id: 11,
+    name: 'Festive Wear — Children',
+    category: 'Formal & Ethnic Wear for Children',
+    image: '/children_festive_wear.png',
+  },
+  {
+    id: 12,
+    name: 'Velvet Sofa Upholstery Fabric',
+    category: 'Home Upholstery & Furnishing',
+    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&auto=format&fit=crop&q=80',
+  },
+];
+
+const categories = [
+  'Sarees', 'Leggings', 'Kurtis', 'Dress Suits',
+  'Bedsheets & Linen', 'Hosiery Items', 'Suiting', 'Shirting',
+  'Formal & Ethnic Wear for Women', 'Formal & Ethnic Wear for Men',
+  'Formal & Ethnic Wear for Children', 'Home Upholstery & Furnishing',
+];
+
 export default function Products() {
-  const categories = [
-    "Sarees", "Leggings", "Kurtis", "Dress Suits", 
-    "Bedsheets & Linen", "Hosiery Items", "Suiting", "Shirting", 
-    "Formal & Ethnic Wear for Women", "Formal & Ethnic Wear for Men", 
-    "Formal & Ethnic Wear for Children", "Home Upholstery & Furnishing"
-  ];
+  const [activeCategory, setActiveCategory] = useState('All');
 
-  const allProducts = [
-    { id: 101, name: 'Premium Silk Saree', category: 'Sarees', image: 'https://images.unsplash.com/photo-1609748340041-f5d61e061ebc?w=600&auto=format&fit=crop&q=60' },
-    { id: 105, name: 'Embroidered Silk Saree', category: 'Sarees', image: 'https://images.unsplash.com/photo-1610189013233-0498b89d4fb9?w=600&auto=format&fit=crop&q=60' },
-    { id: 102, name: 'Designer Kurti Set', category: 'Kurtis', image: 'https://images.unsplash.com/photo-1741847639057-b51a25d42892?w=600&auto=format&fit=crop&q=60' },
-    { id: 106, name: 'Printed Cotton Kurti', category: 'Kurtis', image: 'https://images.unsplash.com/photo-1745313452052-0e4e341f326c?w=600&auto=format&fit=crop&q=60' },
-    { id: 103, name: 'Luxury Cotton Bedsheet', category: 'Bedsheets & Linen', image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&auto=format&fit=crop&q=60' },
-    { id: 104, name: 'Classic Men Suit Fabric', category: 'Suiting', image: 'https://images.unsplash.com/photo-1611937663641-5cef5189d71b?w=600&auto=format&fit=crop&q=60' },
-  ];
-
-  const [activeCategory, setActiveCategory] = useState("All");
-
-  const filteredProducts = activeCategory === "All" 
-    ? allProducts 
-    : allProducts.filter(p => p.category === activeCategory);
-
-  // Group filtered products by category for display
-  const groupedProducts = filteredProducts.reduce((acc, product) => {
-    if (!acc[product.category]) {
-      acc[product.category] = [];
-    }
-    acc[product.category].push(product);
-    return acc;
-  }, {});
+  const filtered = activeCategory === 'All'
+    ? allProducts
+    : allProducts.filter((p) => p.category === activeCategory);
 
   return (
-    <div className="pb-16 max-w-7xl mx-auto px-4">
-      {/* Header matching the image layout */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 pt-8">
-        <div>
-          <p className="text-[#d8a5ad] font-bold tracking-[0.2em] uppercase text-xs mb-2">TEXMART</p>
-          <h1 className="font-playfair text-5xl md:text-6xl text-[#2d0a4e] font-bold">Catalogue</h1>
-        </div>
-        <div className="mt-6 md:mt-0 bg-[#2d0a4e] text-white px-6 py-3 rounded-full flex items-center gap-3 shadow-lg">
-          <ShoppingBag size={18} />
-          <span className="font-bold text-sm">{filteredProducts.length} Products</span>
+    <div className="pb-16 max-w-7xl mx-auto">
+      {/* Header */}
+      <div className="text-center py-8 sm:py-10 mb-6 sm:mb-8 flex flex-col items-center justify-center gap-4">
+        <h1 className="font-playfair text-3xl sm:text-4xl lg:text-5xl text-[#2d0a4e] font-bold">
+          Product
+        </h1>
+        <div className="bg-[#2d0a4e] text-white px-5 py-2 rounded-full flex items-center gap-2 shadow-md shrink-0 text-xs sm:text-sm font-bold">
+          <ShoppingBag size={15} />
+          <span>{filtered.length} Products</span>
         </div>
       </div>
 
-      {/* Categories Filter Pills */}
-      <div className="flex flex-wrap gap-3 mb-12">
-        <button 
-          onClick={() => setActiveCategory("All")}
-          className={`px-6 py-2.5 rounded-full text-sm font-medium transition-colors border ${
-            activeCategory === "All" 
-              ? "bg-[#d8a5ad] text-white border-[#d8a5ad]" 
-              : "bg-white text-gray-600 border-gray-200 hover:border-[#d8a5ad]"
-          }`}
+      {/* Category Filter */}
+      <div className="flex flex-wrap gap-2 sm:gap-3 mb-8 sm:mb-12">
+        <button
+          onClick={() => setActiveCategory('All')}
+          className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors border ${activeCategory === 'All'
+              ? 'bg-[#d8a5ad] text-white border-[#d8a5ad]'
+              : 'bg-white text-gray-600 border-gray-200 hover:border-[#d8a5ad]'
+            }`}
         >
           All
         </button>
-        {categories.map(cat => (
-          <button 
+        {categories.map((cat) => (
+          <button
             key={cat}
             onClick={() => setActiveCategory(cat)}
-            className={`px-6 py-2.5 rounded-full text-sm font-medium transition-colors border ${
-              activeCategory === cat 
-                ? "bg-[#d8a5ad] text-white border-[#d8a5ad]" 
-                : "bg-white text-gray-600 border-gray-200 hover:border-[#d8a5ad]"
-            }`}
+            className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors border ${activeCategory === cat
+                ? 'bg-[#d8a5ad] text-white border-[#d8a5ad]'
+                : 'bg-white text-gray-600 border-gray-200 hover:border-[#d8a5ad]'
+              }`}
           >
             {cat}
           </button>
         ))}
       </div>
 
-      {/* Products Display Grouped by Category */}
-      <div className="space-y-16">
-        {Object.entries(groupedProducts).map(([categoryName, products]) => (
-          <div key={categoryName}>
-            <h2 className="font-playfair text-2xl text-[#2d0a4e] font-bold mb-6">{categoryName}</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {products.map(product => (
-                <motion.div 
-                  key={product.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  className="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg transition-shadow"
-                >
-                  <div className="h-64 w-full relative">
-                    <img 
-                      src={product.image} 
-                      alt={product.name} 
-                      className="absolute inset-0 w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="p-5 text-center bg-white border-t border-gray-100">
-                    <p className="text-[10px] uppercase tracking-widest text-gray-400 mb-2 font-medium">
-                      {product.category}
-                    </p>
-                    <h3 className="font-playfair text-lg text-[#2d0a4e] font-bold">
-                      {product.name}
-                    </h3>
-                  </div>
-                </motion.div>
-              ))}
+      {/* Products Grid */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
+        {filtered.map((product, idx) => (
+          <motion.div
+            key={product.id}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: idx * 0.05 }}
+            className="bg-white rounded-xl sm:rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-lg transition-shadow group"
+          >
+            <div className="h-40 sm:h-52 md:h-60 w-full relative overflow-hidden">
+              <img
+                src={product.image}
+                alt={product.name}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
             </div>
-          </div>
+            <div className="p-3 sm:p-5 text-center bg-white border-t border-gray-100">
+              <p className="text-[9px] sm:text-[10px] uppercase tracking-widest text-gray-400 mb-1 sm:mb-2 font-medium">
+                {product.category}
+              </p>
+              <h3 className="font-playfair text-sm sm:text-lg text-[#2d0a4e] font-bold leading-tight">
+                {product.name}
+              </h3>
+            </div>
+          </motion.div>
         ))}
-        
-        {/* Empty State */}
-        {filteredProducts.length === 0 && (
-          <div className="text-center py-20 bg-white rounded-3xl border border-gray-100 shadow-sm">
-            <h3 className="font-playfair text-2xl text-gray-400">Products for this category will be available soon.</h3>
-          </div>
-        )}
       </div>
     </div>
   );

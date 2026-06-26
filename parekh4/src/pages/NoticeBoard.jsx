@@ -1,47 +1,76 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Bell, ChevronRight } from 'lucide-react';
+import { Bell, Calendar } from 'lucide-react';
+
+const notices = [
+  {
+    id: 1,
+    title: 'Annual General Meeting 2026',
+    description:
+      'All shareholders, stakeholders and senior management are invited to attend the Annual General Meeting scheduled for November 01, 2026 at the TEXMART Corporate Office, Mumbai. Kindly confirm your attendance by October 20.',
+    date: 'Nov 01, 2026',
+  },
+  {
+    id: 2,
+    title: 'Warehouse Closure Notice — Mumbai Depot',
+    description:
+      'The Mumbai warehouse and depot will remain closed from October 20–22, 2026 for scheduled annual maintenance and safety inspections. All pending dispatches will be processed from our Surat facility during this period.',
+    date: 'Oct 20, 2026',
+  },
+  {
+    id: 3,
+    title: 'e-Way Bill Integration in Partner Portal',
+    description:
+      'TEXMART has successfully integrated the e-Way Bill generation system directly into the Partner Portal. Partners can now generate, track, and download e-Way Bills seamlessly without leaving the portal dashboard.',
+    date: 'Sep 15, 2026',
+  },
+  {
+    id: 4,
+    title: 'Recruitment Drive — Zonal Sales Managers',
+    description:
+      'TEXMART is conducting a pan-India recruitment drive for experienced Zonal Sales Managers across Delhi, Kolkata, Hyderabad, and Chennai. Eligible candidates with 5+ years in textile or FMCG sales may apply at careers@texmart.com.',
+    date: 'Aug 22, 2026',
+  },
+];
 
 const NoticeBoard = () => {
-  const notices = [
-    { id: 1, title: 'Annual General Meeting 2026', date: 'Nov 01, 2026', isNew: true },
-    { id: 2, title: 'Warehouse Closure Notice for Maintenance (Mumbai Depot)', date: 'Oct 20, 2026', isNew: true },
-    { id: 3, title: 'Introduction of e-Way Bill Integration in Partner Portal', date: 'Sep 15, 2026', isNew: true },
-    { id: 4, title: 'Recruitment Drive for Zonal Sales Managers', date: 'Aug 22, 2026', isNew: true },
-  ];
-
   return (
-    <div className="pb-16 max-w-4xl mx-auto px-4">
-
-      
-      <div className="text-center py-10 mb-6">
-        <h1 className="font-playfair text-4xl lg:text-5xl text-[#2d0a4e] font-bold">Notice Board</h1>
+    <div className="pb-12 sm:pb-16 max-w-4xl mx-auto">
+      <div className="text-center py-8 sm:py-10 mb-6 sm:mb-8">
+        <h1 className="font-playfair text-3xl sm:text-4xl lg:text-5xl text-[#2d0a4e] font-bold">Notice Board</h1>
       </div>
 
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="space-y-4">
-        {notices.map((notice) => (
-          <div
+        {notices.map((notice, idx) => (
+          <motion.div
             key={notice.id}
-            className={`group bg-white rounded-2xl border px-8 py-6 cursor-pointer flex items-center justify-between hover:shadow-lg transition-all duration-300 ${
-              notice.isNew ? 'border-l-8 border-[#d8a5ad]' : 'border-gray-100'
-            }`}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: idx * 0.08 }}
+            className="bg-white rounded-xl sm:rounded-2xl border border-l-[6px] sm:border-l-8 border-[#d8a5ad] px-5 sm:px-8 py-5 sm:py-6 hover:shadow-lg transition-all duration-300"
           >
-            <div className="flex items-start gap-5">
-              <div className={`p-3 rounded-full shrink-0 ${notice.isNew ? 'bg-[#d8a5ad]/10' : 'bg-gray-50'}`}>
-                <Bell size={20} className={notice.isNew ? 'text-[#d8a5ad]' : 'text-gray-400'} />
+            <div className="flex items-start gap-3 sm:gap-4">
+              {/* Icon */}
+              <div className="p-2.5 bg-[#d8a5ad]/10 rounded-full shrink-0 mt-0.5">
+                <Bell size={16} className="text-[#d8a5ad]" />
               </div>
-              <div>
-                <div className="flex items-center gap-3 mb-2">
-                  <span className="text-xs text-gray-500 font-bold uppercase tracking-wider">{notice.date}</span>
-                  {notice.isNew && (
-                    <span className="bg-[#d8a5ad] text-white text-[10px] px-2.5 py-0.5 rounded-full uppercase tracking-widest font-bold shadow-sm">NEW</span>
-                  )}
+
+              {/* Content */}
+              <div className="flex-1 min-w-0">
+                {/* Date */}
+                <div className="flex items-center gap-2 mb-2">
+                  <Calendar size={11} className="text-gray-400" />
+                  <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">{notice.date}</span>
                 </div>
-                <h3 className="text-lg font-bold text-[#2d0a4e] group-hover:text-[#d8a5ad] transition-colors">{notice.title}</h3>
+                {/* Title */}
+                <h3 className="text-sm sm:text-base lg:text-lg font-bold text-[#2d0a4e] mb-2 leading-snug">
+                  {notice.title}
+                </h3>
+                {/* Description */}
+                <p className="text-gray-500 text-xs sm:text-sm leading-relaxed">{notice.description}</p>
               </div>
             </div>
-            <ChevronRight size={20} className="text-gray-300 group-hover:text-[#d8a5ad] transition-colors shrink-0" />
-          </div>
+          </motion.div>
         ))}
       </motion.div>
     </div>

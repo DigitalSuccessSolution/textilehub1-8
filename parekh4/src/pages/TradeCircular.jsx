@@ -11,18 +11,16 @@ const TradeCircular = () => {
   ];
 
   return (
-    <div className="pb-16 max-w-5xl mx-auto px-4">
-
-      
-      <div className="text-center py-10 mb-6">
-        <h1 className="font-playfair text-4xl lg:text-5xl text-[#2d0a4e] font-bold">Trade Circulars</h1>
+    <div className="pb-12 sm:pb-16 max-w-5xl mx-auto">
+      <div className="text-center py-8 sm:py-10 mb-6 sm:mb-8">
+        <h1 className="font-playfair text-3xl sm:text-4xl lg:text-5xl text-[#2d0a4e] font-bold">Trade Circular</h1>
       </div>
 
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bg-white rounded-[2rem] border border-gray-100 shadow-lg overflow-hidden">
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bg-white rounded-2xl sm:rounded-[2rem] border border-gray-100 shadow-lg overflow-hidden">
         {/* Header */}
-        <div className="bg-[#2d0a4e] px-8 py-6 flex justify-between items-center">
-          <h2 className="text-xl font-playfair font-bold text-white">Latest Official Circulars</h2>
-          <span className="text-[0.6rem] bg-white/10 text-white px-3 py-1 rounded-full uppercase tracking-widest font-bold">Document Hub</span>
+        <div className="bg-[#2d0a4e] px-5 sm:px-8 py-4 sm:py-6 flex justify-between items-center gap-3">
+          <h2 className="text-lg sm:text-xl font-playfair font-bold text-white">Latest Official Circulars</h2>
+          <span className="text-[0.6rem] bg-white/10 text-white px-2.5 sm:px-3 py-1 rounded-full uppercase tracking-widest font-bold shrink-0">Document Hub</span>
         </div>
 
         {/* List */}
@@ -30,26 +28,26 @@ const TradeCircular = () => {
           {circulars.map((circular) => (
             <div
               key={circular.id}
-              className="px-8 py-6 flex flex-col sm:flex-row sm:items-center justify-between gap-6 hover:bg-pearl-50 transition-colors group"
+              className="px-5 sm:px-8 py-5 sm:py-6 flex flex-col gap-4 hover:bg-pearl-50 transition-colors group"
             >
-              <div className="flex items-start gap-5">
-                <div className="w-12 h-12 rounded-xl border border-gray-200 bg-white flex items-center justify-center shrink-0 group-hover:border-[#d8a5ad] group-hover:bg-[#d8a5ad]/10 transition-all shadow-sm">
-                  <FileText size={20} className="text-[#2d0a4e] group-hover:text-[#d8a5ad] transition-colors" />
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl border border-gray-200 bg-white flex items-center justify-center shrink-0 group-hover:border-[#d8a5ad] group-hover:bg-[#d8a5ad]/10 transition-all shadow-sm">
+                  <FileText size={18} className="text-[#2d0a4e] group-hover:text-[#d8a5ad] transition-colors" />
                 </div>
-                <div>
-                  <h3 className="font-bold text-[#2d0a4e] text-base mb-1.5 group-hover:text-[#d8a5ad] transition-colors">{circular.title}</h3>
-                  <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500 font-medium">
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-bold text-[#2d0a4e] text-sm sm:text-base mb-1.5 group-hover:text-[#d8a5ad] transition-colors leading-snug">{circular.title}</h3>
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs text-gray-500 font-medium">
                     <span>Date: {circular.date}</span>
                   </div>
                 </div>
               </div>
 
-              <div className="flex items-center gap-3">
-                <button className="flex items-center gap-2 px-5 py-2.5 rounded-xl border border-[#2d0a4e] text-[#2d0a4e] text-xs font-bold uppercase tracking-wider hover:bg-[#2d0a4e] hover:text-white transition-all duration-200">
-                  <Eye size={14} /> View
+              <div className="flex items-center gap-2 sm:gap-3 pl-14">
+                <button className="flex items-center gap-1.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl border border-[#2d0a4e] text-[#2d0a4e] text-xs font-bold uppercase tracking-wider hover:bg-[#2d0a4e] hover:text-white transition-all duration-200">
+                  <Eye size={13} /> View
                 </button>
-                <button className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#d8a5ad] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#2d0a4e] transition-all duration-200 shadow-sm">
-                  <Printer size={14} /> Print
+                <button className="flex items-center gap-1.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-xl bg-[#d8a5ad] text-white text-xs font-bold uppercase tracking-wider hover:bg-[#2d0a4e] transition-all duration-200 shadow-sm">
+                  <Printer size={13} /> Print
                 </button>
               </div>
             </div>

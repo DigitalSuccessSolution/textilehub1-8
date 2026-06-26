@@ -17,8 +17,13 @@
 }
 
 @layer base {
+  html {
+    overflow-x: hidden;
+  }
+
   body {
     @apply font-outfit bg-pearl-50 text-sapphire-900 m-0 p-0;
+    overflow-x: hidden;
   }
 
   h1,

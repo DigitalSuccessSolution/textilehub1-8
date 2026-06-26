@@ -24,12 +24,12 @@ export default function CustomerReview() {
   ];
 
   return (
-    <div className="space-y-16 pb-20">
-      <div className="text-center py-12">
-        <h1 className="font-playfair text-5xl text-[#2d0a4e] font-bold">Customer Review</h1>
+    <div className="space-y-10 sm:space-y-16 pb-16 sm:pb-20 max-w-7xl mx-auto">
+      <div className="text-center py-8 sm:py-10 mb-6 sm:mb-8">
+        <h1 className="font-playfair text-3xl sm:text-4xl lg:text-5xl text-[#2d0a4e] font-bold">Customer Review</h1>
       </div>
 
-      <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto px-4 md:px-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8 px-0">
         {reviews.map((review, idx) => (
           <motion.div 
             key={idx}
@@ -37,25 +37,25 @@ export default function CustomerReview() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: idx * 0.1 }}
-            className="bg-white p-6 md:p-8 border border-gray-100 shadow-sm flex flex-col min-h-[300px]"
+            className="bg-white p-5 sm:p-6 md:p-8 border border-gray-100 shadow-sm flex flex-col rounded-2xl"
           >
             {/* Quote Icon */}
-            <Quote className="text-[#2d0a4e] mb-4 fill-current rotate-180" size={32} />
+            <Quote className="text-[#2d0a4e] mb-3 sm:mb-4 fill-current rotate-180" size={28} />
 
             {/* Tag */}
-            <div className="mb-5">
+            <div className="mb-4 sm:mb-5">
               <span className="bg-[#d8a5ad]/10 text-[#2d0a4e] text-[9px] font-bold uppercase tracking-[0.2em] py-1 px-2.5">
                 {review.tag}
               </span>
             </div>
 
             {/* Review Text */}
-            <p className="text-[#2d0a4e] leading-relaxed text-sm mb-6 font-playfair italic flex-grow">
-              "{review.text}"
+            <p className="text-[#2d0a4e] leading-relaxed text-sm mb-5 sm:mb-6 font-playfair italic flex-grow">
+              &ldquo;{review.text}&rdquo;
             </p>
 
-            {/* Footer with Name, Role, and Stars */}
-            <div className="border-t border-gray-100 pt-5 flex items-end justify-between">
+            {/* Footer */}
+            <div className="border-t border-gray-100 pt-4 sm:pt-5 flex items-end justify-between">
               <div>
                 <h4 className="text-[#2d0a4e] font-bold text-xs uppercase tracking-wide">{review.name}</h4>
                 <p className="text-gray-500 text-[10px] mt-0.5">{review.role}</p>
