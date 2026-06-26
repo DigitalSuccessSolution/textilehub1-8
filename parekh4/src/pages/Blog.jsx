@@ -70,7 +70,7 @@ export default function Blog() {
       </div>
 
       {/* Blog Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-8">
         {filtered.map((post, idx) => (
           <motion.article
             key={post.id}
@@ -81,22 +81,22 @@ export default function Blog() {
             className="group cursor-pointer bg-white rounded-xl sm:rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col"
           >
             {/* Image */}
-            <div className="h-48 sm:h-56 overflow-hidden relative shrink-0">
+            <div className="h-32 sm:h-56 overflow-hidden relative shrink-0">
               <img
                 src={post.image}
                 alt={post.title}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               {/* Category Badge */}
-              <div className="absolute top-3 left-3 bg-[#2d0a4e]/90 text-white px-3 py-1 text-[10px] font-bold uppercase tracking-widest rounded-full backdrop-blur-sm">
+              <div className="absolute top-2 left-2 bg-[#2d0a4e]/90 text-white px-2 py-0.5 text-[8px] sm:text-[10px] font-bold uppercase tracking-widest rounded-full backdrop-blur-sm">
                 {post.category}
               </div>
             </div>
 
             {/* Content */}
-            <div className="p-5 sm:p-6 flex flex-col flex-grow">
+            <div className="p-3 sm:p-6 flex flex-col flex-grow">
               {/* Meta */}
-              <div className="flex flex-wrap items-center gap-3 mb-3 text-[10px] text-gray-400 font-bold uppercase tracking-wider">
+              <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mb-2 text-[9px] sm:text-[10px] text-gray-400 font-bold uppercase tracking-wider">
                 <span className="flex items-center gap-1">
                   <User size={10} /> {post.author}
                 </span>
@@ -106,15 +106,15 @@ export default function Blog() {
               </div>
 
               {/* Title */}
-              <h3 className="font-playfair text-lg sm:text-xl text-sapphire-900 mb-3 group-hover:text-rosegold-500 transition-colors leading-snug flex-grow">
+              <h3 className="font-playfair text-xs sm:text-lg lg:text-xl text-[#2d0a4e] mb-2 group-hover:text-[#d8a5ad] transition-colors leading-snug flex-grow line-clamp-2">
                 {post.title}
               </h3>
 
               {/* Description */}
-              <p className="text-gray-500 text-sm leading-relaxed line-clamp-3 mb-4">{post.description}</p>
+              <p className="text-gray-500 text-xs sm:text-sm leading-relaxed line-clamp-2 sm:line-clamp-3 mb-3">{post.description}</p>
 
               {/* Read More */}
-              <p className="flex items-center gap-2 text-xs font-bold text-[#2d0a4e] uppercase tracking-wider group-hover:text-rosegold-400 transition-colors mt-auto">
+              <p className="flex items-center gap-2 text-[10px] sm:text-xs font-bold text-[#2d0a4e] uppercase tracking-wider group-hover:text-[#d8a5ad] transition-colors mt-auto">
                 Read Article <ArrowRight size={13} />
               </p>
             </div>
