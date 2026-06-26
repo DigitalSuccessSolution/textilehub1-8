@@ -84,12 +84,6 @@ const categories = [
   'Formal & Ethnic Wear for Children', 'Home Upholstery & Furnishing',
 ];
 
-const getColSpanClass = (length) => {
-  if (length < 10) return 'col-span-4 sm:col-auto';
-  if (length < 20) return 'col-span-6 sm:col-auto';
-  return 'col-span-12 sm:col-auto';
-};
-
 export default function Products() {
   const [activeCategory, setActiveCategory] = useState('All');
 
@@ -111,13 +105,14 @@ export default function Products() {
       </div>
 
       {/* Category Filter */}
-      <div className="grid grid-cols-12 gap-1.5 sm:flex sm:flex-wrap sm:gap-3 mb-8 sm:mb-12">
+      <div className="flex flex-wrap gap-2 sm:gap-3 mb-8 sm:mb-12">
         <button
           onClick={() => setActiveCategory('All')}
-          className={`col-span-4 sm:col-auto w-full py-2.5 px-2 rounded-full text-[10px] sm:text-sm font-semibold transition-all border text-center ${activeCategory === 'All'
-              ? 'bg-[#d8a5ad] text-white border-[#d8a5ad] shadow-sm'
+          className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors border ${
+            activeCategory === 'All'
+              ? 'bg-[#d8a5ad] text-white border-[#d8a5ad]'
               : 'bg-white text-gray-600 border-gray-200 hover:border-[#d8a5ad]'
-            }`}
+          }`}
         >
           All
         </button>
@@ -125,10 +120,11 @@ export default function Products() {
           <button
             key={cat}
             onClick={() => setActiveCategory(cat)}
-            className={`${getColSpanClass(cat.length)} w-full py-2.5 px-2 rounded-full text-[10px] sm:text-sm font-semibold transition-all border text-center ${activeCategory === cat
-                ? 'bg-[#d8a5ad] text-white border-[#d8a5ad] shadow-sm'
+            className={`px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-medium transition-colors border ${
+              activeCategory === cat
+                ? 'bg-[#d8a5ad] text-white border-[#d8a5ad]'
                 : 'bg-white text-gray-600 border-gray-200 hover:border-[#d8a5ad]'
-              }`}
+            }`}
           >
             {cat}
           </button>
