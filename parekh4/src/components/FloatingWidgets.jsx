@@ -44,7 +44,7 @@ export default function FloatingWidgets() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-[100] flex flex-col items-end gap-3 pointer-events-none">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[100] flex flex-col items-end gap-3 pointer-events-none">
       {/* Chat Window */}
       <AnimatePresence>
         {isChatOpen && (
@@ -53,7 +53,7 @@ export default function FloatingWidgets() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ duration: 0.25 }}
-            className="pointer-events-auto w-[320px] sm:w-[360px] bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 flex flex-col h-[400px] sm:h-[440px] mb-2"
+            className="pointer-events-auto w-[calc(100vw-32px)] sm:w-[360px] bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 flex flex-col h-[70vh] max-h-[340px] sm:h-[440px] sm:max-h-none mb-2"
           >
             {/* Chat Header */}
             <div className="bg-[#2d0a4e] p-4 text-white flex items-center justify-between">
