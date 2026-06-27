@@ -60,7 +60,7 @@ export default function Home() {
         <div className="absolute inset-y-0 left-0 w-[85%] bg-gradient-to-r from-vastram-gold/80 via-vastram-gold/40 to-transparent pointer-events-none z-10 md:hidden"></div>
 
         <div className="relative max-w-7xl mx-auto h-full px-6 flex items-center justify-between pt-24 md:pt-0 z-20">
-          <div className="max-w-xl z-20 pl-4 md:pl-12">
+          <div className="max-w-xl z-20 pl-4 md:pl-12 lg:pl-28">
             <h1 className="font-playfair text-[50px] md:text-[70px] text-vastram-brown leading-[1.1] tracking-tight mb-4">
               Heritage. <br /> Handcrafted. <br /> Timeless.
             </h1>

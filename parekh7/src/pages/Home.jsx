@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronLeft, ChevronRight, FileText, Gavel, MessageSquare, Users, Clipboard, Link as LinkIcon } from 'lucide-react';
 
 const heroSlides = [
-    {
+  {
     image: '/images/hero3.png',
     tag: '1200+ Retail Outlets',
     heading: 'Experience\nThe Mall of\nTextiles',
@@ -49,7 +49,7 @@ const featuredCollections = [
   { name: 'NEW ARRIVALS', desc: 'Fresh Styles', image: 'https://images.unsplash.com/photo-1578932750294-f5075e85f44a?w=600&auto=format&fit=crop&q=60' },
   { name: 'WEDDING EDIT', desc: 'Timeless Elegance', image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&q=80&w=800' },
   { name: 'EVERYDAY ESSENTIALS', desc: 'Comfort & Style', image: '/images/about.png' },
-  { name: 'FESTIVE COLLECTION', desc: 'Celebrate in Style', image: 'https://images.unsplash.com/photo-1551163943-3f6a855d1153?auto=format&fit=crop&q=80&w=800' },
+  { name: 'FESTIVE COLLECTION', desc: 'Celebrate in Style', image: 'https://images.pexels.com/photos/29413537/pexels-photo-29413537.jpeg' },
 ];
 
 const quickLinks = [
@@ -233,10 +233,10 @@ export default function Home() {
               className="category-card group flex flex-col items-center p-4 sm:p-5 rounded-2xl text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
               style={{ background: '#FFFFFF', border: '1px solid #EAEAEA', boxShadow: '0 2px 10px rgba(0,0,0,0.02)' }}
             >
-              <img 
-                src={cat.iconUrl} 
+              <img
+                src={cat.iconUrl}
                 alt={cat.name}
-                className="w-10 h-10 sm:w-12 sm:h-12 mb-3 transition-transform duration-300 group-hover:scale-110 opacity-80 group-hover:opacity-100" 
+                className="w-10 h-10 sm:w-12 sm:h-12 mb-3 transition-transform duration-300 group-hover:scale-110 opacity-80 group-hover:opacity-100"
               />
               <span className="text-[10px] sm:text-[11px] font-bold leading-tight" style={{ color: '#2C1810' }}>
                 {cat.name}

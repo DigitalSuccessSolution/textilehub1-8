@@ -12,11 +12,11 @@ export default function Navbar() {
     { name: 'About us', path: '/about' },
     { name: 'Contact us', path: '/contact' },
     { name: 'Product', path: '/products' },
-    { name: 'Our Retail Management', path: '/retail-management' }
+    { name: 'Our Retail Management', path: '/retail-management' },
+    { name: 'Trade Enquiry', path: '/trade-enquiry' }
   ];
 
   const resourcesLinks = [
-    { name: 'Trade Enquiry', path: '/trade-enquiry' },
     { name: 'e-Quotation', path: '/e-quotation' },
     { name: 'e-Auction', path: '/e-auction' },
     { name: 'Trade Circular', path: '/trade-circular' },
