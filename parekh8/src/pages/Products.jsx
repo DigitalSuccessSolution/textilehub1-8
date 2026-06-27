@@ -3,19 +3,33 @@ import { motion } from 'framer-motion';
 import { ShoppingBag } from 'lucide-react';
 
 const categories = [
-  "Sarees", "Kurtis", "Leggings", "Dress Suits",
-  "Bedsheets & Linen", "Hosiery Items", "Suiting", "Shirting",
-  "Women Wear", "Men Wear",
-  "Children Wear", "Home Furnishing"
+  "Sarees",
+  "Leggings",
+  "Kurtis",
+  "Dress Suits",
+  "Bedsheets & Linen",
+  "Hosiery Items",
+  "Suiting",
+  "Shirting",
+  "Formal & Ethnic Wear for Women",
+  "Formal & Ethnic Wear for Men",
+  "Formal & Ethnic Wear for Children",
+  "Home Upholstery & Furnishing"
 ];
 
 const allProducts = [
-  { id: 101, name: 'Premium Silk Saree', category: 'Sarees', image: 'https://images.unsplash.com/photo-1609748340041-f5d61e061ebc?w=600&auto=format&fit=crop&q=60' },
-  { id: 105, name: 'Embroidered Silk Saree', category: 'Sarees', image: 'https://images.unsplash.com/photo-1610189013233-0498b89d4fb9?w=600&auto=format&fit=crop&q=60' },
-  { id: 102, name: 'Designer Kurti Set', category: 'Kurtis', image: 'https://images.unsplash.com/photo-1741847639057-b51a25d42892?w=600&auto=format&fit=crop&q=60' },
-  { id: 106, name: 'Printed Cotton Kurti', category: 'Kurtis', image: 'https://images.unsplash.com/photo-1745313452052-0e4e341f326c?w=600&auto=format&fit=crop&q=60' },
-  { id: 103, name: 'Luxury Cotton Bedsheet', category: 'Bedsheets & Linen', image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&auto=format&fit=crop&q=60' },
-  { id: 104, name: 'Classic Men Suit Fabric', category: 'Suiting', image: 'https://images.unsplash.com/photo-1611937663641-5cef5189d71b?w=600&auto=format&fit=crop&q=60' },
+  { id: 101, name: 'Kanchipuram Pure Silk Saree', category: 'Sarees', image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600&auto=format&fit=crop&q=80' },
+  { id: 102, name: 'Stretchable Cotton Leggings', category: 'Leggings', image: 'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=600&auto=format&fit=crop&q=80' },
+  { id: 103, name: 'Designer Embroidered Kurti Set', category: 'Kurtis', image: 'https://images.pexels.com/photos/20841148/pexels-photo-20841148.jpeg' },
+  { id: 104, name: 'Anarkali Dress Suit Set', category: 'Dress Suits', image: 'https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?w=600&auto=format&fit=crop&q=80' },
+  { id: 105, name: 'Luxury Cotton Bedsheet Set', category: 'Bedsheets & Linen', image: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600&auto=format&fit=crop&q=80' },
+  { id: 106, name: 'Premium Hosiery Cotton Innerwear', category: 'Hosiery Items', image: 'https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=600&auto=format&fit=crop&q=80' },
+  { id: 107, name: 'Raymond Premium Suiting Fabric', category: 'Suiting', image: 'https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?w=600&auto=format&fit=crop&q=80' },
+  { id: 108, name: 'Formal Cotton Shirting Fabric', category: 'Shirting', image: 'https://images.unsplash.com/photo-1598032895397-b9472444bf93?w=600&auto=format&fit=crop&q=80' },
+  { id: 109, name: 'Ethnic Salwar Kameez Set', category: 'Formal & Ethnic Wear for Women', image: 'https://images.pexels.com/photos/33363057/pexels-photo-33363057.jpeg' },
+  { id: 110, name: 'Men Premium Kurta Pyjama Set', category: 'Formal & Ethnic Wear for Men', image: 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&auto=format&fit=crop&q=80' },
+  { id: 111, name: 'Kids Ethnic Sherwani Set', category: 'Formal & Ethnic Wear for Children', image: 'https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?w=600&auto=format&fit=crop&q=80' },
+  { id: 112, name: 'Modern Living Room Curtains', category: 'Home Upholstery & Furnishing', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&auto=format&fit=crop&q=80' },
 ];
 
 export default function Products() {
@@ -35,7 +49,7 @@ export default function Products() {
         <div className="relative max-w-7xl mx-auto px-6 sm:px-10 w-full flex flex-col items-center justify-center gap-4">
           <h1 className="font-bold text-5xl sm:text-6xl text-[#303030]"
               style={{ fontFamily: "'Playfair Display', serif" }}>
-              Catalogue
+              Products Gallery
             </h1>
           <div className="flex items-center gap-2 px-5 py-2.5 rounded-full shadow-lg"
             >
@@ -48,7 +62,7 @@ export default function Products() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10">
 
         {/* Category Filter Pills */}
-        <div className="flex flex-wrap gap-2 mb-10">
+        <div className="flex flex-wrap gap-2 mb-10 justify-center sm:justify-start">
           {['All', ...categories].map(cat => (
             <button
               key={cat}
@@ -66,7 +80,7 @@ export default function Products() {
 
         {/* Products Grid */}
         {filteredProducts.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
             {filteredProducts.map(product => (
               <motion.div
                 key={product.id}

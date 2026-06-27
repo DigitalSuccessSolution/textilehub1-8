@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 import { Briefcase, MapPin, Mail } from 'lucide-react';
 
 const jobs = [
-  { id: 1, title: 'Retail Operations Manager', location: 'Mumbai, India', type: 'Full-time', experience: '5-8 Years', description: 'Oversee daily store operations, manage staff, and ensure a premium customer experience across our flagship retail outlets.' },
-  { id: 2, title: 'Senior Fabric Technologist', location: 'Surat, India', type: 'Full-time', experience: '7+ Years', description: 'Lead quality control for incoming fabrics, develop new textile blends, and maintain our high standards of material excellence.' },
-  { id: 3, title: 'B2B Sales Executive', location: 'Delhi, India', type: 'Full-time', experience: '2-4 Years', description: 'Expand our wholesale network, acquire new B2B accounts, and maintain strong relationships with our key clients.' },
-  { id: 4, title: 'Digital Marketing Specialist', location: 'Remote', type: 'Full-time', experience: '3+ Years', description: 'Drive our online presence, manage social media campaigns, and optimize e-commerce conversion rates.' },
+  { id: 1, title: 'Retail Operations Manager', location: 'Mumbai, India', salary: '₹6,00,000 - ₹9,00,000 / Year', description: 'Oversee daily store operations, manage staff, and ensure a premium customer experience across our flagship retail outlets.' },
+  { id: 2, title: 'Senior Fabric Technologist', location: 'Surat, India', salary: '₹8,50,000 - ₹12,00,000 / Year', description: 'Lead quality control for incoming fabrics, develop new textile blends, and maintain our high standards of material excellence.' },
+  { id: 3, title: 'B2B Sales Executive', location: 'Delhi, India', salary: '₹4,00,000 - ₹6,50,000 / Year', description: 'Expand our wholesale network, acquire new B2B accounts, and maintain strong relationships with our key clients.' },
+  { id: 4, title: 'Digital Marketing Specialist', location: 'Remote', salary: '₹5,00,000 - ₹8,00,000 / Year', description: 'Drive our online presence, manage social media campaigns, and optimize e-commerce conversion rates.' },
 ];
 
 const Career = () => {
@@ -14,13 +14,13 @@ const Career = () => {
     <div style={{ fontFamily: "'DM Sans', sans-serif", background: '#FDF6EC' }}>
 
       {/* Hero Banner */}
-      <div className="relative h-32 sm:h-40 overflow-hidden flex items-center justify-center text-center"
+      <div className="relative py-8 sm:py-10 min-h-[140px] overflow-hidden flex items-center justify-center text-center"
         style={{ background: 'linear-gradient(135deg, #1A0A05 0%, #2C1810 60%, #3D2418 100%)' }}>
         <div className="absolute inset-0 opacity-5"
           style={{ backgroundImage: 'radial-gradient(circle, #C9A227 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
         <div className="relative max-w-7xl mx-auto px-6 sm:px-10 w-full">
           
-          <h1 className="font-bold text-5xl sm:text-6xl text-white"
+          <h1 className="font-bold text-3xl sm:text-5xl lg:text-6xl text-white"
             style={{ fontFamily: "'Cormorant Garamond', serif" }}>
             Career Page
           </h1>
@@ -51,7 +51,7 @@ const Career = () => {
                     <MapPin size={14} color="#C9A227" /> {job.location}
                   </div>
                   <div className="flex items-center gap-2.5 text-[13px] font-medium" style={{ color: '#7D5A4F' }}>
-                    <Briefcase size={14} color="#C9A227" /> {job.type} · {job.experience}
+                    <Briefcase size={14} color="#C9A227" /> {job.salary}
                   </div>
                   <div className="flex items-center gap-2.5 text-[13px] font-medium" style={{ color: '#7D5A4F' }}>
                     <Mail size={14} color="#C9A227" />

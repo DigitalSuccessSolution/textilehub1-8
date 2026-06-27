@@ -34,7 +34,7 @@ export default function Footer() {
       {/* Gold top bar */}
       <div className="h-0.5 w-full" style={{ background: 'linear-gradient(90deg, #9B2519, #C9A227, #E2C65A, #C9A227, #9B2519)' }} />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-14 pb-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
           {/* Brand Column */}
@@ -73,7 +73,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Links Section (2 columns on mobile) */}
+          {/* Links Section (Responsive columns on mobile) */}
           <div className="grid grid-cols-2 gap-6 lg:col-span-2">
             {/* Quick Links */}
             <div>
@@ -110,6 +110,7 @@ export default function Footer() {
                   { name: 'Customer Review', path: '/reviews' },
                   { name: 'Media Gallery', path: '/gallery' },
                   { name: 'Contact Us', path: '/contact' },
+                  { name: 'FAQ', path: '/faq' },
                 ].map(link => (
                   <li key={link.name}>
                     <Link to={link.path}

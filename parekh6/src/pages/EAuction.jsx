@@ -40,7 +40,7 @@ const EAuction = () => {
             <div className="bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow flex flex-col group overflow-hidden">
               <div className="h-48 overflow-hidden relative">
                 <img 
-                  src="https://images.unsplash.com/photo-1528476513691-07e6f563d97f?auto=format&fit=crop&w=600&q=80" 
+                  src="https://images.pexels.com/photos/33058633/pexels-photo-33058633.jpeg" 
                   alt="Surplus Cotton Yarn" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
@@ -80,7 +80,7 @@ const EAuction = () => {
             <div className="bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow flex flex-col group overflow-hidden">
               <div className="h-48 overflow-hidden relative">
                 <img 
-                  src="https://images.unsplash.com/photo-1582485566219-c5c5ade60c6d?auto=format&fit=crop&w=600&q=80" 
+                  src="https://images.pexels.com/photos/31769271/pexels-photo-31769271.jpeg" 
                   alt="Excess Denim Fabrics" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />

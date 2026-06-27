@@ -1,12 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ClipboardCheck, Inbox, FileText, Send, Mail } from 'lucide-react';
+import { ClipboardCheck, FileText, Send } from 'lucide-react';
 
 const inputStyle = {
   background: '#FAF4EE',
   border: '1.5px solid rgba(225,77,42,0.2)',
   color: '#303030',
 };
+
+const activeQuotations = [
+  { id: 1, title: 'Bulk Cotton Shirting Fabric Procurement', description: 'Request for premium cotton fabric, 180 GSM, plain weave, white and blue colors, quantity 5,000 meters.', date: 'Closing Date: July 15, 2026' },
+  { id: 2, title: 'Festive Saree Collection Supply', description: 'Quotation for traditional silk and georgette sarees with embroidery work, quantity 1,200 pieces.', date: 'Closing Date: July 20, 2026' },
+];
 
 const EQuotation = () => {
   return (
@@ -28,20 +33,37 @@ const EQuotation = () => {
       <div className="pb-20 max-w-7xl mx-auto px-4 md:px-8 py-10">
 
         {/* Active Quotations */}
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
-          <div className="flex items-center gap-3 mb-4">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-12">
+          <div className="flex items-center gap-3 mb-6">
             <ClipboardCheck size={20} color="#E14D2A" />
             <h2 className="font-bold text-lg uppercase tracking-wide"
               style={{ fontFamily: "'Playfair Display', serif", color: '#303030' }}>
               Active Quotation Requests
             </h2>
           </div>
-          <div className="rounded-2xl py-16 flex flex-col items-center justify-center"
-            style={{ background: '#FFFFFF', border: '1.5px solid rgba(225,77,42,0.15)' }}>
-            <Inbox size={40} className="mb-4" color="#E14D2A" strokeWidth={1} />
-            <p className="text-[12px] font-bold tracking-widest" style={{ color: '#6B6B6B' }}>
-              ( At present, No e-Quotation published )
-            </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {activeQuotations.map(q => (
+              <div key={q.id} className="p-6 rounded-2xl flex items-start gap-4 transition-all duration-300 hover:shadow-lg"
+                   style={{ background: '#FFFFFF', border: '1.5px solid rgba(225, 77, 42, 0.15)' }}>
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0"
+                     style={{ background: 'rgba(225, 77, 42, 0.08)', border: '1px solid rgba(225, 77, 42, 0.2)' }}>
+                  <FileText size={20} color="#E14D2A" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-base text-[#303030] mb-1.5 leading-snug" style={{ fontFamily: "'Playfair Display', serif" }}>
+                    {q.title}
+                  </h3>
+                  <p className="text-xs text-[#6B6B6B] mb-4 leading-relaxed">
+                    {q.description}
+                  </p>
+                  <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-md"
+                        style={{ background: 'rgba(225, 77, 42, 0.08)', color: '#E14D2A' }}>
+                    {q.date}
+                  </span>
+                </div>
+              </div>
+            ))}
           </div>
         </motion.div>
 
@@ -70,7 +92,7 @@ const EQuotation = () => {
                 {[
                   { label: 'Name of the Trader *', type: 'text', req: true },
                   { label: 'Business Name *', type: 'text', req: true },
-                  { label: 'Business Address with PIN Code *', type: 'text', req: true },
+                  { label: 'Business Address with Pin Code *', type: 'text', req: true },
                   { label: 'GST No.', type: 'text', req: false },
                   { label: 'Mobile No. *', type: 'tel', req: true },
                   { label: 'Email ID *', type: 'email', req: true },
@@ -117,18 +139,13 @@ const EQuotation = () => {
 
               <button type="submit"
                 className="w-full py-4 rounded-xl font-bold tracking-widest uppercase text-[#303030] text-sm flex items-center justify-center gap-3 transition-all hover:opacity-90 hover:-translate-y-0.5"
-                >
-                <Send size={16} /> Submit Quotation Request
+                style={{
+                  background: 'linear-gradient(135deg, #C93E1D 0%, #E14D2A 100%)',
+                  color: '#FFFFFF'
+                }}
+              >
+                Submit Quotation Request
               </button>
-
-              <div className="pt-2 text-center flex items-center justify-center gap-2">
-                <Mail size={14} color="#E14D2A" />
-                <a href="mailto:info@textilemall.com"
-                  className="text-[11px] font-bold tracking-widest hover:underline"
-                  style={{ color: '#E14D2A' }}>
-                  info@textilemall.com
-                </a>
-              </div>
             </form>
           </div>
         </motion.div>

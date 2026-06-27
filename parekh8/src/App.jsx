@@ -14,7 +14,9 @@ import NoticeBoard from './pages/NoticeBoard';
 import Career from './pages/Career';
 import CustomerReview from './pages/CustomerReview';
 import BusinessMediaGallery from './pages/BusinessMediaGallery';
+import FAQ from './pages/FAQ';
 import Preloader from './components/Preloader';
+import PromoPopup from './components/PromoPopup';
 import ScrollToTop from './components/ScrollToTop';
 import { useState, useEffect } from 'react';
 
@@ -35,27 +37,32 @@ function App() {
       {loading ? (
         <Preloader />
       ) : (
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="about" element={<About />} />
-            <Route path="contact" element={<Contact />} />
-            <Route path="products" element={<Products />} />
-            <Route path="retail-management" element={<RetailManagement />} />
-            <Route path="trade-enquiry" element={<TradeEnquiry />} />
-            <Route path="e-quotation" element={<EQuotation />} />
-            <Route path="e-auction" element={<EAuction />} />
-            <Route path="trade-circular" element={<TradeCircular />} />
-            <Route path="blog" element={<Blog />} />
-            <Route path="notice-board" element={<NoticeBoard />} />
-            <Route path="career" element={<Career />} />
-            <Route path="reviews" element={<CustomerReview />} />
-            <Route path="gallery" element={<BusinessMediaGallery />} />
-          </Route>
-        </Routes>
+        <>
+          <PromoPopup />
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route path="about" element={<About />} />
+              <Route path="contact" element={<Contact />} />
+              <Route path="products" element={<Products />} />
+              <Route path="retail-management" element={<RetailManagement />} />
+              <Route path="trade-enquiry" element={<TradeEnquiry />} />
+              <Route path="e-quotation" element={<EQuotation />} />
+              <Route path="e-auction" element={<EAuction />} />
+              <Route path="trade-circular" element={<TradeCircular />} />
+              <Route path="blog" element={<Blog />} />
+              <Route path="notice-board" element={<NoticeBoard />} />
+              <Route path="career" element={<Career />} />
+              <Route path="reviews" element={<CustomerReview />} />
+              <Route path="gallery" element={<BusinessMediaGallery />} />
+              <Route path="faq" element={<FAQ />} />
+            </Route>
+          </Routes>
+        </>
       )}
     </Router>
   );
 }
 
 export default App;
+

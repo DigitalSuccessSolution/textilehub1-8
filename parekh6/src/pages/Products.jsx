@@ -21,7 +21,7 @@ export default function Products() {
       id: 102,
       name: 'Stretchable Cotton Leggings',
       category: 'Leggings',
-      image: 'https://images.unsplash.com/photo-1548690312-e3b507d8c110?w=600&auto=format&fit=crop&q=80'
+      image: 'https://images.pexels.com/photos/16701769/pexels-photo-16701769.jpeg'
     },
     {
       id: 103,

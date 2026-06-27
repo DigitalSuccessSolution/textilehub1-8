@@ -34,7 +34,7 @@ export default function Footer() {
       {/* Accent top bar */}
       <div className="h-0.5 w-full" style={{ background: '#E14D2A' }} />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-14">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-14 pb-5">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
           {/* Brand Column */}
@@ -73,7 +73,7 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Links Section (2 columns on mobile) */}
+          {/* Links Section (stacked on mobile, 2 columns on sm+) */}
           <div className="grid grid-cols-2 gap-6 lg:col-span-2">
             {/* Quick Links */}
             <div>
@@ -83,8 +83,8 @@ export default function Footer() {
                   { name: 'About Us', path: '/about' },
                   { name: 'Product Page', path: '/products' },
                   { name: 'Trade Enquiry', path: '/trade-enquiry' },
-                  { name: 'E-Quotation', path: '/e-quotation' },
-                  { name: 'E-Auction', path: '/e-auction' },
+                  { name: 'e-Quotation', path: '/e-quotation' },
+                  { name: 'e-Auction', path: '/e-auction' },
                   { name: 'Career Page', path: '/career' },
                 ].map(link => (
                   <li key={link.name}>
@@ -109,7 +109,7 @@ export default function Footer() {
                   { name: 'Notice Board', path: '/notice-board' },
                   { name: 'Customer Review', path: '/reviews' },
                   { name: 'Media Gallery', path: '/gallery' },
-                  { name: 'Contact Us', path: '/contact' },
+                  { name: 'FAQ Page', path: '/faq' },
                 ].map(link => (
                   <li key={link.name}>
                     <Link to={link.path}

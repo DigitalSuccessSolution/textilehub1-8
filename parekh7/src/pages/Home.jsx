@@ -31,7 +31,7 @@ const heroSlides = [
 ];
 
 const shopCategories = [
-  { name: 'Sarees', iconUrl: 'https://img.icons8.com/ios/96/1A1A1A/saree.png' },
+  { name: 'Sarees', iconUrl: 'https://img.icons8.com/ios/96/1A1A1A/wedding-dress.png' },
   { name: 'Leggings', iconUrl: 'https://img.icons8.com/ios/96/1A1A1A/trousers.png' },
   { name: 'Kurtis', iconUrl: 'https://img.icons8.com/ios/96/1A1A1A/shirt.png' },
   { name: 'Dress Suits', iconUrl: 'https://img.icons8.com/ios/96/1A1A1A/womens-suit.png' },
@@ -107,14 +107,11 @@ export default function Home() {
     <div className="w-full" style={{ background: '#FDF6EC', fontFamily: "'DM Sans', sans-serif" }}>
 
       {/* ── HERO SLIDER ── */}
-      <section className="relative w-full h-[480px] sm:h-[560px] lg:h-[620px] overflow-hidden">
+      <section className="relative w-full h-[360px] sm:h-[560px] lg:h-[620px] overflow-hidden">
         {heroSlides.map((s, i) => {
           const isActive = i === current;
           const isLeaving = i === leaving;
 
-          // Active: sits at 0 (just entered from right)
-          // Leaving: exits to left (-100%)
-          // Others: waiting off-screen to the right (100%)
           let translateX = '100%';
           if (isActive) translateX = '0%';
           if (isLeaving) translateX = '-100%';
@@ -129,32 +126,27 @@ export default function Home() {
                 zIndex: isActive ? 10 : isLeaving ? 9 : 0,
               }}
             >
-              {/* Full cover image — no cropping, no black gaps */}
               <img
                 src={s.image}
                 alt={s.heading}
                 className="absolute inset-0 w-full h-full object-cover object-top"
               />
-              {/* Subtle dark scrim only on left half for text legibility */}
+              {/* Subtle dark scrim — darker on mobile for high legibility */}
               <div
-                className="absolute inset-0"
-                style={{ background: 'linear-gradient(to right, rgba(10,3,1,0.6) 0%, rgba(10,3,1,0.3) 35%, transparent 65%)' }}
+                className="absolute inset-0 bg-gradient-to-r from-[#1A0A05]/95 via-[#1A0A05]/70 to-[#1A0A05]/30 sm:from-[#1A0A05]/70 sm:via-[#1A0A05]/35 sm:to-transparent"
               />
             </div>
           );
         })}
 
-        {/* Gold top border */}
-
         {/* Content */}
         <div className="relative z-20 h-full max-w-7xl mx-auto px-6 sm:px-10 flex items-center">
-          <div className="max-w-xl ml-4 sm:ml-12 -mt-12">
-            {/* Heading */}
+          <div className="max-w-xl ml-4 sm:ml-12 -mt-4 sm:-mt-12">
             <h1
-              className="font-bold leading-[1.08] mb-6 text-white"
+              className="font-bold leading-[1.1] mb-4 sm:mb-6 text-white"
               style={{
                 fontFamily: "'Cormorant Garamond', serif",
-                fontSize: 'clamp(2.8rem, 6vw, 5rem)',
+                fontSize: 'clamp(2.2rem, 6vw, 5rem)',
                 whiteSpace: 'pre-line',
               }}
             >
@@ -163,22 +155,20 @@ export default function Home() {
               ))}
             </h1>
 
-            {/* Sub */}
-            <p className="text-[#D4BDB6] text-[15px] leading-[1.7] mb-8 max-w-sm">
+            <p className="text-[#FFFBF5]/90 text-[13px] sm:text-[15px] leading-relaxed mb-6 sm:mb-8 max-w-xs sm:max-w-sm font-medium drop-shadow-md">
               {slide.sub}
             </p>
 
-            {/* CTAs */}
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-3">
               <Link
                 to={slide.ctaPath}
-                className="btn-primary px-7 py-3 rounded-full text-[12px] font-bold tracking-[0.08em] uppercase shadow-lg"
+                className="btn-primary px-5 py-2.5 sm:px-7 sm:py-3 rounded-full text-[10px] sm:text-[12px] font-bold tracking-[0.08em] uppercase shadow-lg"
               >
                 {slide.cta} →
               </Link>
               <Link
                 to="/trade-enquiry"
-                className="px-7 py-3 rounded-full text-[12px] font-bold tracking-[0.08em] uppercase transition-all duration-200 hover:bg-white/10"
+                className="px-5 py-2.5 sm:px-7 sm:py-3 rounded-full text-[10px] sm:text-[12px] font-bold tracking-[0.08em] uppercase transition-all duration-200 hover:bg-white/10"
                 style={{ border: '1px solid rgba(201,162,39,0.5)', color: '#C9A227' }}
               >
                 Trade Enquiry
@@ -187,7 +177,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Slider Dots */}
         <div className="absolute bottom-5 left-0 right-0 z-20 flex items-center justify-center gap-2">
           {heroSlides.map((_, i) => (
             <button
@@ -198,24 +187,22 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Arrow buttons */}
         <button
           onClick={prev}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 hover:bg-white/10"
+          className="absolute left-1 sm:left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 hover:bg-white/10"
           style={{ background: 'rgba(10,3,1,0.35)', border: '1px solid rgba(201,162,39,0.35)' }}
         >
           <ChevronLeft size={20} color="#C9A227" />
         </button>
         <button
           onClick={next}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 hover:bg-white/10"
+          className="absolute right-1 sm:right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:scale-110 hover:bg-white/10"
           style={{ background: 'rgba(10,3,1,0.35)', border: '1px solid rgba(201,162,39,0.35)' }}
         >
           <ChevronRight size={20} color="#C9A227" />
         </button>
       </section>
 
-      {/* ── CATEGORIES ── */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
         <div className="flex items-center gap-4 mb-8">
           <div>
@@ -225,12 +212,12 @@ export default function Home() {
           <div className="flex-1 h-px ml-4" style={{ background: 'linear-gradient(90deg, rgba(201,162,39,0.4), transparent)' }} />
         </div>
 
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3 sm:gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-3 sm:gap-4">
           {shopCategories.map((cat, idx) => (
             <Link
               to="/products"
               key={idx}
-              className="category-card group flex flex-col items-center p-4 sm:p-5 rounded-2xl text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              className="category-card group flex flex-col items-center p-3 sm:p-5 rounded-2xl text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
               style={{ background: '#FFFFFF', border: '1px solid #EAEAEA', boxShadow: '0 2px 10px rgba(0,0,0,0.02)' }}
             >
               <img
@@ -246,7 +233,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── FEATURED COLLECTIONS ── */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 pb-16">
         <div className="flex items-center gap-4 mb-8">
           <div>
@@ -256,7 +242,7 @@ export default function Home() {
           <div className="flex-1 h-px ml-4" style={{ background: 'linear-gradient(90deg, rgba(201,162,39,0.4), transparent)' }} />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {featuredCollections.map((col, idx) => (
             <Link
               to="/products"
@@ -269,11 +255,10 @@ export default function Home() {
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(26,10,5,0.9) 0%, rgba(26,10,5,0.3) 55%, transparent 100%)' }} />
-              {/* Gold top accent */}
-              <div className="absolute bottom-0 left-0 p-5 w-full">
+              <div className="absolute bottom-0 left-0 p-4 sm:p-5 w-full">
                 <p className="text-[10px] font-bold tracking-[0.18em] uppercase mb-1" style={{ color: '#C9A227' }}>{col.name}</p>
-                <p className="text-white/80 text-sm mb-3">{col.desc}</p>
-                <span className="flex items-center text-white text-xs font-bold tracking-wide gap-1.5 group-hover:gap-3 transition-all duration-200">
+                <p className="text-white/80 text-[11px] sm:text-sm mb-3">{col.desc}</p>
+                <span className="flex items-center text-white text-[10px] sm:text-xs font-bold tracking-wide gap-1.5 group-hover:gap-3 transition-all duration-200">
                   Shop Now <ArrowRight size={13} />
                 </span>
               </div>
@@ -282,30 +267,29 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── STATS BANNER ── */}
-      <section className="relative overflow-hidden py-14" style={{ background: 'linear-gradient(135deg, #1A0A05 0%, #2C1810 100%)' }}>
-        <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle, #C9A227 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
-        <div className="absolute bottom-0 left-0 right-0 h-0.5" style={{ background: 'linear-gradient(90deg, #9B2519, #C9A227, #E2C65A, #C9A227, #9B2519)' }} />
-
-        <div className="relative max-w-7xl mx-auto px-6">
+      <section className="relative overflow-hidden py-16"
+        style={{ background: 'linear-gradient(135deg, #1A0A05 0%, #2C1810 60%, #3D2418 100%)' }}>
+        <div className="absolute inset-0 opacity-5"
+          style={{ backgroundImage: 'radial-gradient(circle, #C9A227 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
+        <div className="relative max-w-7xl mx-auto px-6 sm:px-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {stats.map((s, i) => (
+            {stats.map((st, i) => (
               <div key={i} className="flex flex-col items-center">
-                <span
-                  className="font-bold text-4xl sm:text-5xl mb-2 leading-none"
-                  style={{ fontFamily: "'Cormorant Garamond', serif", color: '#C9A227' }}
-                >
-                  {s.value}
-                </span>
-                <span className="text-[12px] font-medium tracking-wide uppercase" style={{ color: '#A68B7C' }}>{s.label}</span>
+                <p className="text-4xl sm:text-5xl font-bold mb-2 text-white"
+                  style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                  {st.value}
+                </p>
+                <p className="text-[10px] sm:text-[11px] font-bold tracking-widest uppercase"
+                  style={{ color: '#D4BDB6' }}>
+                  {st.label}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── QUICK LINKS ── */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 py-20">
         <div className="flex items-center gap-4 mb-8">
           <div>
             <p className="text-[11px] font-bold tracking-[0.2em] uppercase mb-1" style={{ color: '#C9A227' }}>Services</p>
@@ -332,7 +316,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── BLOG ── */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 pb-20">
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-4">
@@ -346,7 +329,7 @@ export default function Home() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-8">
           {blogPosts.map((post, idx) => (
             <Link to="/blog" key={idx} className="group flex flex-col rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300"
               style={{ background: '#FFFBF5', border: '1px solid rgba(201,162,39,0.12)' }}>
@@ -361,9 +344,9 @@ export default function Home() {
                   Blog
                 </div>
               </div>
-              <div className="p-5 flex flex-col flex-1">
+              <div className="p-4 sm:p-5 flex flex-col flex-1">
                 <p className="text-[11px] font-medium mb-2" style={{ color: '#A68B7C' }}>{post.date}</p>
-                <h3 className="font-bold text-xl mb-3 group-hover:opacity-80 transition-opacity leading-snug"
+                <h3 className="font-bold text-sm sm:text-xl mb-3 group-hover:opacity-80 transition-opacity leading-snug"
                   style={{ fontFamily: "'Cormorant Garamond', serif", color: '#2C1810' }}>
                   {post.title}
                 </h3>

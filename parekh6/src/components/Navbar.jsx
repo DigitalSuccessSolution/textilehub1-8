@@ -25,7 +25,7 @@ export default function Navbar() {
     { name: 'Career', path: '/career' },
     { name: 'Customer Review', path: '/reviews' },
     { name: 'Business Media Gallery', path: '/gallery' },
-    { name: 'FAQ Page', path: '/faq' }
+    { name: 'FAQ', path: '/faq' }
   ];
 
   // Helper to check if any resources link is active

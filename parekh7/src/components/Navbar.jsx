@@ -14,6 +14,17 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   const mainLinks = [
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
@@ -32,6 +43,7 @@ export default function Navbar() {
     { name: 'Career Page', path: '/career' },
     { name: 'Customer Review', path: '/reviews' },
     { name: 'Business Media Gallery', path: '/gallery' },
+    { name: 'FAQ', path: '/faq' },
   ];
 
   const isMoreActive = moreLinks.some(l => location.pathname === l.path);
@@ -153,8 +165,8 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       {isOpen && (
-        <div className="lg:hidden bg-[#2C1810] border-t border-[#C9A227]/15 max-h-[85vh] overflow-y-auto">
-          <div className="px-4 py-5 space-y-1">
+        <div className="lg:hidden fixed inset-x-0 bottom-0 top-[70px] z-50 bg-[#2C1810] overflow-y-auto flex flex-col">
+          <div className="px-6 py-8 space-y-2 flex-grow">
             {mainLinks.map((link) => {
               const isActive = location.pathname === link.path;
               return (
@@ -162,9 +174,9 @@ export default function Navbar() {
                   key={link.name}
                   to={link.path}
                   onClick={() => setIsOpen(false)}
-                  className={`flex items-center gap-2 px-4 py-3 rounded-lg text-[14px] font-medium tracking-wide uppercase transition-all ${
+                  className={`flex items-center gap-3 px-5 py-3.5 rounded-xl text-[15px] font-bold tracking-wide uppercase transition-all ${
                     isActive
-                      ? 'bg-[#9B2519]/30 text-[#C9A227] border-l-2 border-[#C9A227]'
+                      ? 'bg-[#9B2519]/35 text-[#C9A227] border-l-4 border-[#C9A227]'
                       : 'text-[#D4BDB6] hover:bg-[#9B2519]/15 hover:text-[#E2C65A]'
                   }`}
                 >
@@ -177,32 +189,34 @@ export default function Navbar() {
             <Link
               to="/trade-enquiry"
               onClick={() => setIsOpen(false)}
-              className="flex items-center justify-center gap-2 mt-3 px-4 py-3 rounded-full text-[13px] font-bold tracking-wider uppercase text-[#1A0A05] btn-gold shadow-md w-full"
+              className="flex items-center justify-center gap-2 mt-4 px-5 py-3.5 rounded-full text-[14px] font-bold tracking-wider uppercase text-[#1A0A05] btn-gold shadow-lg w-full"
             >
-              <Phone size={14} />
+              <Phone size={15} />
               Trade Enquiry
             </Link>
 
             {/* More Section */}
-            <div className="mt-4 pt-4 border-t border-[#C9A227]/15">
-              <p className="px-4 text-[10px] font-bold text-[#A68B7C] tracking-[0.2em] uppercase mb-2">More Pages</p>
-              {moreLinks.map((link) => {
-                const isActive = location.pathname === link.path;
-                return (
-                  <Link
-                    key={link.name}
-                    to={link.path}
-                    onClick={() => setIsOpen(false)}
-                    className={`flex items-center gap-2 px-6 py-2.5 rounded-lg text-[13px] font-medium tracking-wide transition-all ${
-                      isActive
-                        ? 'bg-[#9B2519]/30 text-[#C9A227]'
-                        : 'text-[#A68B7C] hover:bg-[#9B2519]/15 hover:text-[#D4BDB6]'
-                    }`}
-                  >
-                    {link.name}
-                  </Link>
-                );
-              })}
+            <div className="mt-8 pt-6 border-t border-[#C9A227]/15">
+              <p className="px-5 text-[10px] font-bold text-[#A68B7C] tracking-[0.2em] uppercase mb-4">More Pages</p>
+              <div className="grid grid-cols-2 gap-2">
+                {moreLinks.map((link) => {
+                  const isActive = location.pathname === link.path;
+                  return (
+                    <Link
+                      key={link.name}
+                      to={link.path}
+                      onClick={() => setIsOpen(false)}
+                      className={`flex items-center gap-2 px-5 py-3 rounded-lg text-[13px] font-medium tracking-wide transition-all ${
+                        isActive
+                          ? 'bg-[#9B2519]/30 text-[#C9A227]'
+                          : 'text-[#A68B7C] hover:bg-[#9B2519]/15 hover:text-[#D4BDB6]'
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>

@@ -26,11 +26,7 @@ const FloatingChatbot = () => {
               className="px-5 py-4 flex items-center justify-between"
               style={{ background: 'linear-gradient(135deg, #1A0A05 0%, #2C1810 100%)' }}
             >
-              {/* Gold accent top bar */}
-              <div
-                className="absolute top-0 left-0 right-0 h-0.5"
-                style={{ background: 'linear-gradient(90deg, #9B2519, #C9A227, #E2C65A, #C9A227, #9B2519)' }}
-              />
+
 
               <div className="flex items-center gap-3">
                 {/* Bot avatar */}

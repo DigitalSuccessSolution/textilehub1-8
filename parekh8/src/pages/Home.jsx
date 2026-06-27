@@ -32,25 +32,25 @@ const heroSlides = [
 ];
 
 const shopCategories = [
-  { name: 'Sarees', iconUrl: 'https://img.icons8.com/ios/96/1A1A1A/saree.png' },
-  { name: 'Kurtis', iconUrl: 'https://img.icons8.com/ios/96/1A1A1A/shirt.png' },
+  { name: 'Sarees', iconUrl: 'https://img.icons8.com/ios/96/1A1A1A/wedding-dress.png' },
   { name: 'Leggings', iconUrl: 'https://img.icons8.com/ios/96/1A1A1A/trousers.png' },
+  { name: 'Kurtis', iconUrl: 'https://img.icons8.com/ios/96/1A1A1A/shirt.png' },
   { name: 'Dress Suits', iconUrl: 'https://img.icons8.com/ios/96/1A1A1A/womens-suit.png' },
   { name: 'Bedsheets & Linen', iconUrl: 'https://img.icons8.com/ios/96/1A1A1A/bed.png' },
   { name: 'Hosiery Items', iconUrl: 'https://img.icons8.com/ios/96/1A1A1A/socks.png' },
   { name: 'Suiting', iconUrl: 'https://img.icons8.com/ios/96/1A1A1A/suit.png' },
   { name: 'Shirting', iconUrl: 'https://img.icons8.com/ios/96/1A1A1A/shirt.png' },
-  { name: 'Women Wear', iconUrl: 'https://img.icons8.com/ios/96/1A1A1A/dress-front-view.png' },
-  { name: 'Men Wear', iconUrl: 'https://img.icons8.com/ios/96/1A1A1A/polo-shirt.png' },
-  { name: 'Children Wear', iconUrl: 'https://img.icons8.com/ios/96/1A1A1A/romper.png' },
-  { name: 'Home Furnishing', iconUrl: 'https://img.icons8.com/ios/96/1A1A1A/sofa.png' },
+  { name: 'Formal & Ethnic Wear for Women', iconUrl: 'https://img.icons8.com/ios/96/1A1A1A/dress-front-view.png' },
+  { name: 'Formal & Ethnic Wear for Men', iconUrl: 'https://img.icons8.com/ios/96/1A1A1A/polo-shirt.png' },
+  { name: 'Formal & Ethnic Wear for Children', iconUrl: 'https://img.icons8.com/ios/96/1A1A1A/romper.png' },
+  { name: 'Home Upholstery & Furnishing', iconUrl: 'https://img.icons8.com/ios/96/1A1A1A/sofa.png' },
 ];
 
 const featuredCollections = [
   { name: 'NEW ARRIVALS', desc: 'Fresh Styles', image: 'https://images.unsplash.com/photo-1578932750294-f5075e85f44a?w=600&auto=format&fit=crop&q=60' },
   { name: 'WEDDING EDIT', desc: 'Timeless Elegance', image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&q=80&w=800' },
-  { name: 'FESTIVE COLLECTION', desc: 'Celebrate in Style', image: 'https://images.unsplash.com/photo-1551163943-3f6a855d1153?auto=format&fit=crop&q=80&w=800' },
-  { name: 'SUMMER WEAR', desc: 'Beat the Heat', image: 'https://images.unsplash.com/photo-1503342394128-c104d54dba01?w=600&auto=format&fit=crop&q=60' },
+  { name: 'FESTIVE COLLECTION', desc: 'Celebrate in Style', image: 'https://images.pexels.com/photos/8886962/pexels-photo-8886962.jpeg' },
+  { name: 'SUMMER WEAR', desc: 'Beat the Heat', image: 'https://images.pexels.com/photos/17097100/pexels-photo-17097100.jpeg' },
 ];
 
 const promoBanners = [
@@ -58,8 +58,7 @@ const promoBanners = [
     tag: 'NEW ARRIVALS',
     title: 'Festive\nCollection',
     isScriptTitle: true,
-    buttonType: 'solid',
-    buttonText: 'SHOP NOW',
+    desc: 'Handpicked festive sarees & kurtis crafted for every celebration.',
     bgImage: 'https://images.unsplash.com/photo-1773439877127-ecfe17c9eb62?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z2lybCUyMGluJTIwZ3JlZW4lMjBrdXJ0aXxlbnwwfHwwfHx8MA%3D%3D0',
     color: '#FFFFFF',
     overlay: 'linear-gradient(to right, rgba(210,100,50,0.95) 0%, rgba(210,100,50,0.7) 40%, transparent 100%)'
@@ -68,8 +67,7 @@ const promoBanners = [
     tag: 'M&F',
     title: 'Luxury\nHome\nFurnishing',
     isScriptTitle: false,
-    buttonType: 'text',
-    buttonText: 'EXPLORE NOW →',
+    desc: 'Premium bedsheets & upholstery where comfort meets elegance.',
     bgImage: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bGx1eHVyeSUyMGhvbWUlMjBiZWR8ZW58MHx8MHx8fDA%3D',
     color: '#FFFFFF',
     overlay: 'linear-gradient(to right, rgba(60,80,80,0.85) 0%, rgba(60,80,80,0.6) 50%, transparent 100%)'
@@ -78,8 +76,7 @@ const promoBanners = [
     tag: "M&M",
     title: "Men's\nPremium\nEthnic Wear",
     isScriptTitle: false,
-    buttonType: 'text',
-    buttonText: 'SHOP NOW →',
+    desc: 'Timeless sherwanis & crisp suiting for every occasion.',
     bgImage: 'images/hero3.png',
     color: '#1A1A1A',
     overlay: 'linear-gradient(to right, rgba(250,245,240,0.95) 0%, rgba(250,245,240,0.8) 50%, transparent 100%)'
@@ -121,7 +118,7 @@ export default function Home() {
     <div className="w-full" style={{ background: '#FAF4EE', fontFamily: "'Outfit', sans-serif" }}>
 
       {/* ── HERO BANNER ── */}
-      <section className="relative w-full h-[400px] sm:h-[480px] lg:h-[540px]">
+      <section className="relative w-full h-[280px] sm:h-[480px] lg:h-[540px]">
         <img src="/images/image.png" alt="Hero Banner" className="absolute inset-0 w-full h-full object-cover object-top" />
         
         {/* Light gradient overlay to ensure text readability */}
@@ -130,30 +127,30 @@ export default function Home() {
         <div className="relative z-10 h-full max-w-7xl mx-auto px-6 sm:px-10 flex items-center">
           <div className="max-w-2xl">
             <h1
-              className="font-bold leading-[1.1] mb-5 text-[#1C1A19] whitespace-nowrap"
+              className="font-bold leading-[1.1] mb-4 text-[#1C1A19]"
               style={{
                 fontFamily: "'Playfair Display', serif",
-                fontSize: 'clamp(2.8rem, 5vw, 4.8rem)',
+                fontSize: 'clamp(2rem, 5.5vw, 4.8rem)',
               }}
             >
               Tradition Woven<br />
               <span style={{ color: '#E14D2A' }}>Elegance Known</span>
             </h1>
 
-            <p className="text-[#4B4B4B] text-[15px] sm:text-[17px] leading-[1.6] mb-8 font-medium max-w-lg whitespace-normal">
+            <p className="hidden sm:block text-[#4B4B4B] text-[15px] sm:text-[17px] leading-[1.6] mb-8 font-medium max-w-lg whitespace-normal">
               Discover the perfect blend of timeless craftsmanship and modern design. Our exclusive collection offers unmatched quality, vibrant colors, and luxurious fabrics tailored to elevate your everyday style and special occasions alike.
             </p>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-8">
               <Link
                 to="/products"
-                className="inline-flex items-center justify-center px-8 py-3.5 rounded-md text-[13px] font-bold tracking-[0.08em] uppercase transition-all duration-300 hover:-translate-y-1 shadow-md hover:shadow-xl text-white"
+                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 rounded-md text-[12px] sm:text-[13px] font-bold tracking-[0.08em] uppercase transition-all duration-300 hover:-translate-y-1 shadow-md hover:shadow-xl text-white"
                 style={{ background: '#E14D2A' }}
               >
-                EXPLORE COLLECTIONS <ArrowRight size={18} className="ml-2" />
+                EXPLORE COLLECTIONS <ArrowRight size={16} className="ml-2" />
               </Link>
 
-              <div className="flex items-center gap-3">
+              <div className="hidden sm:flex items-center gap-3">
                 <div className="flex -space-x-3">
                   <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=64&h=64" alt="User" className="w-10 h-10 rounded-full border-2 border-[#FAF4EE] shadow-sm object-cover" />
                   <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=64&h=64" alt="User" className="w-10 h-10 rounded-full border-2 border-[#FAF4EE] shadow-sm object-cover" />
@@ -199,10 +196,9 @@ export default function Home() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {promoBanners.map((promo, idx) => (
-            <Link
-              to="/products"
+            <div
               key={idx}
-              className="relative rounded-xl overflow-hidden aspect-[16/9] md:aspect-auto md:h-[230px] shadow-sm hover:shadow-md transition-shadow duration-300 block"
+              className="relative rounded-xl overflow-hidden aspect-[16/9] md:aspect-auto md:h-[230px] shadow-sm"
             >
               <img src={promo.bgImage} alt="Promo" className="absolute inset-0 w-full h-full object-cover" />
               <div className="absolute inset-0" style={{ background: promo.overlay }} />
@@ -211,24 +207,16 @@ export default function Home() {
                   <p className="text-[10px] font-bold tracking-widest uppercase mb-1 opacity-90" style={{ color: promo.color }}>{promo.tag}</p>
                 )}
                 <h3 
-                  className={`leading-tight whitespace-pre-line ${promo.isScriptTitle ? 'text-[42px] font-normal mb-5' : 'text-[24px] font-bold mb-4'}`} 
+                  className={`leading-tight whitespace-pre-line ${promo.isScriptTitle ? 'text-[42px] font-normal mb-3' : 'text-[24px] font-bold mb-3'}`} 
                   style={{ color: promo.color, fontFamily: "'Playfair Display', serif" }}
                 >
                   {promo.title}
                 </h3>
-                <div className="mt-auto md:mt-2">
-                  {promo.buttonType === 'solid' ? (
-                    <span className="inline-block bg-white text-[#303030] px-5 py-2.5 rounded-md text-[11px] font-bold tracking-wide shadow-sm hover:bg-gray-50 transition-colors">
-                      {promo.buttonText}
-                    </span>
-                  ) : (
-                    <span className="inline-block text-[11px] font-bold tracking-wide hover:opacity-80 transition-opacity" style={{ color: promo.color }}>
-                      {promo.buttonText}
-                    </span>
-                  )}
-                </div>
+                <p className="text-[12px] leading-relaxed opacity-85 max-w-[220px]" style={{ color: promo.color }}>
+                  {promo.desc}
+                </p>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </section>
@@ -242,7 +230,7 @@ export default function Home() {
           <div className="flex-1 h-px ml-4" style={{ background: 'linear-gradient(90deg, rgba(225,77,42,0.4), transparent)' }} />
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
           {featuredCollections.map((col, idx) => (
             <Link
               to="/products"
@@ -334,12 +322,12 @@ export default function Home() {
                 ))}
              </div>
           </div>
-          <div className="md:w-1/2 min-h-[350px]">
+          <div className="w-full md:w-1/2" style={{ minHeight: '300px', height: '350px' }}>
             <iframe
               src="https://maps.google.com/maps?q=New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="100%"
-              style={{ border: 0, filter: 'grayscale(100%)' }}
+              style={{ border: 0, filter: 'grayscale(100%)', display: 'block' }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

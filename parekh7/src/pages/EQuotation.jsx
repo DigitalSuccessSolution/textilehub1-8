@@ -8,18 +8,24 @@ const inputStyle = {
   color: '#2C1810',
 };
 
-const EQuotation = () => {
+const activeQuotations = [
+  { id: 1, title: 'Premium Cotton Shirting Fabric', desc: 'Seeking quotation for 5,000 meters of premium Giza cotton shirting fabric in assorted pastel shades.', date: 'Oct 30, 2026' },
+  { id: 2, title: 'Silk Saree Wholesale Lot', desc: 'Request for pricing on bulk purchase of 200 units of Banarasi Silk Sarees for upcoming wedding season.', date: 'Oct 25, 2026' },
+  { id: 3, title: 'Designer Kurti Sets (Winter Edit)', desc: 'Bulk quotation request for 1,500 sets of embroidered cotton and rayon kurtis.', date: 'Oct 18, 2026' }
+];
+
+export default function EQuotation() {
   return (
     <div style={{ fontFamily: "'DM Sans', sans-serif", background: '#FDF6EC' }}>
 
       {/* Hero Banner */}
-      <div className="relative h-32 sm:h-40 overflow-hidden flex items-center justify-center text-center"
+      <div className="relative py-8 sm:py-10 min-h-[140px] overflow-hidden flex items-center justify-center text-center"
         style={{ background: 'linear-gradient(135deg, #1A0A05 0%, #2C1810 60%, #3D2418 100%)' }}>
         <div className="absolute inset-0 opacity-5"
           style={{ backgroundImage: 'radial-gradient(circle, #C9A227 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
         <div className="relative max-w-7xl mx-auto px-6 sm:px-10 w-full">
           
-          <h1 className="font-bold text-5xl sm:text-6xl text-white"
+          <h1 className="font-bold text-3xl sm:text-5xl lg:text-6xl text-white"
             style={{ fontFamily: "'Cormorant Garamond', serif" }}>
             e-Quotation
           </h1>
@@ -37,12 +43,27 @@ const EQuotation = () => {
               Active Quotation Requests
             </h2>
           </div>
-          <div className="rounded-2xl py-16 flex flex-col items-center justify-center"
-            style={{ background: '#FFFBF5', border: '1.5px solid rgba(201,162,39,0.15)' }}>
-            <Inbox size={40} className="mb-4" color="#D4BDB6" strokeWidth={1} />
-            <p className="text-[12px] font-bold tracking-widest" style={{ color: '#A68B7C' }}>
-              ( At present, No e-Quotation published )
-            </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {activeQuotations.map(q => (
+              <div key={q.id} className="p-6 rounded-2xl flex flex-col justify-between"
+                style={{ background: '#FFFBF5', border: '1.5px solid rgba(201,162,39,0.2)' }}>
+                <div>
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-4"
+                    style={{ background: 'rgba(201,162,39,0.1)', border: '1px solid rgba(201,162,39,0.25)' }}>
+                    <FileText size={18} color="#C9A227" />
+                  </div>
+                  <h3 className="font-bold text-[#2C1810] text-base mb-2" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                    {q.title}
+                  </h3>
+                  <p className="text-xs leading-relaxed text-[#7D5A4F] mb-4">
+                    {q.desc}
+                  </p>
+                </div>
+                <div className="text-[10px] font-bold uppercase tracking-wider text-[#A68B7C] pt-3 border-t" style={{ borderColor: 'rgba(201,162,39,0.1)' }}>
+                  Published: {q.date}
+                </div>
+              </div>
+            ))}
           </div>
         </motion.div>
 
@@ -71,7 +92,7 @@ const EQuotation = () => {
                 {[
                   { label: 'Name of the Trader *', type: 'text', req: true },
                   { label: 'Business Name *', type: 'text', req: true },
-                  { label: 'Business Address with PIN Code *', type: 'text', req: true },
+                  { label: 'Business Address with Pin Code *', type: 'text', req: true },
                   { label: 'GST No.', type: 'text', req: false },
                   { label: 'Mobile No. *', type: 'tel', req: true },
                   { label: 'Email ID *', type: 'email', req: true },
@@ -121,21 +142,10 @@ const EQuotation = () => {
                 style={{ background: 'linear-gradient(135deg, #9B2519, #B83227)', boxShadow: '0 4px 16px rgba(184,50,39,0.3)' }}>
                 <Send size={16} /> Submit Quotation Request
               </button>
-
-              <div className="pt-2 text-center flex items-center justify-center gap-2">
-                <Mail size={14} color="#C9A227" />
-                <a href="mailto:info@textilemall.com"
-                  className="text-[11px] font-bold tracking-widest hover:underline"
-                  style={{ color: '#C9A227' }}>
-                  info@textilemall.com
-                </a>
-              </div>
             </form>
           </div>
         </motion.div>
       </div>
     </div>
   );
-};
-
-export default EQuotation;
+}

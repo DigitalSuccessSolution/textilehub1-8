@@ -8,18 +8,23 @@ const inputStyle = {
   color: '#2C1810',
 };
 
-const EAuction = () => {
+const activeAuctions = [
+  { id: 1, title: 'Surplus Silk Fabric Yarn Lot', desc: 'Auction for surplus premium mulberry silk yarn. Quantity: 500 kg. High tensile strength, suitable for embroidery and premium weaving.', date: 'Ends: Nov 05, 2026', image: 'https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=400&h=300&fit=crop' },
+  { id: 2, title: 'Cotton Bedding & Linen Overstock', desc: 'Liquidation auction for overstock luxury hotel-grade bed sheets and linen sets. 1,200 sets available.', date: 'Ends: Nov 02, 2026', image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=400&h=300&fit=crop' }
+];
+
+export default function EAuction() {
   return (
     <div style={{ fontFamily: "'DM Sans', sans-serif", background: '#FDF6EC' }}>
 
       {/* Hero Banner */}
-      <div className="relative h-32 sm:h-40 overflow-hidden flex items-center justify-center text-center"
+      <div className="relative py-8 sm:py-10 min-h-[140px] overflow-hidden flex items-center justify-center text-center"
         style={{ background: 'linear-gradient(135deg, #1A0A05 0%, #2C1810 60%, #3D2418 100%)' }}>
         <div className="absolute inset-0 opacity-5"
           style={{ backgroundImage: 'radial-gradient(circle, #C9A227 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
         <div className="relative max-w-7xl mx-auto px-6 sm:px-10 w-full">
           
-          <h1 className="font-bold text-5xl sm:text-6xl text-white"
+          <h1 className="font-bold text-3xl sm:text-5xl lg:text-6xl text-white"
             style={{ fontFamily: "'Cormorant Garamond', serif" }}>
             e-Auction
           </h1>
@@ -40,12 +45,29 @@ const EAuction = () => {
               Active e-Auctions
             </h2>
           </div>
-          <div className="rounded-2xl py-16 flex flex-col items-center justify-center"
-            style={{ background: '#FFFBF5', border: '1.5px solid rgba(201,162,39,0.15)' }}>
-            <Inbox size={40} className="mb-4" color="#D4BDB6" strokeWidth={1} />
-            <p className="text-[12px] font-bold tracking-widest" style={{ color: '#A68B7C' }}>
-              At present, No e-Auction published
-            </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {activeAuctions.map(a => (
+              <div key={a.id} className="rounded-2xl overflow-hidden shadow-sm flex flex-col justify-between"
+                style={{ background: '#FFFBF5', border: '1.5px solid rgba(201,162,39,0.2)' }}>
+                <div>
+                  <div className="h-48 w-full relative overflow-hidden">
+                    <img src={a.image} alt={a.title} className="absolute inset-0 w-full h-full object-cover" />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="font-bold text-[#2C1810] text-lg mb-2" style={{ fontFamily: "'Cormorant Garamond', serif" }}>
+                      {a.title}
+                    </h3>
+                    <p className="text-xs leading-relaxed text-[#7D5A4F]">
+                      {a.desc}
+                    </p>
+                  </div>
+                </div>
+                <div className="px-6 pb-5 pt-3 border-t text-[10px] font-bold uppercase tracking-wider text-[#A68B7C] flex justify-between items-center" style={{ borderColor: 'rgba(201,162,39,0.1)' }}>
+                  <span>Active Bidding</span>
+                  <span style={{ color: '#B83227' }}>{a.date}</span>
+                </div>
+              </div>
+            ))}
           </div>
         </motion.div>
 
@@ -76,7 +98,7 @@ const EAuction = () => {
                 {[
                   { label: 'Name of the Participant *', type: 'text', req: true },
                   { label: 'Legal Name of Business *', type: 'text', req: true },
-                  { label: 'Business Address with PIN Code *', type: 'text', req: true },
+                  { label: 'Business Address with Pin Code *', type: 'text', req: true },
                   { label: 'GST No.', type: 'text', req: false },
                   { label: 'Mobile No. *', type: 'tel', req: true },
                   { label: 'Email ID *', type: 'email', req: true },
@@ -98,11 +120,11 @@ const EAuction = () => {
               {/* Upload */}
               <div>
                 <label className="block text-[11px] uppercase tracking-widest font-bold mb-3" style={{ color: '#5C3B2C' }}>
-                  Upload GST Certificate
+                  Upload GST Certificate *
                 </label>
                 <label className="w-full border-2 border-dashed rounded-2xl py-12 flex flex-col items-center justify-center cursor-pointer transition-all hover:opacity-80"
                   style={{ borderColor: 'rgba(201,162,39,0.3)', background: '#FDF6EC' }}>
-                  <input type="file" className="hidden" accept=".pdf,.jpg,.jpeg,.png" />
+                  <input type="file" className="hidden" accept=".pdf,.jpg,.jpeg,.png" required />
                   <UploadCloud size={32} className="mb-3" color="#C9A227" strokeWidth={1.5} />
                   <p className="text-sm font-medium" style={{ color: '#7D5A4F' }}>Click to upload GST Certificate</p>
                   <p className="text-[10px] uppercase tracking-widest font-bold mt-1" style={{ color: '#A68B7C' }}>PDF, JPG, PNG Accepted</p>
@@ -114,19 +136,10 @@ const EAuction = () => {
                 style={{ background: 'linear-gradient(135deg, #9B2519, #B83227)', boxShadow: '0 4px 16px rgba(184,50,39,0.3)' }}>
                 <Send size={16} /> Submit Registration
               </button>
-
-              <div className="pt-2 text-center flex items-center justify-center gap-2">
-                <Mail size={14} color="#C9A227" />
-                <a href="mailto:info@textilemall.com" className="text-[11px] font-bold tracking-widest hover:underline" style={{ color: '#C9A227' }}>
-                  info@textilemall.com
-                </a>
-              </div>
             </form>
           </div>
         </motion.div>
       </div>
     </div>
   );
-};
-
-export default EAuction;
+}

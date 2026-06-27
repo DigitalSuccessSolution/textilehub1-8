@@ -7,13 +7,13 @@ export default function About() {
     <div style={{ fontFamily: "'DM Sans', sans-serif", background: '#FDF6EC' }}>
 
       {/* Hero Banner */}
-      <div className="relative h-32 sm:h-40 overflow-hidden flex items-center justify-center text-center"
+      <div className="relative py-8 sm:py-10 min-h-[140px] overflow-hidden flex items-center justify-center text-center"
         style={{ background: 'linear-gradient(135deg, #1A0A05 0%, #2C1810 60%, #3D2418 100%)' }}>
         <div className="absolute inset-0 opacity-5"
           style={{ backgroundImage: 'radial-gradient(circle, #C9A227 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
         <div className="relative max-w-7xl mx-auto px-6 sm:px-10 w-full">
           
-          <h1 className="font-bold text-5xl sm:text-6xl text-white"
+          <h1 className="font-bold text-3xl sm:text-5xl lg:text-6xl text-white"
             style={{ fontFamily: "'Cormorant Garamond', serif" }}>
             About Us
           </h1>
