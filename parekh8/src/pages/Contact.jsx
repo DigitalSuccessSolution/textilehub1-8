@@ -11,7 +11,7 @@ export default function Contact() {
         
         <div className="relative max-w-7xl mx-auto px-6 sm:px-10 w-full">
           
-          <h1 className="font-bold text-5xl sm:text-6xl text-[#303030]"
+          <h1 className="font-bold text-3xl sm:text-4xl text-[#303030]"
             style={{ fontFamily: "'Playfair Display', serif" }}>
             Contact Us
           </h1>
@@ -73,7 +73,7 @@ export default function Contact() {
             <div className="w-full h-full rounded-2xl overflow-hidden shadow-xl min-h-[350px]"
               style={{ border: '2px solid rgba(225,77,42,0.25)' }}>
               <iframe
-                src="https://maps.google.com/maps?q=New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                src="https://maps.google.com/maps?q=Chennai,%20Tamil%20Nadu,%20India&t=&z=13&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0, minHeight: '200px', filter: 'grayscale(100%)' }}

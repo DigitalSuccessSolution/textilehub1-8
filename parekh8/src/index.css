@@ -196,9 +196,13 @@
   border-radius: 2px;
 }
 
-/* ── Responsive utilities ── */
 @media (max-width: 768px) {
   .hero-text-responsive {
     font-size: clamp(2.5rem, 8vw, 4rem);
   }
+}
+
+/* Hide floating elements when mobile menu is toggled open */
+body.menu-open .floating-widget {
+  display: none !important;
 }

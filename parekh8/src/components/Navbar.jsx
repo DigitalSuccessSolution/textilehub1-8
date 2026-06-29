@@ -14,6 +14,21 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.style.overflow = '';
+      document.body.classList.remove('menu-open');
+    }
+    return () => {
+      document.body.style.overflow = '';
+      document.body.classList.remove('menu-open');
+    };
+  }, [isOpen]);
+
   const mainLinks = [
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
@@ -153,9 +168,17 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Dark backdrop overlay */}
       {isOpen && (
-        <div className="lg:hidden bg-white border-t border-gray-100 max-h-[85vh] overflow-y-auto shadow-lg">
+        <div
+          className="fixed top-[70px] left-0 right-0 bottom-0 bg-black/50 z-40 lg:hidden"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
+
+      {/* Mobile Drawer — fixed panel sliding from top */}
+      {isOpen && (
+        <div className="lg:hidden fixed top-[70px] left-0 right-0 bottom-0 z-50 bg-white overflow-y-auto shadow-lg">
           <div className="px-4 py-5 space-y-1">
             {mainLinks.map((link) => {
               const isActive = location.pathname === link.path;

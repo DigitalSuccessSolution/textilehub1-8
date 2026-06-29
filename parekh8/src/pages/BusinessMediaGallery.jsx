@@ -50,7 +50,7 @@ export default function BusinessMediaGallery() {
       {/* Hero Banner */}
       <div className="relative h-32 sm:h-40 overflow-hidden flex items-center justify-center text-center">
         <div className="relative max-w-7xl mx-auto px-6 sm:px-10 w-full">
-          <h1 className="font-bold text-5xl sm:text-6xl text-[#303030]"
+          <h1 className="font-bold text-3xl sm:text-4xl text-[#303030]"
             style={{ fontFamily: "'Playfair Display', serif" }}>
             Business Media Gallery
           </h1>

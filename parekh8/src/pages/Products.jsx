@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ShoppingBag } from 'lucide-react';
 
@@ -33,7 +34,13 @@ const allProducts = [
 ];
 
 export default function Products() {
+  const [searchParams] = useSearchParams();
   const [activeCategory, setActiveCategory] = useState("All");
+
+  useEffect(() => {
+    const cat = searchParams.get('category');
+    if (cat) setActiveCategory(cat);
+  }, [searchParams]);
 
   const filteredProducts = activeCategory === "All"
     ? allProducts
@@ -47,7 +54,7 @@ export default function Products() {
         >
         
         <div className="relative max-w-7xl mx-auto px-6 sm:px-10 w-full flex flex-col items-center justify-center gap-4">
-          <h1 className="font-bold text-5xl sm:text-6xl text-[#303030]"
+          <h1 className="font-bold text-3xl sm:text-4xl text-[#303030]"
               style={{ fontFamily: "'Playfair Display', serif" }}>
               Products Gallery
             </h1>

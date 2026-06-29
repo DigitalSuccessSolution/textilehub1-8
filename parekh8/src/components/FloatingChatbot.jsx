@@ -7,7 +7,7 @@ const FloatingChatbot = () => {
   const [message, setMessage] = useState('');
 
   return (
-    <div className="fixed bottom-6 right-5 z-50 flex flex-col items-end">
+    <div className="fixed bottom-6 right-5 z-50 flex flex-col items-end floating-widget">
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -26,11 +26,7 @@ const FloatingChatbot = () => {
               className="px-5 py-4 flex items-center justify-between"
               style={{ background: 'linear-gradient(135deg, #E14D2A 0%, #303030 100%)' }}
             >
-              {/* Gold accent top bar */}
-              <div
-                className="absolute top-0 left-0 right-0 h-0.5"
-                style={{ background: 'linear-gradient(90deg, #E14D2A, #E14D2A, #E14D2A, #E14D2A, #E14D2A)' }}
-              />
+
 
               <div className="flex items-center gap-3">
                 {/* Bot avatar */}

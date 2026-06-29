@@ -173,7 +173,7 @@ export default function Home() {
         <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-12 gap-3 sm:gap-4 justify-center items-start">
           {shopCategories.map((cat, idx) => (
             <Link
-              to="/products"
+              to={`/products?category=${encodeURIComponent(cat.name)}`}
               key={idx}
               className="group flex flex-col items-center text-center transition-transform duration-300 hover:-translate-y-1"
             >
@@ -298,8 +298,8 @@ export default function Home() {
 
       {/* ── CONTACT US SECTION ── */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 pb-16">
-        <div className="rounded-3xl overflow-hidden shadow-xl flex flex-col md:flex-row" style={{ background: '#FFFFFF', border: '1px solid rgba(225,77,42,0.2)' }}>
-          <div className="p-8 lg:p-12 md:w-1/2 flex flex-col justify-center">
+        <div className="rounded-3xl overflow-hidden shadow-xl grid grid-cols-1 md:grid-cols-2" style={{ background: '#FFFFFF', border: '1px solid rgba(225,77,42,0.2)' }}>
+          <div className="p-8 lg:p-12 flex flex-col justify-center">
              <p className="text-[11px] font-bold tracking-[0.2em] uppercase mb-1" style={{ color: '#E14D2A' }}>Get In Touch</p>
              <h2 className="text-3xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif", color: '#303030' }}>Contact Us</h2>
              <div className="space-y-6">
@@ -322,9 +322,9 @@ export default function Home() {
                 ))}
              </div>
           </div>
-          <div className="w-full md:w-1/2" style={{ minHeight: '300px', height: '350px' }}>
+          <div className="w-full h-[350px] md:h-full min-h-[300px]">
             <iframe
-              src="https://maps.google.com/maps?q=New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              src="https://maps.google.com/maps?q=Chennai,%20Tamil%20Nadu,%20India&t=&z=13&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0, filter: 'grayscale(100%)', display: 'block' }}

@@ -50,7 +50,7 @@ const EAuction = () => {
         
         <div className="relative max-w-7xl mx-auto px-6 sm:px-10 w-full">
           
-          <h1 className="font-bold text-5xl sm:text-6xl text-[#303030]"
+          <h1 className="font-bold text-3xl sm:text-4xl text-[#303030]"
             style={{ fontFamily: "'Playfair Display', serif" }}>
             e-Auction
           </h1>
@@ -66,7 +66,7 @@ const EAuction = () => {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-12">
           <div className="flex items-center gap-3 mb-6">
             <Gavel size={20} color="#E14D2A" />
-            <h2 className="font-bold text-lg uppercase tracking-wide"
+            <h2 className="font-bold text-lg  tracking-wide"
               style={{ fontFamily: "'Playfair Display', serif", color: '#303030' }}>
               Active e-Auctions
             </h2>

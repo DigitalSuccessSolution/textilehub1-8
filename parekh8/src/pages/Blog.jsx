@@ -44,7 +44,7 @@ export default function Blog() {
       {/* Hero Banner */}
       <div className="relative pt-12 pb-6 flex flex-col items-center justify-center text-center">
         <div className="max-w-4xl mx-auto px-6 sm:px-10 w-full flex flex-col items-center">
-          <h1 className="font-bold text-5xl sm:text-6xl text-[#303030] mb-4"
+          <h1 className="font-bold text-3xl sm:text-4xl text-[#303030] mb-4"
             style={{ fontFamily: "'Playfair Display', serif" }}>
             Blog & Article
           </h1>

@@ -20,8 +20,8 @@ const faqData = [
     answer: "We offer 12 main categories: Sarees, Kurtis, Leggings, Dress Suits, Bedsheets & Linen, Hosiery Items, Suiting, Shirting, Women Wear, Men Wear, Children Wear, and Home Furnishing."
   },
   {
-    question: "How can I participate in Samriddhi's E-Auctions?",
-    answer: "To participate in active digital auctions, fill out the registration form on our E-Auction page and upload a valid GST Certificate. Our compliance team will review and approve your registration."
+    question: "How can I participate in Samriddhi's e-Auctions?",
+    answer: "To participate in active digital auctions, fill out the registration form on our e-Auction page and upload a valid GST Certificate. Our compliance team will review and approve your registration."
   },
   {
     question: "How can I apply for career opportunities at Samriddhi?",
@@ -41,7 +41,7 @@ export default function FAQ() {
       {/* Hero Banner */}
       <div className="relative h-32 sm:h-40 overflow-hidden flex items-center justify-center text-center">
         <div className="relative max-w-7xl mx-auto px-6 sm:px-10 w-full">
-          <h1 className="font-bold text-5xl sm:text-6xl text-[#303030]"
+          <h1 className="font-bold text-3xl sm:text-4xl text-[#303030]"
               style={{ fontFamily: "'Playfair Display', serif" }}>
             Frequently Asked Questions
           </h1>
