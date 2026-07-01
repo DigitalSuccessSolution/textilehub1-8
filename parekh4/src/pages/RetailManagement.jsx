@@ -4,23 +4,23 @@ import { Mail } from 'lucide-react';
 
 const RetailManagement = () => {
   const teamMembers = [
-    { 
-      id: 1, 
-      name: 'Rajiv Parekh', 
-      role: 'Managing Director', 
-      image: '/rajiv_parekh.png' 
+    {
+      id: 1,
+      name: 'Rajiv gupta',
+      role: 'Managing Director',
+      image: '/rajiv_parekh.png'
     },
-    { 
-      id: 2, 
-      name: 'Ananya Sharma', 
-      role: 'Head of Retail Operations', 
-      image: '/ananya_sharma.png' 
+    {
+      id: 2,
+      name: 'Ananya Sharma',
+      role: 'Head of Retail Operations',
+      image: '/ananya_sharma.png'
     },
-    { 
-      id: 3, 
-      name: 'Vikram Mehta', 
-      role: 'Supply Chain Director', 
-      image: '/vikram_mehta.png' 
+    {
+      id: 3,
+      name: 'Vikram Mehta',
+      role: 'Supply Chain Director',
+      image: '/vikram_mehta.png'
     }
   ];
 
@@ -35,13 +35,13 @@ const RetailManagement = () => {
       </div>
 
       {/* Team Cards Grid */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }} 
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-4xl mx-auto justify-items-center"
       >
         {teamMembers.map((member, idx) => (
-          <motion.div 
+          <motion.div
             key={member.id}
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -51,20 +51,20 @@ const RetailManagement = () => {
           >
             {/* Round Avatar Profile Image */}
             <div className="relative mb-4">
-              <img 
-                src={member.image} 
-                alt={member.name} 
+              <img
+                src={member.image}
+                alt={member.name}
                 className="w-24 h-24 rounded-full object-cover border-4 border-[#2d0a4e]/5 group-hover:border-[#d8a5ad]/50 transition-all duration-300 shadow-md"
               />
-              <a 
-                href={`mailto:info@texmart.com`} 
+              <a
+                href={`mailto:info@texmart.com`}
                 className="absolute -bottom-1 -right-1 bg-[#2d0a4e] text-white p-1.5 rounded-full shadow-md hover:bg-[#d8a5ad] transition-colors"
                 title="Contact Leader"
               >
                 <Mail size={12} />
               </a>
             </div>
-            
+
             {/* Title & Role */}
             <h3 className="font-playfair text-base sm:text-lg font-bold text-[#2d0a4e] leading-tight mb-1 group-hover:text-[#d8a5ad] transition-colors">
               {member.name}

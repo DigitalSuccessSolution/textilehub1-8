@@ -13,7 +13,7 @@ const faqData = [
   },
   {
     question: "Do you support B2B bulk purchases and custom orders?",
-    answer: "Yes, absolutely! Wholesalers, retail businesses, and corporate clients can request customized orders and pricing using our E-Quotation form."
+    answer: "Yes, absolutely! Wholesalers, retail businesses, and corporate clients can request customized orders and pricing using our e-Quotation form."
   },
   {
     question: "What product categories are available in the catalogue?",
